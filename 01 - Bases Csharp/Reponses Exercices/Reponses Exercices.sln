@@ -3,7 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.8.34330.188
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exercices01_AffichageConsole", "Exercices01_AffichageConsole\Exercices01_AffichageConsole.csproj", "{687E56FD-3F29-49F1-B0C2-BA9808C723A8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Exercices01_AffichageConsole", "Exercices01_AffichageConsole\Exercices01_AffichageConsole.csproj", "{687E56FD-3F29-49F1-B0C2-BA9808C723A8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exercices02-VariableString", "Exercices02-VariableString\Exercices02-VariableString.csproj", "{9E178EFB-15ED-4684-A0AF-E656C2EBD021}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exercices03-VariableStringConcat", "Exercices03-VariableStringConcat\Exercices03-VariableStringConcat.csproj", "{5C1BBFBC-E84F-4DED-B1EF-2301CF1A0FB9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exercices04-VariableIntConcat", "Exercices04-VariableIntConcat\Exercices04-VariableIntConcat.csproj", "{5D3039C4-D421-4EA8-81D8-8F9EA42DC881}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exercices05-VariableNumerique", "Exercices05-VariableNumerique\Exercices05-VariableNumerique.csproj", "{C5B032F3-6B27-4E02-B79C-91E705614779}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +23,22 @@ Global
 		{687E56FD-3F29-49F1-B0C2-BA9808C723A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{687E56FD-3F29-49F1-B0C2-BA9808C723A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{687E56FD-3F29-49F1-B0C2-BA9808C723A8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9E178EFB-15ED-4684-A0AF-E656C2EBD021}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9E178EFB-15ED-4684-A0AF-E656C2EBD021}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9E178EFB-15ED-4684-A0AF-E656C2EBD021}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9E178EFB-15ED-4684-A0AF-E656C2EBD021}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5C1BBFBC-E84F-4DED-B1EF-2301CF1A0FB9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5C1BBFBC-E84F-4DED-B1EF-2301CF1A0FB9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5C1BBFBC-E84F-4DED-B1EF-2301CF1A0FB9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5C1BBFBC-E84F-4DED-B1EF-2301CF1A0FB9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5D3039C4-D421-4EA8-81D8-8F9EA42DC881}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5D3039C4-D421-4EA8-81D8-8F9EA42DC881}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5D3039C4-D421-4EA8-81D8-8F9EA42DC881}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5D3039C4-D421-4EA8-81D8-8F9EA42DC881}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C5B032F3-6B27-4E02-B79C-91E705614779}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C5B032F3-6B27-4E02-B79C-91E705614779}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C5B032F3-6B27-4E02-B79C-91E705614779}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C5B032F3-6B27-4E02-B79C-91E705614779}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
