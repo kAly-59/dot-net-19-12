@@ -1,4 +1,12 @@
-﻿Console.WriteLine("Je m'appelle \"Guillaume\"");
-Console.WriteLine('\'');
-Console.WriteLine("c:\\repertoire\\fichier.cs");
-Console.WriteLine(@"c:\repertoire\fichier.cs");
+﻿decimal compteEnBanque = 300;
+if (compteEnBanque >= 0)
+{
+    Console.WriteLine("Votre compte est créditeur");
+}
+else
+    Console.WriteLine("Votre compte est débiteur");
+
+if (true)
+{
+
+}
