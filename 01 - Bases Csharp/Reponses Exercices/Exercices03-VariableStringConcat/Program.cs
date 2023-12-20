@@ -4,4 +4,4 @@ string nameInput = Console.ReadLine();
 Console.Write("Veuillez saisir votre prenom : ");
 string prenomInput = Console.ReadLine();
 
-Console.WriteLine("Bonjour " + nameInput + " " + prenomInput);
+Console.WriteLine($"Bonjour {nameInput} {prenomInput}");
