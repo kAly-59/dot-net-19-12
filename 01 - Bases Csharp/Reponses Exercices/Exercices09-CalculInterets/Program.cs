@@ -13,5 +13,5 @@ float tauxInteretDecimal = tauxInteret / 100;
 float interets = capitalDepart * tauxInteretDecimal * dureeEpargne;
 float capitalFinal = capitalDepart + interets;
 
-Console.WriteLine("Les montants des intérêts sera de " + interets + " euros " + "en " + dureeEpargne + " ans");
-Console.WriteLine("Le capital final sera de " + capitalFinal + " Euros");
+Console.WriteLine("Les montants des intérêts sera de " + Math.Round(interets, 2) + " euros " + "en " + dureeEpargne + " ans");
+Console.WriteLine("Le capital final sera de " + Math.Round(capitalFinal, 2) + " Euros");

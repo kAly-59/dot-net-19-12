@@ -6,8 +6,6 @@ float longueur = float.Parse(Console.ReadLine());
 Console.Write("Entrez la largeur d'un coté de hypothenuse (en cm) : ");
 float largueur = float.Parse(Console.ReadLine());
 
-float aireRectancle = longueur * largueur;
-
 double longueurHypot = Math.Sqrt(longueur * longueur + largueur * largueur);
 Console.WriteLine("Le longueur de l'hypythenuse est : " + longueurHypot + " cm");
 

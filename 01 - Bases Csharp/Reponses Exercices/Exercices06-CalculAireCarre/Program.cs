@@ -11,6 +11,7 @@ Console.WriteLine("Le Perimètre du carré est : " + periCarrer + " cm");
 //Rectancle
 Console.WriteLine("Entrez la longeur d'un coté du rectancle (en cm)");
 float longueur = float.Parse(Console.ReadLine());
+
 Console.WriteLine("Entrez la largeur d'un coté du rectancle (en cm)");
 float largueur = float.Parse(Console.ReadLine());
 
