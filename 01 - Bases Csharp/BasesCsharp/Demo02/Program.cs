@@ -1,9 +1,5 @@
 ﻿int a = 0;
-long? a2 = 0L;
 
+Console.WriteLine(a++);
 
-char a3 = null;
-char? a4 = null;
-
-
-Console.WriteLine(a3);
+Console.WriteLine(++a);
