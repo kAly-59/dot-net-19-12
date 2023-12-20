@@ -1,5 +1,12 @@
-﻿int a = 0;
+﻿decimal compteEnBanque = 300;
+if (compteEnBanque >= 0)
+{
+    Console.WriteLine("Votre compte est créditeur");
+}
+else
+    Console.WriteLine("Votre compte est débiteur");
 
-Console.WriteLine(a++);
+if (true)
+{
 
-Console.WriteLine(++a);
+}
