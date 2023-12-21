@@ -33,9 +33,19 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Exercices14-TailleVêtement
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Exercices15-PrimeLicenciement", "Exercices15-PrimeLicenciement\Exercices15-PrimeLicenciement.csproj", "{9F4F6860-FB59-4E62-886F-4B096EA689C4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exercices17-QuelleBoisson", "Exercices17-QuelleBoisson\Exercices17-QuelleBoisson.csproj", "{14E40168-0AB2-4EBD-BBB3-82CA5FE0A14C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Exercices17-QuelleBoisson", "Exercices17-QuelleBoisson\Exercices17-QuelleBoisson.csproj", "{14E40168-0AB2-4EBD-BBB3-82CA5FE0A14C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exercices18-SwitchQuelleCategorie", "Exercices18-SwitchQuelleCategorie\Exercices18-SwitchQuelleCategorie.csproj", "{5EFD5A6C-20A7-4601-8B06-5222234AC0DC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Exercices18-SwitchQuelleCategorie", "Exercices18-SwitchQuelleCategorie\Exercices18-SwitchQuelleCategorie.csproj", "{5EFD5A6C-20A7-4601-8B06-5222234AC0DC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exercices20-ForCompterA10", "Exercices20-ForCompterA10\Exercices20-ForCompterA10.csproj", "{53CCE17C-2921-4916-9CBA-D809BE069FB0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exercices21-ForMenusSousMenus", "Exercices21-ForMenusSousMenus\Exercices21-ForMenusSousMenus.csproj", "{7B2C9916-27D0-41A5-B23A-CA900B734529}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exercices22-ForTableMultiplication", "Exercices22-ForTableMultiplication\Exercices22-ForTableMultiplication.csproj", "{A44631FE-9B31-4774-989D-C00BC310D2AB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exercices23-ForAcroissementPopulation", "Exercices23-ForAcroissementPopulation\Exercices23-ForAcroissementPopulation.csproj", "{A8E22F26-E335-4582-8A90-C7836E8876CA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exercices24-ForChaineEntiers", "Exercices24-ForChaineEntiers\Exercices24-ForChaineEntiers.csproj", "{CD57F49E-805F-401A-A8F6-DA9491EC2AEA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -111,6 +121,26 @@ Global
 		{5EFD5A6C-20A7-4601-8B06-5222234AC0DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5EFD5A6C-20A7-4601-8B06-5222234AC0DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5EFD5A6C-20A7-4601-8B06-5222234AC0DC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{53CCE17C-2921-4916-9CBA-D809BE069FB0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{53CCE17C-2921-4916-9CBA-D809BE069FB0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{53CCE17C-2921-4916-9CBA-D809BE069FB0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{53CCE17C-2921-4916-9CBA-D809BE069FB0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7B2C9916-27D0-41A5-B23A-CA900B734529}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7B2C9916-27D0-41A5-B23A-CA900B734529}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7B2C9916-27D0-41A5-B23A-CA900B734529}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7B2C9916-27D0-41A5-B23A-CA900B734529}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A44631FE-9B31-4774-989D-C00BC310D2AB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A44631FE-9B31-4774-989D-C00BC310D2AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A44631FE-9B31-4774-989D-C00BC310D2AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A44631FE-9B31-4774-989D-C00BC310D2AB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A8E22F26-E335-4582-8A90-C7836E8876CA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A8E22F26-E335-4582-8A90-C7836E8876CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A8E22F26-E335-4582-8A90-C7836E8876CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A8E22F26-E335-4582-8A90-C7836E8876CA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CD57F49E-805F-401A-A8F6-DA9491EC2AEA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CD57F49E-805F-401A-A8F6-DA9491EC2AEA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CD57F49E-805F-401A-A8F6-DA9491EC2AEA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CD57F49E-805F-401A-A8F6-DA9491EC2AEA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

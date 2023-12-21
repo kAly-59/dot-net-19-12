@@ -13,11 +13,11 @@ decimal prime = 0;
 
 if ( nbaa >= 1 && nbaa <= 10)
 {
-   prime = (salaire / 2) * nbaa;
+   prime += (salaire / 2) * nbaa;
 } 
  else if ( nbaa > 10)
 {
-   prime = salaire * 10;
+   prime += salaire * 10;
 }
 
 

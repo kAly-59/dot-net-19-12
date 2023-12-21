@@ -6,23 +6,27 @@ int age = int.Parse(Console.ReadLine()!);
 switch (age)
 {
     case <= 3:
-            Console.WriteLine($"Votre enfant à {age} ans, il est cat \"Baby\"");
+        Console.WriteLine($"Votre enfant à {age} ans, il est cat \"Baby\"");
+        break;
+
+    case <= 6:
+        Console.WriteLine($"Votre enfant à {age} ans, il est cat \"Baby\"");
         break;
 
     case <= 7:
-            Console.WriteLine($"Votre enfant à {age} ans, il est cat \"Poussin\"");
+        Console.WriteLine($"Votre enfant à {age} ans, il est cat \"Poussin\"");
         break;
 
-    case<= 9:
+    case <= 9:
         Console.WriteLine($"Votre enfant à {age} ans, il est cat \"Pupille\"");
         break;
 
-    case <= 12:
-            Console.WriteLine($"Votre enfant à {age} ans, il est cat \"Minime\"");
+    case <= 11:
+        Console.WriteLine($"Votre enfant à {age} ans, il est cat \"Minime\"");
         break;
 
-    case <= 14:
-            Console.WriteLine($"Votre enfant à {age} ans, il est cat \"Cadet\"");
+    case <= 13:
+        Console.WriteLine($"Votre enfant à {age} ans, il est cat \"Cadet\"");
         break;
 
     default:
