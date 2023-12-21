@@ -3,7 +3,7 @@ int age = int.Parse(Console.ReadLine());
 
 if (age >= 3 && age <= 6)
 {
-    Console.WriteLine("Votre enfant est dans la cat " + "baby");
+    Console.WriteLine("Votre enfant est dans la cat " + "Baby");
 }
 else if (age >= 7 && age <= 8)
 {
@@ -25,3 +25,4 @@ else if (age >= 18)
 {
     Console.WriteLine("Votre enfant est considéré comme adulte.");
 }
+else Console.WriteLine("Pas dans la bonne tranche d'age !");

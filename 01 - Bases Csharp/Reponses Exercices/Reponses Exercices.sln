@@ -13,19 +13,25 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Exercices04-VariableIntConc
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Exercices05-VariableNumerique", "Exercices05-VariableNumerique\Exercices05-VariableNumerique.csproj", "{C5B032F3-6B27-4E02-B79C-91E705614779}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exercices06-CalculAireCarre", "Exercices06-CalculAireCarre\Exercices06-CalculAireCarre.csproj", "{777F54A6-64AB-4B33-BC26-1CA65EFC9E77}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Exercices06-CalculAireCarre", "Exercices06-CalculAireCarre\Exercices06-CalculAireCarre.csproj", "{777F54A6-64AB-4B33-BC26-1CA65EFC9E77}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exercices07-CalculHyothénuse", "Exercices07-CalculHyothénuse\Exercices07-CalculHyothénuse.csproj", "{AD4B1F5E-30A2-4F2A-BD70-B77C8153C67D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Exercices07-CalculHyothénuse", "Exercices07-CalculHyothénuse\Exercices07-CalculHyothénuse.csproj", "{AD4B1F5E-30A2-4F2A-BD70-B77C8153C67D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exercices08-CalculTVA", "Exercices08-CalculTVA\Exercices08-CalculTVA.csproj", "{BC245DAE-47B5-44A5-8685-BB5F9FFA104A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Exercices08-CalculTVA", "Exercices08-CalculTVA\Exercices08-CalculTVA.csproj", "{BC245DAE-47B5-44A5-8685-BB5F9FFA104A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exercices09-CalculInterets", "Exercices09-CalculInterets\Exercices09-CalculInterets.csproj", "{7B1DDD55-1DF2-4864-9751-884A07B6D903}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Exercices09-CalculInterets", "Exercices09-CalculInterets\Exercices09-CalculInterets.csproj", "{7B1DDD55-1DF2-4864-9751-884A07B6D903}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exercices10-IfElseVoyelle", "Exercices10-IfElseVoyelle\Exercices10-IfElseVoyelle.csproj", "{73E0F49D-4639-44A4-841C-833F485B1CDB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Exercices10-IfElseVoyelle", "Exercices10-IfElseVoyelle\Exercices10-IfElseVoyelle.csproj", "{73E0F49D-4639-44A4-841C-833F485B1CDB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exercices11-IfElseNombreDivisible", "Exercices11-IfElseNombreDivisible\Exercices11-IfElseNombreDivisible.csproj", "{7475BF60-9F5A-4CD8-8AE9-9A32DCBE30ED}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Exercices11-IfElseNombreDivisible", "Exercices11-IfElseNombreDivisible\Exercices11-IfElseNombreDivisible.csproj", "{7475BF60-9F5A-4CD8-8AE9-9A32DCBE30ED}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exercices12-IfElseQuelleCatégorie", "Exercices12-IfElseQuelleCatégorie\Exercices12-IfElseQuelleCatégorie.csproj", "{8ED5FB62-606F-4EA8-A739-7F753FAB360E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Exercices12-IfElseQuelleCatégorie", "Exercices12-IfElseQuelleCatégorie\Exercices12-IfElseQuelleCatégorie.csproj", "{8ED5FB62-606F-4EA8-A739-7F753FAB360E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exercices13-IfElseTriangle", "Exercices13-IfElseTriangle\Exercices13-IfElseTriangle.csproj", "{9A9A858F-13AB-4BE6-AC6B-F803A4A8836B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exercices14-TailleVêtement", "Exercices14-TailleVêtement\Exercices14-TailleVêtement.csproj", "{AD8832BF-FCA2-4924-8C50-E191BB4439CC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exercices15-PrimeLicenciement", "Exercices15-PrimeLicenciement\Exercices15-PrimeLicenciement.csproj", "{9F4F6860-FB59-4E62-886F-4B096EA689C4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -81,6 +87,18 @@ Global
 		{8ED5FB62-606F-4EA8-A739-7F753FAB360E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8ED5FB62-606F-4EA8-A739-7F753FAB360E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8ED5FB62-606F-4EA8-A739-7F753FAB360E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9A9A858F-13AB-4BE6-AC6B-F803A4A8836B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9A9A858F-13AB-4BE6-AC6B-F803A4A8836B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9A9A858F-13AB-4BE6-AC6B-F803A4A8836B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9A9A858F-13AB-4BE6-AC6B-F803A4A8836B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AD8832BF-FCA2-4924-8C50-E191BB4439CC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AD8832BF-FCA2-4924-8C50-E191BB4439CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AD8832BF-FCA2-4924-8C50-E191BB4439CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AD8832BF-FCA2-4924-8C50-E191BB4439CC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9F4F6860-FB59-4E62-886F-4B096EA689C4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9F4F6860-FB59-4E62-886F-4B096EA689C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9F4F6860-FB59-4E62-886F-4B096EA689C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9F4F6860-FB59-4E62-886F-4B096EA689C4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

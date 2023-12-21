@@ -1,10 +1,10 @@
 ﻿Console.WriteLine("Le nombre est il divisible par ... ?");
 
 Console.Write("Entrez un chiffre ou un nombre : ");
-int chiffreOuNombre = int.Parse(Console.ReadLine());
+int chiffreOuNombre = int.Parse(Console.ReadLine()!);
 
 Console.Write("Entrez un chiffre ou un nombre (diviseur) : ");
-int chiffreOuNombreDiviseur = int.Parse(Console.ReadLine());
+int chiffreOuNombreDiviseur = int.Parse(Console.ReadLine()!);
 
 if (chiffreOuNombre % chiffreOuNombreDiviseur == 0)
 {
