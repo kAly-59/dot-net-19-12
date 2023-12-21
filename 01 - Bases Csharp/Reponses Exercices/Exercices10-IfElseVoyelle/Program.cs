@@ -3,7 +3,7 @@
 Console.Write("Entrez une lettre : ");
 string lettre = Console.ReadLine();
 lettre = lettre.ToUpper();
-string voyelle = "AEIOU";
+string voyelle = "AEIOUY";
 
 if (voyelle.Contains(lettre))
 {
