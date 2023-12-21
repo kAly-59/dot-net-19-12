@@ -27,11 +27,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Exercices11-IfElseNombreDiv
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Exercices12-IfElseQuelleCatégorie", "Exercices12-IfElseQuelleCatégorie\Exercices12-IfElseQuelleCatégorie.csproj", "{8ED5FB62-606F-4EA8-A739-7F753FAB360E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exercices13-IfElseTriangle", "Exercices13-IfElseTriangle\Exercices13-IfElseTriangle.csproj", "{9A9A858F-13AB-4BE6-AC6B-F803A4A8836B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Exercices13-IfElseTriangle", "Exercices13-IfElseTriangle\Exercices13-IfElseTriangle.csproj", "{9A9A858F-13AB-4BE6-AC6B-F803A4A8836B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exercices14-TailleVêtement", "Exercices14-TailleVêtement\Exercices14-TailleVêtement.csproj", "{AD8832BF-FCA2-4924-8C50-E191BB4439CC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Exercices14-TailleVêtement", "Exercices14-TailleVêtement\Exercices14-TailleVêtement.csproj", "{AD8832BF-FCA2-4924-8C50-E191BB4439CC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exercices15-PrimeLicenciement", "Exercices15-PrimeLicenciement\Exercices15-PrimeLicenciement.csproj", "{9F4F6860-FB59-4E62-886F-4B096EA689C4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Exercices15-PrimeLicenciement", "Exercices15-PrimeLicenciement\Exercices15-PrimeLicenciement.csproj", "{9F4F6860-FB59-4E62-886F-4B096EA689C4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exercices17-QuelleBoisson", "Exercices17-QuelleBoisson\Exercices17-QuelleBoisson.csproj", "{14E40168-0AB2-4EBD-BBB3-82CA5FE0A14C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exercices18-SwitchQuelleCategorie", "Exercices18-SwitchQuelleCategorie\Exercices18-SwitchQuelleCategorie.csproj", "{5EFD5A6C-20A7-4601-8B06-5222234AC0DC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -99,6 +103,14 @@ Global
 		{9F4F6860-FB59-4E62-886F-4B096EA689C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9F4F6860-FB59-4E62-886F-4B096EA689C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9F4F6860-FB59-4E62-886F-4B096EA689C4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{14E40168-0AB2-4EBD-BBB3-82CA5FE0A14C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{14E40168-0AB2-4EBD-BBB3-82CA5FE0A14C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{14E40168-0AB2-4EBD-BBB3-82CA5FE0A14C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{14E40168-0AB2-4EBD-BBB3-82CA5FE0A14C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5EFD5A6C-20A7-4601-8B06-5222234AC0DC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5EFD5A6C-20A7-4601-8B06-5222234AC0DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5EFD5A6C-20A7-4601-8B06-5222234AC0DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5EFD5A6C-20A7-4601-8B06-5222234AC0DC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

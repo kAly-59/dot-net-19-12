@@ -17,11 +17,11 @@ if ( nbaa >= 1 && nbaa <= 10)
 } 
  else if ( nbaa > 10)
 {
-   prime = salaire * nbaa;
+   prime = salaire * 10;
 }
 
 
-if ( age >= 45 && age < 49)
+if ( age >= 45 && age <= 49)
 {
     prime += salaire * 2;
 }
