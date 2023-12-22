@@ -1,15 +1,32 @@
 ﻿Console.WriteLine("---ACC POPS---");
 
-int popA = 96809;
+double popA = 96809;
+int annee;
+int popC = 120000;
+double acc = 0.89 / 100;
+
+for (annee = 2015; popA <= popC; annee++)
+{
+    popA += popA * acc;
+}
+
+Console.WriteLine($"Il faudra {annee - 2015} ans, nous serons en {annee}");
+Console.WriteLine($"La population sera de {popA} habitants");
+
+
+/* Console.WriteLine("---ACC POPS---");
+
+double popA = 96809;
 int popC = 120000;
 int annee = 2015;
-double acc = 0.89 /100;
+double acc = 0.89 / 100;
 
 while (popA <= popC)
 {
-    popA += (int)(popA * acc);
+    popA += popA * acc;
     annee++;
 }
 
 Console.WriteLine($"Il faudra {annee - 2015} ans, nous serons en {annee}");
 Console.WriteLine($"La population sera de {popA} habitants");
+*/
