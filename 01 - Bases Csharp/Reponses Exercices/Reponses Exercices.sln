@@ -47,7 +47,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Exercices23-ForAcroissement
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Exercices24-ForChaineEntiers", "Exercices24-ForChaineEntiers\Exercices24-ForChaineEntiers.csproj", "{CD57F49E-805F-401A-A8F6-DA9491EC2AEA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exercices25-ForMeilleureNote", "Exercices25-ForMeilleureNote\Exercices25-ForMeilleureNote.csproj", "{810806AA-B128-436E-97CB-C918EF1F6569}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Exercices25-ForMeilleureNote", "Exercices25-ForMeilleureNote\Exercices25-ForMeilleureNote.csproj", "{810806AA-B128-436E-97CB-C918EF1F6569}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exercice25bis-BonusSapin", "Exercice25bis-BonusSapin\Exercice25bis-BonusSapin.csproj", "{F3948634-3E4A-4D3B-983D-8FE1C301E84C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -147,6 +149,10 @@ Global
 		{810806AA-B128-436E-97CB-C918EF1F6569}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{810806AA-B128-436E-97CB-C918EF1F6569}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{810806AA-B128-436E-97CB-C918EF1F6569}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F3948634-3E4A-4D3B-983D-8FE1C301E84C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F3948634-3E4A-4D3B-983D-8FE1C301E84C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F3948634-3E4A-4D3B-983D-8FE1C301E84C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F3948634-3E4A-4D3B-983D-8FE1C301E84C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
