@@ -42,3 +42,4 @@ Console.ForegroundColor = ConsoleColor.Red;
 Console.WriteLine($"La plus mauvaise note est : {noteMin}");
 Console.ForegroundColor = ConsoleColor.Magenta;
 Console.WriteLine($"La moyenne est de : {moyenne}");
+Console.ResetColor();

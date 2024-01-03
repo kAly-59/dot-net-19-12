@@ -1,30 +1,35 @@
-﻿Console.WriteLine("Exercice 24 - Somme entiers chaînés");
+﻿Console.WriteLine("--- Les suites chaînées de nombres ---\n");
 
-Console.Write("Entrez un nombre : ");
-int nombre = int.Parse(Console.ReadLine()!);
+Console.Write("Merce de saisir un nombre : ");
+int number = int.Parse(Console.ReadLine()!);
 
+Console.WriteLine("Les chaînes possibles sont :");
+int midNumber = number / 2 + 1;
 
-Console.WriteLine($"Les chaines possibles sont {nombre} :");
-for (int start = 1; start <= nombre; start++)
+for (int i = 1; i <= midNumber; i++)
 {
     int sum = 0;
-    for (int i = start; i <= nombre; i++)
+    bool validChain = false;
+    int maxChain = 0;
+    for (int j = i; j <= midNumber; j++)
     {
-        sum += i;
-        if (sum == nombre)
+        sum += j;
+        if (sum == number)
         {
-            for (int j = start; j <= i; j++)
-            {
-                Console.Write(j);
-                if (j != i)
-                    Console.Write(" + ");
-            }
-            Console.WriteLine();
+            validChain = true;
+            maxChain = j;
         }
-        else if (sum > nombre)
-        {
+        if (sum >= number)
             break;
+    }
+    if (validChain)
+    {
+        Console.Write($"{number} = {i}");
+        for (int j = i + 1; j <= maxChain; j++)
+        {
+            Console.Write("+" + j);
         }
+        Console.WriteLine();
     }
 }
 
