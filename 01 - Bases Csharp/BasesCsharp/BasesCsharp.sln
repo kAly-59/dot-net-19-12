@@ -79,19 +79,25 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Exercice34", "Exercice34\Ex
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Exercice35", "Exercice35\Exercice35.csproj", "{4D92BFF7-34C6-4360-9A4E-A7B8171ECF57}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exercice36", "Exercice36\Exercice36.csproj", "{977B9D0E-30D4-4EBA-888C-F69CD8498987}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Exercice36", "Exercice36\Exercice36.csproj", "{977B9D0E-30D4-4EBA-888C-F69CD8498987}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exercice37", "Exercice37\Exercice37.csproj", "{3C773D3E-5C50-4123-8E0C-3AC5FFACC627}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Exercice37", "Exercice37\Exercice37.csproj", "{3C773D3E-5C50-4123-8E0C-3AC5FFACC627}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exercice38", "Exercice38\Exercice38.csproj", "{0B74AA5F-73F6-432E-95EB-44453A77EB18}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Exercice38", "Exercice38\Exercice38.csproj", "{0B74AA5F-73F6-432E-95EB-44453A77EB18}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExerciceNomComplet", "ExerciceNomComplet\ExerciceNomComplet.csproj", "{1D2D6231-F98C-4E4C-B2B1-646AA46C7DC8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExerciceNomComplet", "ExerciceNomComplet\ExerciceNomComplet.csproj", "{1D2D6231-F98C-4E4C-B2B1-646AA46C7DC8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExerciceSoustraction", "ExerciceSoustraction\ExerciceSoustraction.csproj", "{DCF169B4-0E32-4460-99E5-CFF05C52D99A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExerciceSoustraction", "ExerciceSoustraction\ExerciceSoustraction.csproj", "{DCF169B4-0E32-4460-99E5-CFF05C52D99A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExerciceQuelleHeure", "ExerciceQuelleHeure\ExerciceQuelleHeure.csproj", "{97F6D3C8-A661-4605-9276-7D1A5B5446E7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExerciceQuelleHeure", "ExerciceQuelleHeure\ExerciceQuelleHeure.csproj", "{97F6D3C8-A661-4605-9276-7D1A5B5446E7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExerciceCompteurDeA", "ExerciceCompteurDeA\ExerciceCompteurDeA.csproj", "{7B8660E6-86D0-441D-9540-1D7357953813}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExerciceCompteurDeA", "ExerciceCompteurDeA\ExerciceCompteurDeA.csproj", "{7B8660E6-86D0-441D-9540-1D7357953813}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exercice39", "Exercice39\Exercice39.csproj", "{E156ACBB-ABC3-4300-B3C6-FFC23FEA56CB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExerciceADN", "ExerciceADN\ExerciceADN.csproj", "{4D7367CA-1965-49B5-9FA3-031B0764A476}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExerciceTupleOperations", "ExerciceTupleOperations\ExerciceTupleOperations.csproj", "{866E47E5-2352-42A9-9A70-CA62E3121E37}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -271,6 +277,18 @@ Global
 		{7B8660E6-86D0-441D-9540-1D7357953813}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7B8660E6-86D0-441D-9540-1D7357953813}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7B8660E6-86D0-441D-9540-1D7357953813}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E156ACBB-ABC3-4300-B3C6-FFC23FEA56CB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E156ACBB-ABC3-4300-B3C6-FFC23FEA56CB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E156ACBB-ABC3-4300-B3C6-FFC23FEA56CB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E156ACBB-ABC3-4300-B3C6-FFC23FEA56CB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4D7367CA-1965-49B5-9FA3-031B0764A476}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4D7367CA-1965-49B5-9FA3-031B0764A476}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4D7367CA-1965-49B5-9FA3-031B0764A476}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4D7367CA-1965-49B5-9FA3-031B0764A476}.Release|Any CPU.Build.0 = Release|Any CPU
+		{866E47E5-2352-42A9-9A70-CA62E3121E37}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{866E47E5-2352-42A9-9A70-CA62E3121E37}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{866E47E5-2352-42A9-9A70-CA62E3121E37}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{866E47E5-2352-42A9-9A70-CA62E3121E37}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -319,6 +337,9 @@ Global
 		{DCF169B4-0E32-4460-99E5-CFF05C52D99A} = {16ADCEB7-92BB-4C51-BB44-5CDE3D1AA1DA}
 		{97F6D3C8-A661-4605-9276-7D1A5B5446E7} = {16ADCEB7-92BB-4C51-BB44-5CDE3D1AA1DA}
 		{7B8660E6-86D0-441D-9540-1D7357953813} = {16ADCEB7-92BB-4C51-BB44-5CDE3D1AA1DA}
+		{E156ACBB-ABC3-4300-B3C6-FFC23FEA56CB} = {16ADCEB7-92BB-4C51-BB44-5CDE3D1AA1DA}
+		{4D7367CA-1965-49B5-9FA3-031B0764A476} = {16ADCEB7-92BB-4C51-BB44-5CDE3D1AA1DA}
+		{866E47E5-2352-42A9-9A70-CA62E3121E37} = {16ADCEB7-92BB-4C51-BB44-5CDE3D1AA1DA}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {1F22E0AB-54C6-4FC8-9029-983CE3F55D0A}
