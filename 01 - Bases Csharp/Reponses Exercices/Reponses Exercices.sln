@@ -75,7 +75,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Exercices38-ForeachOuEstPas
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Exercices39-TheGreatTP", "Exercices39-TheGreatTP\Exercices39-TheGreatTP.csproj", "{A7C27762-5D9E-4E1F-B1EB-8D137A4C08DA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExercicesFonctions", "ExercicesFonctions\ExercicesFonctions.csproj", "{FBDF44BB-1011-4310-8599-D6566C7C6E92}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExercicesFonctions", "ExercicesFonctions\ExercicesFonctions.csproj", "{FBDF44BB-1011-4310-8599-D6566C7C6E92}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tupledoperations", "Tupledoperations\Tupledoperations.csproj", "{6B37D1FC-279C-45E2-A967-EF393D85FE3A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -231,6 +233,10 @@ Global
 		{FBDF44BB-1011-4310-8599-D6566C7C6E92}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FBDF44BB-1011-4310-8599-D6566C7C6E92}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FBDF44BB-1011-4310-8599-D6566C7C6E92}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6B37D1FC-279C-45E2-A967-EF393D85FE3A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6B37D1FC-279C-45E2-A967-EF393D85FE3A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6B37D1FC-279C-45E2-A967-EF393D85FE3A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6B37D1FC-279C-45E2-A967-EF393D85FE3A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
