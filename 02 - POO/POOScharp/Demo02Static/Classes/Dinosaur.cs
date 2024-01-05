@@ -33,10 +33,13 @@ internal class Dinosaur
     public Dinosaur() 
     {
         _nombreDeDinos++;
+        //Dinosaur._nombreDeDinos++;
+        AfficherDinosaurCrees();
     }
 
-    public Dinosaur(string nom, int age, string espece, bool peutVoler = false)
+    public Dinosaur(string nom, int age, string espece, bool peutVoler = false) : this()
     {
+        //_nombreDeDinos++;
         Nom = nom;
         Age = age;
         Espece = espece;
@@ -64,5 +67,15 @@ internal class Dinosaur
             return;
         }
         Console.WriteLine($"Le Dinosaur {Nom} saute et s'écrase lamentablement...");
+    }
+
+    // Méthode static (dites "de classe")
+    public static void AfficherDinosaurVivants()
+    {
+        Console.WriteLine("Tout les dinosaures sont morts depuis bien longtemps...");
+    }
+    public static void AfficherDinosaurCrees()
+    {
+        Console.WriteLine("Dinosaurs créés avec le constructeur : " + NombreDeDinos);
     }
 }
