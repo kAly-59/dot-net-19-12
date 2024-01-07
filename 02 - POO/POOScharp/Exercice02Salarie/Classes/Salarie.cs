@@ -30,6 +30,8 @@ public class Salarie
     public static int NombreSalaries { get; private set; } = 0; // on ne pourra modifier le NombreSalaries qu'à l'intérieur de la classe, le setter est PRIVE
     public static decimal TotalSalaires { get; private set; } = 0;
 
+    public static decimal MoyenneSalaires => TotalSalaires / NombreSalaries;
+
     public Salarie()
     {
         NombreSalaries++;
