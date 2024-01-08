@@ -13,9 +13,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Exercice01Chaise", "Exercic
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Demo02Static", "Demo02Static\Demo02Static.csproj", "{69D4E28A-CE9E-407F-A4BE-379F4833884C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exercice02Salarie", "Exercice02Salarie\Exercice02Salarie.csproj", "{F8E94EB2-E910-4740-8646-86FA99234182}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Exercice02Salarie", "Exercice02Salarie\Exercice02Salarie.csproj", "{F8E94EB2-E910-4740-8646-86FA99234182}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exercice03WaterTank", "Exercice03WaterTank\Exercice03WaterTank.csproj", "{AAC476DD-4268-4C0A-9328-165443765923}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Exercice03WaterTank", "Exercice03WaterTank\Exercice03WaterTank.csproj", "{AAC476DD-4268-4C0A-9328-165443765923}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exercice04Pendu", "Exercice04Pendu\Exercice04Pendu.csproj", "{F607183B-F601-408B-AD5E-919559000C8E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -43,6 +45,10 @@ Global
 		{AAC476DD-4268-4C0A-9328-165443765923}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AAC476DD-4268-4C0A-9328-165443765923}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AAC476DD-4268-4C0A-9328-165443765923}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F607183B-F601-408B-AD5E-919559000C8E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F607183B-F601-408B-AD5E-919559000C8E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F607183B-F601-408B-AD5E-919559000C8E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F607183B-F601-408B-AD5E-919559000C8E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -53,6 +59,7 @@ Global
 		{69D4E28A-CE9E-407F-A4BE-379F4833884C} = {76006A72-3E49-4F84-A85B-4BB3C09480B6}
 		{F8E94EB2-E910-4740-8646-86FA99234182} = {E1B2D022-269C-41AF-9F9E-F8BECFD5BB8C}
 		{AAC476DD-4268-4C0A-9328-165443765923} = {E1B2D022-269C-41AF-9F9E-F8BECFD5BB8C}
+		{F607183B-F601-408B-AD5E-919559000C8E} = {E1B2D022-269C-41AF-9F9E-F8BECFD5BB8C}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {89C34C0A-18D3-47D9-BF3C-6E99C7E42D4F}
