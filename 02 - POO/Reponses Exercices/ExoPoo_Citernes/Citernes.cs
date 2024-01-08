@@ -7,11 +7,24 @@ class Citernes
     private double _poidsVide = 0;
     private double _capTotal = 100;
     private double _lvlRemplissage = 0;
+    private static int _totalRemplissage = 0;
 
     // Properties
-    public double PoidsVide { get => _poidsVide; set => _poidsVide = value; }
-    public double CapTotal { get => _capTotal; set => _capTotal = value; }
-    public double LvlRemplissage { get => _lvlRemplissage; set => _lvlRemplissage = value; }
+    public double PoidsVide 
+    { 
+        get => _poidsVide; 
+        set => _poidsVide = value; 
+    }
+    public double CapTotal 
+    { 
+        get => _capTotal; 
+        private set => _capTotal = value; 
+    }
+    public double LvlRemplissage 
+    { 
+        get => _lvlRemplissage; 
+        private set => _lvlRemplissage = value; 
+    }
 
     // Methode
     public Citernes()
