@@ -19,6 +19,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Exercice03WaterTank", "Exer
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exercice04Pendu", "Exercice04Pendu\Exercice04Pendu.csproj", "{F607183B-F601-408B-AD5E-919559000C8E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Demo03HeritagePolymorphisme", "Demo03HeritagePolymorphisme\Demo03HeritagePolymorphisme.csproj", "{F725B073-2728-4316-A7DE-9C6DC616C46E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -49,6 +51,10 @@ Global
 		{F607183B-F601-408B-AD5E-919559000C8E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F607183B-F601-408B-AD5E-919559000C8E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F607183B-F601-408B-AD5E-919559000C8E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F725B073-2728-4316-A7DE-9C6DC616C46E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F725B073-2728-4316-A7DE-9C6DC616C46E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F725B073-2728-4316-A7DE-9C6DC616C46E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F725B073-2728-4316-A7DE-9C6DC616C46E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -60,6 +66,7 @@ Global
 		{F8E94EB2-E910-4740-8646-86FA99234182} = {E1B2D022-269C-41AF-9F9E-F8BECFD5BB8C}
 		{AAC476DD-4268-4C0A-9328-165443765923} = {E1B2D022-269C-41AF-9F9E-F8BECFD5BB8C}
 		{F607183B-F601-408B-AD5E-919559000C8E} = {E1B2D022-269C-41AF-9F9E-F8BECFD5BB8C}
+		{F725B073-2728-4316-A7DE-9C6DC616C46E} = {76006A72-3E49-4F84-A85B-4BB3C09480B6}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {89C34C0A-18D3-47D9-BF3C-6E99C7E42D4F}
