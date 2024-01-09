@@ -6,39 +6,41 @@ using System.Threading.Tasks;
 
 namespace ExoPoo_CompteBancaire.Classes
 {
-    public abstract class CompteBancaire
+    internal abstract class CompteBancaire
     {
-        private decimal _solde;
-        private Client _client;
+        protected decimal _solde;
+        protected Client _client;
+        protected List<Operation> _operations;
 
         public decimal Solde { get => _solde; }
         public Client Client { get => _client; }
         public List<Operation> Operations { get => _operations; }
 
-        protected CompteBancaire (Client client) 
+        protected CompteBancaire(decimal solde, Client client, List<Operation> operations)
         {
-            _client = Client;
-            _solde = 0m;
-            _operation = new();
+            _solde = solde;
+            _client = client;
+            _operations = new();
+        }
+
+        public void AfficherOperationSolde()
+        {
+            if (_operations.Count > 0)
+            {
+                Console.WriteLine("= Liste des opérations =");
+                foreach (Operation operation in _operations)
+                {
+                    Console.WriteLine(operation);
+                }
+            }
+            else
+            {
+                Console.WriteLine("Aucune opération sur ce compte.");
+            }
+            Console.WriteLine($"Solde du compte: {_solde}€");
         }
 
         public abstract bool Depot(decimal values);
         public abstract bool Retrait(decimal values);
-
-        public void afficherOperationSolde()
-        {
-            if (_operation.Count > 0)
-            {
-                Console.WriteLine("===Liste des operations===");
-                foreach (Operation o in _operations)
-                {
-                    Console.WriteLine(o);
-                }
-            } else
-            {
-                Console.WriteLine("Aucune operation");
-            }           
-            Console.WriteLine($"Solde du compte : {Solde}");
-        }
     }
 }

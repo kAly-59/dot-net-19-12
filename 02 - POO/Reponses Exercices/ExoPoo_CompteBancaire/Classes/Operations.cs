@@ -1,19 +1,28 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace ExoPoo_CompteBancaire.Classes
+﻿namespace Exercice06CompteBancaire.Classes
 {
     internal class Operation
     {
-        private int numero;
-        private decimal montant;
+        private static int _count = 0;
+
+        private int _num;
+        private decimal _montant;
         private TypeOperation _type;
 
-        protected int Numero { get => numero; set => numero = value; }
-        protected double Montant { get => montant; set => montant = value; }
-        protected bool Statut { get => statut; set => statut = value; }
+        public int Num { get => _num; }
+        public decimal Montant { get => _montant; }
+        public TypeOperation Type { get => _type; }
+
+        public Operation(decimal montant, TypeOperation type)
+        {
+            _num = ++_count;
+            _montant = montant;
+            _type = type;
+        }
+
+        public override string ToString()
+        {
+            return $"{_num}. [{Enum.GetName(_type)}] - {_montant}€";
+            // 1. [RETRAIT] 120.00€
+        }
     }
 }

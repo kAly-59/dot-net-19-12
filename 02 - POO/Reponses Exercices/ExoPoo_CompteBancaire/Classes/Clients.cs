@@ -8,16 +8,26 @@ namespace ExoPoo_CompteBancaire.Classes
 {
     internal class Client
     {
-        private string nom;
-        private string prenom;
-        private int identifiant;
-        private string numeroTel;
-        private List<CompteBancaire> listeComptes;
+        private static int _counter = 0;
+        private int _id;
+        private string _nom;
+        private string _prenom;
+        private string _numeroTel;
+        private List<CompteBancaire> _comptes;
 
-        public List<CompteBancaire> ListeComptes { get => listeComptes; set => listeComptes = value; }
-        protected string Nom { get => nom; set => nom = value; }
-        protected string Prenom { get => prenom; set => prenom = value; }
-        protected int Identifiant { get => identifiant; set => identifiant = value; }
-        protected string NumeroTel { get => numeroTel; set => numeroTel = value; }
+        public int Id { get => _id; }
+        public string Nom { get => _nom; }
+        public string Prenom { get => _prenom; }
+        public string NumeroTel { get => _numeroTel; }
+        public List<CompteBancaire> Comptes { get => _comptes; }
+
+        public Client(string nom, string prenom, string numeroTel)
+        {
+            _id = ++_counter;
+            _comptes = new();
+            _nom = nom;
+            _prenom = prenom;
+            _numeroTel = numeroTel;
+        }
     }
 }
