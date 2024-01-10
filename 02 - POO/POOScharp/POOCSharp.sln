@@ -29,6 +29,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Exercice06CompteBancaire", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Demo05Interfaces", "Demo05Interfaces\Demo05Interfaces.csproj", "{963BC653-5ECE-400B-A71B-B92F01EF8CF8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exercice07Figure", "Exercice07Figure\Exercice07Figure.csproj", "{3180990B-366F-4B27-8344-53C5AA9A1D7B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -79,6 +81,10 @@ Global
 		{963BC653-5ECE-400B-A71B-B92F01EF8CF8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{963BC653-5ECE-400B-A71B-B92F01EF8CF8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{963BC653-5ECE-400B-A71B-B92F01EF8CF8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3180990B-366F-4B27-8344-53C5AA9A1D7B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3180990B-366F-4B27-8344-53C5AA9A1D7B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3180990B-366F-4B27-8344-53C5AA9A1D7B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3180990B-366F-4B27-8344-53C5AA9A1D7B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -95,6 +101,7 @@ Global
 		{72B1F5FA-F610-40A2-A88B-7D8C511E81F6} = {76006A72-3E49-4F84-A85B-4BB3C09480B6}
 		{B6DDD3AA-033E-42A0-BE02-1950899DC1B3} = {E1B2D022-269C-41AF-9F9E-F8BECFD5BB8C}
 		{963BC653-5ECE-400B-A71B-B92F01EF8CF8} = {76006A72-3E49-4F84-A85B-4BB3C09480B6}
+		{3180990B-366F-4B27-8344-53C5AA9A1D7B} = {E1B2D022-269C-41AF-9F9E-F8BECFD5BB8C}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {89C34C0A-18D3-47D9-BF3C-6E99C7E42D4F}
