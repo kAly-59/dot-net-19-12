@@ -1,5 +1,6 @@
 ﻿using Demo05Interfaces.Classes;
 using Demo05Interfaces.Interfaces;
+using System.Runtime.CompilerServices;
 
 Oiseau monOiseau = new("Coco");
 Chien monChien = new("Rex");
@@ -59,30 +60,35 @@ monAvion.Senvoler();
 
 // On peut créer des objets avec la syntaxe suivante, en utilisant les propriétés qui doivent avoir la possibilité de set les valeurs des champs internes de la classe
 
-ContactDTO monContact = new() // 0x5fa475155
+ContactDTO monContact = new() 
 {
     Prenom = "Albert",
     Age = 21
 };
 
-// Quand on change la valeur d'une variable référence, on va changer la case mémoire qui stocke la nouvelle valeur. Le garbage collector va ensuite libérer les cases non utilisés par défaut
-monContact = new() // 0x5fa47515165
+monContact = new() 
 {
     Nom = "MARTEZ"
 };
 
 
-// Si l'on se sert d'un record, le fonctionnement est différent, la case mémoire est conservée et lorsque l'on change la valeur de notre variable, on écrase l'ancienne valeur présente à cette case mémoire (on évite ainsi d'avoir besoin du garbage collector et l'application garde en mémoire où se trouve cette donnée du temps qu'elle est utilisée)
-ContactTransit unAutreContact = new("DUPONT", "John", 24); // 0x544FBA4784
+// Si l'on se sert d'un record, il est par défaut impossible de changer la valeur des champs de notre record. Ils sont en lecture seule
+ContactRecord unAutreContact = new("DUPONT", "John", 24);
 Console.WriteLine(unAutreContact.nom);
-//unAutreContact.nom = "Albert";
-unAutreContact = new("MARTEZ", "John", 12); // 0x544FBA4784
+//unAutreContact.nom = "Albert"; // Ceci est impossible car champs en lecture seule
+unAutreContact = new("MARTEZ", "John", 12);
 
-// Le fonctionnement immutable est le même pour toutes les structures
-int unNombre = 1_254_254;
-unNombre = 2_254;
+Console.WriteLine("\n=== Classes ===");
+ContactDTO dtoA = new() { Prenom = "John", Nom = "DUPONT", Age = 21 };
+Console.WriteLine($"dtoA: {dtoA.Prenom} {dtoA.Nom}");
+ContactDTO dtoB = new() { Prenom = "John", Nom = "DUPONT", Age = 21 };
+Console.WriteLine($"dtoB: {dtoB.Prenom} {dtoB.Nom}");
+Console.WriteLine($"Les deux contacts sont les mêmes ? {(dtoA== dtoB? "OUI" : "NON")}");
 
-
-// Il est possible de créer des valeurs de type primitives sous leur forme référence via les classes 
-Int32 unAutreNombre = 2_254;
-unAutreNombre = 2_417;
+// Les records sont pratiques également pour vérifier les égalités en se basant sur des valeurs de leurs champs et non la case mémoire allouée
+Console.WriteLine("\n=== Records ===");
+ContactRecord contactA = new("DUPONT", "John", 18);
+Console.WriteLine($"contactA: {contactA.prenom} {contactA.nom}");
+ContactRecord contactB = new("DUPONT", "John", 18);
+Console.WriteLine($"contactB: {contactB.prenom} {contactB.nom}");
+Console.WriteLine($"Les deux contacts sont les mêmes ? {(contactA == contactB ? "OUI" : "NON")}");
