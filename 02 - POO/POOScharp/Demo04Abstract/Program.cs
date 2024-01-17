@@ -5,7 +5,6 @@
 
 // Mais possible de créer une instance d'un type enfant non abstrait. Cela ne change pas la règle qui fait que l'on peut stocker dans une variable de type parent un type enfant
 Mammal unAutre = new Chien(2);
-
 const int maValeur = 25;
 
 Console.WriteLine(maValeur);
