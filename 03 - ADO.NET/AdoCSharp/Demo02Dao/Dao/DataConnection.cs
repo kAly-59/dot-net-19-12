@@ -10,7 +10,7 @@ namespace Demo02Dao.Dao
 {
     internal class DataConnection
     {
-        private static readonly string connectionString = "Data Source=(localdb)\\demo01ado; Integrated Security=True; Database=SPADB";
+        private static readonly string connectionString = "Data Source=(localdb)\\MSSQLLocalDB; Integrated Security=True; Database=SPADB";
 
         public static SqlConnection GetConnection { get => new(connectionString); }
     }
