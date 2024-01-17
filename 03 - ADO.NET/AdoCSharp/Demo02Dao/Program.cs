@@ -22,7 +22,21 @@ Console.WriteLine(medor.ToString());
 
 //chienDao.Save(milou);
 
-var milou = chienDao.GetOneById(2);
-milou.Maitre = maitreDAO.GetOneById(1);
+//var milou = chienDao.GetOneById(2);
+//milou.Maitre = maitreDAO.GetOneById(1);
 
-chienDao.Update(milou);
+//chienDao.Update(milou);
+
+chienDao.GetAllByMaster(maitre).ForEach(c => Console.WriteLine(c.ToString()));
+
+Maitre sacha = new Maitre("ketchum", "sacha");
+maitreDAO.Save(sacha);
+
+Maitre chen = new Maitre("Chen", "Samuel");
+chen.Chiens.Add(chienDao.GetOneById(2)!);
+chen.Chiens.Add(new Chien("Ramolosse", DateTime.Now));
+
+maitreDAO.Save(chen);
+
+
+
