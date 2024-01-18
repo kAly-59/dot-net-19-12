@@ -60,22 +60,22 @@ namespace Correction02Commande.Classes
         public Client SaisirClient()
         {
             Console.Write("Saisir un prénom: ");
-            string prenom = Console.ReadLine();
+            string prenom = Console.ReadLine() ?? "";
 
             Console.Write("Saisir un nom: ");
-            string nom = Console.ReadLine();
+            string nom = Console.ReadLine() ?? "";
 
             Console.Write("Saisir une adresse: ");
-            string adresse = Console.ReadLine();
+            string adresse = Console.ReadLine() ?? "";
 
             Console.Write("Saisir un code postal: ");
-            string codePostal = Console.ReadLine();
+            string codePostal = Console.ReadLine() ?? "";
 
             Console.Write("Saisir une ville: ");
-            string ville = Console.ReadLine();
+            string ville = Console.ReadLine() ?? "";
 
             Console.Write("Saisir une téléphone: ");
-            string telephone = Console.ReadLine();
+            string telephone = Console.ReadLine() ?? "";
 
             return new Client(prenom, nom, adresse, codePostal, ville, telephone);
         }
@@ -89,7 +89,7 @@ namespace Correction02Commande.Classes
 
             if (clientDAO.GetOneById(id) is null)
             {
-                Console.WriteLine($"Aucun client trouvé avec l'id ${id}");
+                Console.WriteLine($"Aucun client trouvé avec l'id {id}");
                 return;
             }
 
@@ -118,7 +118,7 @@ namespace Correction02Commande.Classes
 
             if (client is null)
             {
-                Console.WriteLine($"Aucun client trouvé avec l'id ${id}");
+                Console.WriteLine($"Aucun client trouvé avec l'id {id}");
                 return;
             }
 
@@ -144,7 +144,7 @@ namespace Correction02Commande.Classes
 
             if (client is null)
             {
-                Console.WriteLine($"Aucun client trouvé avec l'id ${id}");
+                Console.WriteLine($"Aucun client trouvé avec l'id {id}");
                 return;
             }
 
@@ -163,15 +163,15 @@ namespace Correction02Commande.Classes
 
             if (client is null)
             {
-                Console.WriteLine($"Aucun client trouvé avec l'id ${id}");
+                Console.WriteLine($"Aucun client trouvé avec l'id {id}");
                 return;
             }
 
             Console.Write("Saisir la date de la commande: ");
-            DateTime dateCommande = DateTime.Parse(Console.ReadLine());
+            DateTime dateCommande = DateTime.Parse(Console.ReadLine() ?? "");
 
             Console.Write("Saisir le total de la commande: ");
-            decimal total = decimal.Parse(Console.ReadLine());
+            decimal total = decimal.Parse(Console.ReadLine() ?? "");
 
             Commande commande = new Commande(total, dateCommande, client.Id);
 
@@ -196,7 +196,7 @@ namespace Correction02Commande.Classes
             {
                 Menu();
                 Console.Write("\nChoix: ");
-                string choix = Console.ReadLine();
+                string choix = Console.ReadLine() ?? "";
 
                 switch (choix)
                 {

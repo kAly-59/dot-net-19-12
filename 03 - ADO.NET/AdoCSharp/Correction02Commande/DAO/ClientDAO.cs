@@ -28,6 +28,7 @@ namespace Correction02Commande.DAO
 
             connection.Open();
 
+            // Récupère l'ID du client qui a été généré grâce à l'instruction "OUTPUT INSERTED.ID"
             client.Id = (int)command.ExecuteScalar();
 
             return client;
