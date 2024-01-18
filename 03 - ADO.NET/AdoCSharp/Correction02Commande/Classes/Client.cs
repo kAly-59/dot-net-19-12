@@ -25,6 +25,7 @@ Telephone: {Telephone}
 Adresse: {Adresse} {CodePostal} {Ville}";
         }
 
+        //  Constructeur sans ID lors de la création d'un client
         public Client(string prenom, string nom, string adresse, string codePostal, string ville, string telephone)
         {
             Prenom = prenom;
@@ -35,6 +36,7 @@ Adresse: {Adresse} {CodePostal} {Ville}";
             Telephone = telephone;
         }
 
+        // Constructeur avec ID lors de la lecture en base de données
         public Client(int id, string prenom, string nom, string adresse, string codePostal, string ville, string telephone): this(prenom, nom, adresse, codePostal, ville, telephone)
         {
             Id = id;

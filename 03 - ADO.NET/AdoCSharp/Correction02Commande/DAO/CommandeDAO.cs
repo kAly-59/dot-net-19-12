@@ -35,7 +35,7 @@ namespace Correction02Commande.DAO
         /// <summary>
         /// Récupérer les commandes d'un client
         /// </summary>
-        /// <param name="client">Le client duquel on souhaite récupérer les commandes</param>
+        /// <param name="client">Le client pour lequel on souhaite récupérer les commandes</param>
         /// <returns></returns>
         public List<Commande> GetAllCommandsOfAClient(Client client)
         {
@@ -64,7 +64,7 @@ namespace Correction02Commande.DAO
         /// <summary>
         /// Suppression de toutes les commandes d'un client
         /// </summary>
-        /// <param name="client">le client duquel on souhaite supprimer les commandes</param>
+        /// <param name="client">le client pour lequel on souhaite supprimer les commandes</param>
         public void DeleteAllCommandsOfAClient(Client client)
         {
             request = "DELETE FROM commande WHERE client_id=@client_id";
