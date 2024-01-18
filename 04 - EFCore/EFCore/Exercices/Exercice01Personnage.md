@@ -14,7 +14,7 @@ Apprendre à maitrîser Entity Framework
 	- NombrePersonneTues
 2. Créer l'IHM suivant :
 	1. Créer un personnage
-	2. Mettre à jour un personne
+	2. Mettre à jour un personnage
 	3. Afficher tous les personnages
 	4. Taper un personnage
 	5. Afficher les personnages ayant des PVs (PV + armure) supérieurs à la moyenne
