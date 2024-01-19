@@ -33,4 +33,4 @@
 	- Pour créer une migration, taper `Add-Migration <nom>`
 	- Pour mettre à jour le schéma de la base de données taper : `Update-Database`
 5. Supprimer la base de données
-	- `dotnet ef database drop`
+	- `Drop-Database`
