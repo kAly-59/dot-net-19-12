@@ -25,5 +25,10 @@ namespace Demo02Dao.Classes
             Nom = nom;
             Prenom = prenom;
         }
+
+        public override string ToString()
+        {
+            return $"id: {Id}, identité: {Prenom} {Nom.ToUpper()}";
+        }
     }
 }

@@ -25,5 +25,10 @@ namespace Demo02Dao.Classes
             Nom = nom;
             DateNaissance = dateNaissance;
         }
+
+        public override string ToString()
+        {
+            return $"id: {Id}, nom: {Nom} maitre: {(Maitre is null ? "aucun" : Maitre.ToString() )}";
+        }
     }
 }
