@@ -2,7 +2,7 @@
 
 ## Méthode 01 - dotnet ef CLI
 1. Installer Entity Framework
-	- installation du CLI de EFCore: `dotnet tool install --global dotnet-ef` 
+	- installation du CLI de EFCore: `dotnet tool install --global dotnet-ef --version "6.x.x"` 
 	- /!\ Sélectionner la version en lien avec votre SDK .NET (ex: 6.x.x)
 	- Installer le package nugget : `Microsoft.EntityFrameworkCore.SqlServer` 
 	- Puis : `Microsoft.EntityFrameworkCore.Design` qui permet d'exécuter des commandes dans le terminal
