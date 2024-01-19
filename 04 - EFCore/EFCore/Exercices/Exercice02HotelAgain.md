@@ -4,6 +4,7 @@
 - Maîtriser les concepts de EFCore
 - Apprendre à manipulation des relations ONE-TO-MANY, ONE-TO-ONE, MANY-TO-MANY
 - S'entraîner avec linQ
+- Utilisation du Repository Pattern
 
 ## Sujet
 1. Créer une classe Client possédant : un identifiant, un nom, un prénom et un numéro de téléphone
