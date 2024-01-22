@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -15,7 +16,7 @@ namespace Demo02Relations.Repositories
         List<T> GetAll();
         
         // Le predicate va nous permetre de créer un filtre spécifique pour notre entité
-        List<T> GetOneBySpecification(Func<T, bool>predicate);
+        List<T> GetOneBySpecification(Expression<Func<T, bool>> predicate);
         T? GetOneById(Tid id);
         void Update(T entity);
         void Delete(T entity);
