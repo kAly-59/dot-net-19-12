@@ -47,12 +47,12 @@ namespace Demo01Decouverte.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Livres");
+                    b.ToTable("Livres", (string)null);
 
                     b.HasData(
                         new
                         {
-                            Id = -1,
+                            Id = 1,
                             Auteur = "Arthur DENNETIERE",
                             DatePublication = new DateTime(2024, 1, 18, 13, 59, 49, 23, DateTimeKind.Local).AddTicks(4143),
                             Description = "La meilleure recette de crêpe connue à ce jour",
