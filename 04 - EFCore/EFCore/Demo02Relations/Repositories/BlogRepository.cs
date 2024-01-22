@@ -3,6 +3,7 @@ using Demo02Relations.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -33,7 +34,7 @@ namespace Demo02Relations.Repositories
             return context.Blogs.Find(id);
         }
 
-        public List<Blog> GetOneBySpecification(Func<Blog, bool> predicate)
+        public List<Blog> GetOneBySpecification(Expression<Func<Blog, bool>> predicate)
         {
             using ApplicationDbContext context = new ApplicationDbContext();
 
