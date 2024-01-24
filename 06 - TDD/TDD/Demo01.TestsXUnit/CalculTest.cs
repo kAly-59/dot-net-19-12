@@ -2,8 +2,24 @@
 
 namespace Demo01.TestsXUnit;
 
-public class CalculTest
+public class CalculTest : IDisposable
 {
+    private Calcul? _calcul;
+
+    // SetUp
+    public CalculTest()
+    {
+        _calcul = new();
+    }
+
+    // TearDown
+    public void Dispose()
+    {
+        _calcul = null;
+    }
+
+    // IClassFixture à utiliser pour les OneTime...
+
     [Fact]
     public void WhenAddition_10_30_Then_40()
     {
