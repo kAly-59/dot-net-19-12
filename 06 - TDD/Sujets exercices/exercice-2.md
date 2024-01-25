@@ -2,33 +2,36 @@
 
 - Le but de l'exercice est de réaliser des tests unitaire en utilisant mstest pour la classe fournie
 
-```
-public class Fib {
+```cs
+public class Fib
+{
+    private int _range;
 
-    private int range;
-
-    public Fib(int r){
-        range = r;
+    public Fib(int r)
+    {
+        _range = r;
     }
 
-    public List<int> GetFibSeries() {
+    public List<int> GetFibSeries()
+    {
         List<int> result = new List<int>();
-        int a = 0,b=1, c=0;
-        if(range == 1) {
-            result.add(0);
+        int a = 0, b = 1, c = 0;
+        if (_range == 1)
+        {
+            result.Add(0);
             return result;
         }
-        result.add(0);
-        result.add(1);
-        for(int i=2; i < range; i++) {
+        result.Add(0);
+        result.Add(1);
+        for (int i = 2; i < _range; i++)
+        {
             c = a + b;
-            result.add(c);
+            result.Add(c);
             a = b;
             b = c;
         }
         return result;
     }
-
 }
 ```
 
