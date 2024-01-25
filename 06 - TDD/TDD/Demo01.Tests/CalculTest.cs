@@ -71,5 +71,27 @@ public class CalculTest
 
         // Act et Assert
         Assert.ThrowsException<DivideByZeroException>(() => calcul.Division(1, 0));
+
+        // Variantes avec delegates (syntaxe longue pour "=>")
+        Assert.ThrowsException<DivideByZeroException>(delegate () { 
+            return calcul.Division(1, 0); 
+        });
+
+        Func<object> fonc = delegate ()
+        {
+            return calcul.Division(1, 0);
+        };
+
+        Assert.ThrowsException<DivideByZeroException>(fonc);
+
+        // Sans l'utilisation de ThrowsException
+        try
+        {
+            calcul.Division(1, 0);
+        }
+        catch (Exception e)
+        {
+            Assert.AreEqual(e.GetType(), typeof(DivideByZeroException));
+        }
     }
 }
