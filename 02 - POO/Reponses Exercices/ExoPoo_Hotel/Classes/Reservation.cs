@@ -34,7 +34,7 @@ namespace ExoPoo_Hotel.Classes
         public void AfficherDetailsReservation()
         {
             Console.WriteLine($"Identifiant de la réservation: {Id}");
-            Console.WriteLine($"Statut: {Statut}");
+            Console.WriteLine($"Statut: {Statut}");t
             Console.WriteLine();
             Console.WriteLine("==Détails du client==");
             Console.WriteLine($"Nom: {Client.Nom} - Prenom: {Client.Prenom}");
