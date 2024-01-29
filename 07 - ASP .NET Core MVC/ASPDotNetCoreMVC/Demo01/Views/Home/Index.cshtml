@@ -4,14 +4,16 @@
 
 @{
     // commentaire C# classique
-    string message = "Bienvenue sur la page Index de Home!";
+    // string message = "Bienvenue sur la page Index de Home!";
+    string message = (string) ViewData["message"];
     bool test = true;
-    var strings = new List<string>()
-    {
-        "chaine1",
-        "chaine2",
-        "chaine3",
-    };
+    // var strings = new List<string>()
+    // {
+    //     "chaine1",
+    //     "chaine2",
+    //     "chaine3",
+    // };
+    // var strings = (List<string>) ViewData["chaines"];
 }
 
 <!-- Commentaire html, visible dans le code source HTML sur le navigateur (devtools)-->
@@ -42,7 +44,9 @@ else
     <div>@nameof(test) est faux</div>
 }
 
-@foreach (var str in strings)
+@* @foreach (var str in strings) *@
+@* @foreach (var str in (List<string>)ViewData["chaines"]) *@
+@foreach (var str in (List<string>) ViewBag.Chaines)
 {
     // var str2 = "test"; // on est dans un bloc {} donc plusieurs stntaxes du C# sont valables
     <h5>@str</h5>
