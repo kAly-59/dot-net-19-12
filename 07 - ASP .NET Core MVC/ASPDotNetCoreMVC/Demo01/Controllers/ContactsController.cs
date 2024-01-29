@@ -6,18 +6,22 @@ namespace Demo01.Controllers
     {
         // /Contacts/       => possible grace au app.MapControllerRoute("default", ...) de program.cs
         // /Contacts/Index
-        public string Index()
+        public IActionResult Index()
         {
-            return "Je suis la page pour afficher les contacts.";
+            //return "Je suis la page pour afficher les contacts.";
+            return View();
         }
         // /Contacts/Details/5
-        public string Details(int id)
+        public IActionResult Details(int id)
         {
-            return $"Je suis la page pour afficher le contact n°{id} en détail...";
+            //return $"Je suis la page pour afficher le contact n°{id} en détail...";
+            return View();
+            //return View("Details");
         }
-        public string Add()
+        public IActionResult Add()
         {
-            return "Je suis la page pour ajouter un contact...";
+            //return "Je suis la page pour ajouter un contact...";
+            return View();
         }
     }
 }

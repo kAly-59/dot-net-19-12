@@ -16,8 +16,37 @@ namespace Demo01.Controllers
         // /Home/Index
         public IActionResult Index()
         {
+            List<string> chaines = new()
+            {
+                "chaine1",
+                "chaine2",
+                "chaine3",
+                "blabla",
+            };
+
+            // passer des données à la vue
+
+            // méthode 1: ViewData
+            ViewData["chaines"] = chaines;
+
+            ViewData["message"] = "message depuis Index";
+
+            // méthode 2: ViewBag
+            ViewBag.Chaines = chaines;
+
             return View();
             //return View("Index");
+        }
+        public IActionResult Index2()
+        {
+            ViewData["message"] = "message depuis Index 2, ce n'est pas la même action !";
+
+            return View("Index"); // => on retourne directement la vue Index.cshtml
+        }
+        public IActionResult Index3()
+        {
+            return RedirectToAction("Index"); // => repasse par l'action/la méthode Index de HomeController
+            //return RedirectToAction(nameof(Index));
         }
 
         // /Home/Privacy
