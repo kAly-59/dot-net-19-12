@@ -13,11 +13,14 @@ namespace Demo01.Controllers
         //    _logger = logger;
         //}
 
+        // /Home/Index
         public IActionResult Index()
         {
             return View();
+            //return View("Index");
         }
 
+        // /Home/Privacy
         public IActionResult Privacy()
         {
             return View();
