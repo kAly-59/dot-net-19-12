@@ -19,6 +19,15 @@ namespace Demo01.Controllers
             return View();
             //return View("Index");
         }
+        public IActionResult Index2()
+        {
+            return View("Index"); // => on retourne directement la vue Index.cshtml
+        }
+        public IActionResult Index3()
+        {
+            return RedirectToAction("Index"); // => repasse par l'action/la méthode Index de HomeController
+            //return RedirectToAction(nameof(Index));
+        }
 
         // /Home/Privacy
         public IActionResult Privacy()
