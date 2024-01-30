@@ -1,4 +1,11 @@
-﻿@{
+﻿@*
+    @model permet de "lier" la page razor avec un type de model
+    le model qui lui sera envoyé depuis un controlleur sera de ce type
+    (de base le type de Model est dynamic sans @model)
+*@
+@model List<string>
+
+@{
     ViewData["Title"] = "Home Page";
 }
 
@@ -14,6 +21,10 @@
     //     "chaine3",
     // };
     // var strings = (List<string>) ViewData["chaines"];
+
+    ViewData["chaines"] = ViewData["chaines"] ?? new List<string>() { "valeur par défaut car liste Chaines vide" };
+    ViewBag.Chaines = ViewBag.Chaines ?? new List<string>() { "valeur par défaut car liste Chaines vide" };
+    // Model = Model ?? new List<string>() { "valeur par défaut car liste Chaines vide" }; // Model en lecture seule
 }
 
 <!-- Commentaire html, visible dans le code source HTML sur le navigateur (devtools)-->
@@ -46,7 +57,9 @@ else
 
 @* @foreach (var str in strings) *@
 @* @foreach (var str in (List<string>)ViewData["chaines"]) *@
-@foreach (var str in (List<string>) ViewBag.Chaines)
+@* @foreach (var str in (List<string>)ViewBag.Chaines) *@
+@* @foreach (var str in (List<string>)Model) *@
+@foreach (var str in Model)
 {
     // var str2 = "test"; // on est dans un bloc {} donc plusieurs stntaxes du C# sont valables
     <h5>@str</h5>

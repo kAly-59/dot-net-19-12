@@ -34,7 +34,11 @@ namespace Demo01.Controllers
             // méthode 2: ViewBag
             ViewBag.Chaines = chaines;
 
-            return View();
+            // méthode 3: Model
+            return View(chaines);
+
+
+            //return View();
             //return View("Index");
         }
         public IActionResult Index2()
