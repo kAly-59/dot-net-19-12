@@ -13,11 +13,18 @@
 <table class="table">
     <thead>
         <tr>
-            <th scope="col">#</th>
+            @* <th scope="col">#</th>
             <th scope="col">Prénom</th>
             <th scope="col">Nom</th>
             <th scope="col">Email</th>
             <th scope="col">N° de téléphone</th>
+            <th scope="col">Actions</th> *@
+            <th scope="col">#</th>
+            <th scope="col">@Html.DisplayNameForInnerType((Contact c) => c.FirstName)</th>
+            <th scope="col">@Html.DisplayNameForInnerType((Contact c) => c.LastName)</th>
+            <th scope="col">@Html.DisplayNameForInnerType((Contact c) => c.Email)</th>
+            <th scope="col">@Html.DisplayNameForInnerType((Contact c) => c.Phone)</th>
+            <th scope="col">Actions</th>
         </tr>
     </thead>
     <tbody>
@@ -40,6 +47,10 @@
                 <td>@c.LastName</td>
                 <td>@c.Email</td>
                 <td>@c.Phone</td>
+                <td>
+                    @* <a asp-controller="Contacts" asp-action="Details" asp-route-id="@c.Id">Détails</a> *@
+                    <a class="btn btn-outline-info" asp-action="Details" asp-route-id="@c.Id">Détails</a>
+                </td>
             </tr>
         }
     </tbody>
