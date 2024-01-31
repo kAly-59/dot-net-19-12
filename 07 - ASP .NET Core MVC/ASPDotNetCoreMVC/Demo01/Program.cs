@@ -1,11 +1,15 @@
-// builder => sert à construire et configurer l'application
+using Demo01.Data;
 
+// builder => sert à construire et configurer l'application
 var builder = WebApplication.CreateBuilder(args);
 
 // Ajout de services.
 // Des classes qui donnent des fonctionnalités réutilisables dans l'application
-// Ex : pour la BDD, pour EfCore, Repositories, ...
+// Ex : pour la BDD, pour EfCore, Repositories, Controllers, FakeDb ...
+// Elles vont être ENREGISTREES dans le CONTENEUR DE DEPNEDANCES
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddSingleton<FakeContactDb>(); // Ne pas oublier sinon l'injection de dépendances de ce service ne fontionne pas
 
 var app = builder.Build(); //méthode qui passe d'une application "en construction" à une application prête
 
