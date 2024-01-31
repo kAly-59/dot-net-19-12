@@ -1,4 +1,5 @@
-﻿using Demo01.Models;
+﻿using Demo01.Data;
+using Demo01.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
@@ -12,6 +13,21 @@ namespace Demo01.Controllers
         //{
         //    _logger = logger;
         //}
+
+        private readonly FakeContactDb _fakeContactDb;
+        public HomeController(FakeContactDb fakeContactDb)
+        {
+            _fakeContactDb = fakeContactDb;
+        }
+        public string GetContacts() // /Home/GetContacts
+        {
+            string nomContacts = "";
+            foreach (var c in _fakeContactDb.GetAll())
+            {
+                nomContacts += c.FirstName + " ";
+            }
+            return nomContacts;
+        }
 
         // /Home/Index
         public IActionResult Index()

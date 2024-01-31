@@ -13,7 +13,15 @@ namespace Demo01.Controllers
         //    new Contact { Id = 3, FirstName = "Michael", LastName="Jackson", Email="mj@popking.com", Phone="0607080912"},
         //};
 
-        private FakeContactDb _fakeContactDb = new FakeContactDb();
+        //private FakeContactDb _fakeContactDb = new FakeContactDb(); // sans injections de dépendances
+
+        private FakeContactDb _fakeContactDb;
+
+        // on récupère un FakeContactDb depuis le conteneur de dépendances (on l'injecte dans le controlleur)
+        public ContactsController(FakeContactDb fakeContactDb)
+        {
+            _fakeContactDb = fakeContactDb;
+        }
 
         // /Contacts/       => possible grace au app.MapControllerRoute("default", ...) de program.cs
         // /Contacts/Index
@@ -29,15 +37,15 @@ namespace Demo01.Controllers
 
             //return View(_contactList); // View(model)
 
-            Contact? mich = new Contact()
-            {
-                FirstName = "Michel",
-                LastName = "Sardou",
-                Email = "michmich@sardonux.fr",
-                Phone = "0607080945"
-            };
+            //Contact? mich = new Contact()
+            //{
+            //    FirstName = "Michel",
+            //    LastName = "Sardou",
+            //    Email = "michmich@sardonux.fr",
+            //    Phone = "0607080945"
+            //};
 
-            _fakeContactDb.Add(mich);
+            //_fakeContactDb.Add(mich);
 
             return View(_fakeContactDb.GetAll());
         }
