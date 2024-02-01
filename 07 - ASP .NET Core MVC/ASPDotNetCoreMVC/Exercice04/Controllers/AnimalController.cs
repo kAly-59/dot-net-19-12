@@ -1,5 +1,6 @@
 ﻿using Exercice04.Data;
 using Exercice04.Models;
+using Exercice04.Repositories;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Exercice04.Controllers
@@ -10,29 +11,34 @@ namespace Exercice04.Controllers
         // Propriété FakeAnimalDb
         //private readonly AnimalFakeDb _fakeAnimalDb;
         private readonly ApplicationDbContext _dbContext;
+        private readonly AnimalRepository _animalRepository;
 
         //Constructeur & injection de dépendances !!
         public AnimalController(
             //AnimalFakeDb fakeAnimalDb,
-            ApplicationDbContext dbContext
+            ApplicationDbContext dbContext,
+            AnimalRepository animalRepository
             )
         {
             //_fakeAnimalDb = fakeAnimalDb;
             _dbContext = dbContext;
+            _animalRepository = animalRepository;
         }
 
         // Route => /Animal
         public IActionResult Index()
         {
             //return View(_fakeAnimalDb.GetAll());
-            return View(_dbContext.Animals.ToList());
+            //return View(_dbContext.Animals.ToList());
+            return View(_animalRepository.GetAll());
         }
 
         // Route =>  AnimalController/Details/5
         public IActionResult Details(int id)
         {
             //return View(_fakeAnimalDb.GetById(id));
-            return View(_dbContext.Animals.FirstOrDefault(a => a.Id == id));
+            //return View(_dbContext.Animals.FirstOrDefault(a => a.Id == id));
+            return View(_animalRepository.GetById(id));
         }
 
         // Route => AnimalController/CreateRandom
@@ -47,8 +53,10 @@ namespace Exercice04.Controllers
 
             //_fakeAnimalDb.Add(an);
 
-            _dbContext.Animals.Add(an);
-            _dbContext.SaveChanges();
+            //_dbContext.Animals.Add(an);
+            //_dbContext.SaveChanges();
+
+            _animalRepository.Add(an);
 
             return RedirectToAction(nameof(Index));
         }
@@ -58,11 +66,13 @@ namespace Exercice04.Controllers
         {
             //_fakeAnimalDb.Delete(id);
 
-            var an = _dbContext.Animals.FirstOrDefault(a => a.Id == id);
-            if(an == null)
-                return RedirectToAction(nameof(Index));
-            _dbContext.Animals.Remove(an);
-            _dbContext.SaveChanges();
+            //var an = _dbContext.Animals.FirstOrDefault(a => a.Id == id);
+            //if(an == null)
+            //    return RedirectToAction(nameof(Index));
+            //_dbContext.Animals.Remove(an);
+            //_dbContext.SaveChanges();
+
+            _animalRepository.Delete(id);
 
             return RedirectToAction(nameof(Index));
 
