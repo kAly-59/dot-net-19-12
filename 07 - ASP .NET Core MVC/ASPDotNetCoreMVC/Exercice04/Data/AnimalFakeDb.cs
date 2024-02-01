@@ -1,8 +1,10 @@
 ﻿using Exercice04.Models;
+using Exercice04.Repositories;
+using System.Linq.Expressions;
 
 namespace Exercice04.Data
 {
-    public class AnimalFakeDb
+    public class AnimalFakeDb : IAnimalRepository
     {
         private List<Animal> _animal; // équivalent de la base de données
         private int _lastId = 0; // pour faire un équivalent d'IDENTITY ou AUTO INCREMENT
@@ -33,7 +35,7 @@ namespace Exercice04.Data
             return true; // l'ajout s'est bien passé
         }
 
-        public bool Edit(Animal pets)
+        public bool Update(Animal pets)
         {
             var petsFromDb = GetById(pets.Id);
 
@@ -57,6 +59,16 @@ namespace Exercice04.Data
             _animal.Remove(pets);
 
             return true;
+        }
+
+        public Animal? Get(Expression<Func<Animal, bool>> predicate)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<Animal> GetAll(Expression<Func<Animal, bool>> predicate)
+        {
+            throw new NotImplementedException();
         }
     }
 }

@@ -10,18 +10,20 @@ namespace Exercice04.Controllers
 
         // Propriété FakeAnimalDb
         //private readonly AnimalFakeDb _fakeAnimalDb;
-        private readonly ApplicationDbContext _dbContext;
-        private readonly AnimalRepository _animalRepository;
+        //private readonly ApplicationDbContext _dbContext;
+        //private readonly AnimalRepository _animalRepository;
+        private readonly IRepository<Animal> _animalRepository;
 
         //Constructeur & injection de dépendances !!
         public AnimalController(
             //AnimalFakeDb fakeAnimalDb,
-            ApplicationDbContext dbContext,
-            AnimalRepository animalRepository
+            //ApplicationDbContext dbContext,
+            //AnimalRepository animalRepository,
+            IRepository<Animal> animalRepository
             )
         {
             //_fakeAnimalDb = fakeAnimalDb;
-            _dbContext = dbContext;
+            //_dbContext = dbContext;
             _animalRepository = animalRepository;
         }
 

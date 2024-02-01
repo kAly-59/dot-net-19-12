@@ -4,7 +4,7 @@ using System.Linq.Expressions;
 
 namespace Exercice04.Repositories
 {
-    public class AnimalRepository
+    public class AnimalRepository : IAnimalRepository
     {
         private ApplicationDbContext _dbContext;
         public AnimalRepository(ApplicationDbContext dbContext)
