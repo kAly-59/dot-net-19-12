@@ -63,14 +63,27 @@ namespace Exercice04.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        public IActionResult Form()
+        public IActionResult Form(int id)
         {
-            return View();
+            if (id == 0) // pas d'id => ADD
+                return View();
+
+            // Sinon UPDATE
+            var animal = _animalRepository.GetById(id);
+
+            return View(animal);
         }
 
         public IActionResult SubmitAnimal(Animal animal)
         {
-            _animalRepository.Add(animal);
+            // 2 cas de submit possible:
+            // -ajout d'un contact => Id == 0
+            // -modification d'un contact => Id != 0
+
+            if (animal.Id == 0)
+                _animalRepository.Add(animal);
+            else
+                _animalRepository.Update(animal);
 
             return RedirectToAction(nameof(Index));
         }

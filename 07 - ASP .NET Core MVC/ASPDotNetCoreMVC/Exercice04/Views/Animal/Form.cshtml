@@ -1,9 +1,17 @@
 ﻿@model Animal
 @{
-    ViewData["Title"] = "Ajouter un Animal";
+    bool isUpdate = Model != null;
+    ViewData["Title"] = (isUpdate ? "Modifier" : "Ajouter") + " un Animal";
 }
 
+<h1>@(isUpdate ? "Modifier" : "Ajouter")</h1>
+
 <form asp-action="SubmitAnimal">
+    <input asp-for="Id" type="hidden" class="form-control">
+    @*
+    On met l'Id dans le formulaire en cas de modification pour pouvoir l'envoyer à notre action Submit
+    Ainsi, dans l'action Submit, on saura si on cherche à modifier ou ajouter un singe
+    *@
     <div class="mb-3">
         <label asp-for="FirstName" class="form-label"></label>
         <input asp-for="FirstName" type="text" class="form-control">
