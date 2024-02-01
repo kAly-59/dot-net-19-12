@@ -18,7 +18,10 @@ builder.Services.AddControllersWithViews();
 string connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(connectionString));
 
-builder.Services.AddScoped<AnimalRepository>();
+//builder.Services.AddScoped<AnimalRepository>();
+
+//builder.Services.AddScoped<IAnimalRepository, AnimalRepository>();
+builder.Services.AddScoped<IAnimalRepository, AnimalFakeDb>();
 
 
 var app = builder.Build();
