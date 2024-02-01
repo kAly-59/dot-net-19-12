@@ -1,4 +1,5 @@
 using Exercice04.Data;
+using Exercice04.Repositories;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -16,6 +17,8 @@ builder.Services.AddControllersWithViews();
 // dans le cas où on utilise le fichier appsettings.json pour le ConnectionString
 string connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(connectionString));
+
+builder.Services.AddScoped<AnimalRepository>();
 
 
 var app = builder.Build();
