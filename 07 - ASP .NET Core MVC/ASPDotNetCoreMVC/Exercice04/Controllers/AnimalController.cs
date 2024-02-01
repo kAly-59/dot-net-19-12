@@ -63,6 +63,18 @@ namespace Exercice04.Controllers
             return RedirectToAction(nameof(Index));
         }
 
+        public IActionResult Form()
+        {
+            return View();
+        }
+
+        public IActionResult SubmitAnimal(Animal animal)
+        {
+            _animalRepository.Add(animal);
+
+            return RedirectToAction(nameof(Index));
+        }
+
         // Route => AnimalController/Delete/5
         public IActionResult Delete(int id)
         {

@@ -4,7 +4,7 @@ using System.Linq.Expressions;
 
 namespace Exercice04.Data
 {
-    public class AnimalFakeDb : IAnimalRepository
+    public class AnimalFakeDb : IRepository<Animal>
     {
         private List<Animal> _animal; // équivalent de la base de données
         private int _lastId = 0; // pour faire un équivalent d'IDENTITY ou AUTO INCREMENT
