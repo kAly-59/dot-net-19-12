@@ -6,7 +6,17 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 //builder.Services.AddSingleton<AnimalFakeDb>();
-builder.Services.AddDbContext<ApplicationDbContext>();
+
+
+// méthodes à utiliser pour enregistrer un db context et pouvoir utiliser efcore
+
+// - dans le cas où on utilise OnConfiguring pour le ConnectionString
+// builder.Services.AddDbContext<ApplicationDbContext>();
+
+// dans le cas où on utilise le fichier appsettings.json pour le ConnectionString
+string connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(connectionString));
+
 
 var app = builder.Build();
 

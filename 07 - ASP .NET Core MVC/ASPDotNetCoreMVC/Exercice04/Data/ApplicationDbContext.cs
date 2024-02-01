@@ -9,16 +9,20 @@ namespace Exercice04.Data
         //{
         //}
 
+        // dans le cas où le ConnectionString est extérieur au dbContext
+        // il sera passé à la construction du ApplicationDbContext => besoin des options pour le configurer
+        // exemple :  dans une application ASP.NET core, il est préférable d'avoir le connectionString dans appsettings.json
         public ApplicationDbContext(DbContextOptions options) : base(options)
         {
         }
 
         public DbSet<Animal> Animals { get; set; }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            optionsBuilder.UseSqlServer("Data Source=(localdb)\\AspMvc;Integrated Security=True");
-        }
+        // dans le cas où on utilise OnConfiguring pour le ConnectionString
+        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        //{
+        //    optionsBuilder.UseSqlServer("Data Source=(localdb)\\AspMvc;Integrated Security=True");
+        //}
 
         protected override void OnModelCreating(ModelBuilder modelBuilder) // changements contenus dans une migration
         {
