@@ -8,24 +8,31 @@ namespace Exercice04.Controllers
     {
 
         // Propriété FakeAnimalDb
-        private readonly AnimalFakeDb _fakeAnimalDb;
+        //private readonly AnimalFakeDb _fakeAnimalDb;
+        private readonly ApplicationDbContext _dbContext;
 
         //Constructeur & injection de dépendances !!
-        public AnimalController(AnimalFakeDb fakeAnimalDb)
+        public AnimalController(
+            //AnimalFakeDb fakeAnimalDb,
+            ApplicationDbContext dbContext
+            )
         {
-            _fakeAnimalDb = fakeAnimalDb;
+            //_fakeAnimalDb = fakeAnimalDb;
+            _dbContext = dbContext;
         }
 
         // Route => /Animal
         public IActionResult Index()
         {
-            return View(_fakeAnimalDb.GetAll());
+            //return View(_fakeAnimalDb.GetAll());
+            return View(_dbContext.Animals.ToList());
         }
 
         // Route =>  AnimalController/Details/5
         public IActionResult Details(int id)
         {
-            return View(_fakeAnimalDb.GetById(id));
+            //return View(_fakeAnimalDb.GetById(id));
+            return View(_dbContext.Animals.FirstOrDefault(a => a.Id == id));
         }
 
         // Route => AnimalController/CreateRandom
@@ -38,14 +45,25 @@ namespace Exercice04.Controllers
                 Species = RandomString("ABCDEFGHIJKLMNOPQRSTUVWXYZ", 5).ToLower(),
             };
 
-            _fakeAnimalDb.Add(an);
+            //_fakeAnimalDb.Add(an);
+
+            _dbContext.Animals.Add(an);
+            _dbContext.SaveChanges();
+
             return RedirectToAction(nameof(Index));
         }
 
         // Route => AnimalController/Delete/5
         public IActionResult Delete(int id)
         {
-            _fakeAnimalDb.Delete(id);
+            //_fakeAnimalDb.Delete(id);
+
+            var an = _dbContext.Animals.FirstOrDefault(a => a.Id == id);
+            if(an == null)
+                return RedirectToAction(nameof(Index));
+            _dbContext.Animals.Remove(an);
+            _dbContext.SaveChanges();
+
             return RedirectToAction(nameof(Index));
 
         }
