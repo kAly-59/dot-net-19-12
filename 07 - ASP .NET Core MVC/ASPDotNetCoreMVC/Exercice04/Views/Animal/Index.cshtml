@@ -6,7 +6,8 @@
 
 <h1>Index</h1>
 <p>
-    <a asp-action="CreateRandom" class="btn btn-secondary">Create New</a>
+    <a asp-action="Form" class="btn btn-info">Create New</a>
+    <a asp-action="CreateRandom" class="btn btn-secondary">Create New Random</a>
 </p>
 <h2>Liste des @Model.Count animaux</h2>
 <table class="table">
@@ -42,8 +43,9 @@
             <td>
                 @Html.DisplayFor(modelItem => p.Species)
             </td>
-                <td>
+            <td>
                     <a class="btn btn-primary" asp-action="Details" asp-route-id="@p.Id">Détails de l'animal</a>
+                    <a class="btn btn-warning" asp-action="Form" asp-route-id="@p.Id">Modifier l'animal</a>
                     <a class="btn btn-danger" asp-action="Delete" asp-route-id="@p.Id">Supprimer l'animal</a>
             </td>
         </tr>

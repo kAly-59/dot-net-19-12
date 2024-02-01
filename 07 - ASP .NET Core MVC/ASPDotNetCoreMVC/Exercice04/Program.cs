@@ -1,4 +1,5 @@
 using Exercice04.Data;
+using Exercice04.Models;
 using Exercice04.Repositories;
 using Microsoft.EntityFrameworkCore;
 
@@ -20,8 +21,8 @@ builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlSer
 
 //builder.Services.AddScoped<AnimalRepository>();
 
-//builder.Services.AddScoped<IAnimalRepository, AnimalRepository>();
-builder.Services.AddScoped<IAnimalRepository, AnimalFakeDb>();
+builder.Services.AddScoped<IRepository<Animal>, AnimalRepository>();
+//builder.Services.AddScoped<IRepository<Animal>, AnimalFakeDb>();
 
 
 var app = builder.Build();
