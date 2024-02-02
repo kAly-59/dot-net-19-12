@@ -1,6 +1,7 @@
 ﻿using Exercice04.Data;
 using Exercice04.Models;
 using Exercice04.Repositories;
+using Exercice04.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Exercice04.Controllers
@@ -13,18 +14,21 @@ namespace Exercice04.Controllers
         //private readonly ApplicationDbContext _dbContext;
         //private readonly AnimalRepository _animalRepository;
         private readonly IRepository<Animal> _animalRepository;
+        private readonly IUploadService _uploadService;
 
         //Constructeur & injection de dépendances !!
         public AnimalController(
             //AnimalFakeDb fakeAnimalDb,
             //ApplicationDbContext dbContext,
             //AnimalRepository animalRepository,
-            IRepository<Animal> animalRepository
+            IRepository<Animal> animalRepository,
+            IUploadService uploadService
             )
         {
             //_fakeAnimalDb = fakeAnimalDb;
             //_dbContext = dbContext;
             _animalRepository = animalRepository;
+            _uploadService = uploadService;
         }
 
         // Route => /Animal
@@ -74,8 +78,10 @@ namespace Exercice04.Controllers
             return View(animal);
         }
 
-        public IActionResult SubmitAnimal(Animal animal)
+        public IActionResult SubmitAnimal(Animal animal, IFormFile picture)
         {
+            animal.PicturePath = _uploadService.Upload(picture);
+
             // 2 cas de submit possible:
             // -ajout d'un contact => Id == 0
             // -modification d'un contact => Id != 0

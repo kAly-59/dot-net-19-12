@@ -52,6 +52,8 @@ namespace Exercice04.Repositories
                 animalFromDb.Age = animal.Age;
             if (animalFromDb.Species != animal.Species)
                 animalFromDb.Species = animal.Species;
+            if (animalFromDb.PicturePath != animal.PicturePath)
+                animalFromDb.PicturePath = animal.PicturePath;
 
             return _dbContext.SaveChanges() > 0;
         }
