@@ -41,6 +41,7 @@
                 @Html.DisplayFor(model => model.Species)
             </dd>
         </dl>
+        <img alt="photo de l'animal" src="@Model.PicturePath" class="img-thumbnail" style="width: 500px"/>
         <div>
             <a class="btn btn-primary" asp-action="Index">Retour à la liste des animaux</a>
             <a class="btn btn-danger" asp-action="Delete" asp-route-id="@Model.Id">Supprimer l'animal</a>

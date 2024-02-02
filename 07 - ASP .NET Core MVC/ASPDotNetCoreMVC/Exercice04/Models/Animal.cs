@@ -15,5 +15,6 @@ public class Animal
     public int? Age { get; set; }
     [Display(Name = "Espèce de l'animal")]
     public string? Species { get; set; }
-
+    [Display(Name = "Photo de l'animal")]
+    public string? PicturePath { get; set; }
 }
