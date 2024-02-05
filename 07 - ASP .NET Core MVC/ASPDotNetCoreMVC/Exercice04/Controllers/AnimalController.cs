@@ -3,6 +3,7 @@ using Exercice04.Models;
 using Exercice04.Repositories;
 using Exercice04.Services;
 using Microsoft.AspNetCore.Mvc;
+using System.Text.Json;
 
 namespace Exercice04.Controllers
 {
@@ -109,6 +110,51 @@ namespace Exercice04.Controllers
 
             return RedirectToAction(nameof(Index));
 
+        }
+
+        public IActionResult Favoris()
+        {
+            List<int> favIdsAnimals = _GetFavoris();
+
+            List<Animal> favAnimals = new List<Animal>();
+
+            foreach(int id in favIdsAnimals)
+            {
+                var animal = _animalRepository.GetById(id);
+                if (animal != null)
+                    favAnimals.Add(animal);
+            }
+
+            return View(favAnimals);
+        }
+
+        public IActionResult AddToFav(int id)
+        {
+            List<int> favIdsAnimals = _GetFavoris();
+
+            favIdsAnimals.Add(id); // on ajoute un nouvel id d'animal (nouveau favoris)
+
+            string favCookie = JsonSerializer.Serialize(favIdsAnimals);
+
+            // Set du cookie
+            HttpContext.Response.Cookies.Append("animauxFavoris", favCookie);
+
+            return RedirectToAction(nameof(Index)); // on reste sur la page index
+        }
+
+        // [NonAction] => non nécessaire car private
+        private List<int> _GetFavoris() //retournera la liste des Id des animaux favoris depuis COOKIES ou SESSION
+        {
+            List<int> favIdsAnimals = new List<int>();
+
+            //Récupération d'un cookie
+            string? favCookie = HttpContext.Request.Cookies["animauxFavoris"];
+            // on récupère un cookie, sous forme de chaine de caractères (depuis la requête entrante => Request)
+
+            if (favCookie != null)
+                favIdsAnimals = JsonSerializer.Deserialize<List<int>>(favCookie)!;
+
+            return favIdsAnimals;
         }
 
         [NonAction] // ce n'est plus une action => un méthode classique sans route 
