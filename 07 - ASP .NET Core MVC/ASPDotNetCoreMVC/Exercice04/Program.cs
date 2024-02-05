@@ -27,6 +27,9 @@ builder.Services.AddScoped<IRepository<Animal>, AnimalRepository>();
 
 builder.Services.AddScoped<IUploadService, UploadService>();
 
+// Ajout du service Session
+builder.Services.AddSession();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -42,6 +45,9 @@ app.UseStaticFiles();
 app.UseRouting();
 
 app.UseAuthorization();
+
+// Utilisation du MiddleWare Session (/!\  l'ordre des middleware a un impact)
+app.UseSession();
 
 app.MapControllerRoute(
     name: "default",

@@ -137,7 +137,10 @@ namespace Exercice04.Controllers
             string favCookie = JsonSerializer.Serialize(favIdsAnimals);
 
             // Set du cookie
-            HttpContext.Response.Cookies.Append("animauxFavoris", favCookie);
+            //HttpContext.Response.Cookies.Append("animauxFavoris", favCookie);
+
+            // Set d'une information dans la Session
+            HttpContext.Session.SetString("animauxFavoris", favCookie);
 
             return RedirectToAction(nameof(Index)); // on reste sur la page index
         }
@@ -148,8 +151,11 @@ namespace Exercice04.Controllers
             List<int> favIdsAnimals = new List<int>();
 
             //Récupération d'un cookie
-            string? favCookie = HttpContext.Request.Cookies["animauxFavoris"];
+            //string? favCookie = HttpContext.Request.Cookies["animauxFavoris"];
             // on récupère un cookie, sous forme de chaine de caractères (depuis la requête entrante => Request)
+
+            // Récupération d'une information dans la Session
+            string? favCookie = HttpContext.Session.GetString("animauxFavoris");
 
             if (favCookie != null)
                 favIdsAnimals = JsonSerializer.Deserialize<List<int>>(favCookie)!;
