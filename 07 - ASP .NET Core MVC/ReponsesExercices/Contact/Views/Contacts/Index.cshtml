@@ -1,0 +1,20 @@
+﻿@{
+    ViewData["Title"] = "Liste des contacts";
+}
+<h1>Contacts</h1>
+
+<div class="row">
+    @foreach (var contact in Model)
+    {
+        <div class="col-md-3">
+            <div class="card mb-3">
+                <div class="card-body">
+                    <h5 class="card-title">@contact.Prenom @contact.Nom</h5>
+                    <p class="card-text">@contact.Email</p>
+                    <a asp-controller="Contacts" asp-action="Details" asp-route-id="@contact.Id" asp-route-Prenom="@contact.Prenom"
+                       asp-route-Nom="@contact.Nom" asp-route-Email="@contact.Email" class="btn btn-primary">Détails</a>
+                </div>
+            </div>
+        </div>
+    }
+</div>

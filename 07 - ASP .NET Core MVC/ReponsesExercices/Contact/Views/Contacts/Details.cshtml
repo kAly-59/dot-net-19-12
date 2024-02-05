@@ -1,0 +1,22 @@
+﻿@{
+    ViewData["Title"] = "Contact avec ID";
+}
+
+<h1>Contact</h1>
+
+<table class="table">
+    <tr>
+        <th>ID</th>
+        <th>PRENOM</th>
+        <th>NOM</th>
+        <th>EMAIL</th>
+    </tr>
+    <tr>
+        <td>@ViewData["ContactId"]</td>
+        <td>@ViewData["ContactPrenom"]</td>
+        <td>@ViewData["ContactNom"]</td>
+        <td>@ViewData["ContactEmail"]</td>
+    </tr>
+</table>
+
+<a asp-action="Index" class="btn btn-primary">Retour</a>
