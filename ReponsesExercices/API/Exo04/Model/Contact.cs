@@ -9,7 +9,7 @@
         public DateTime DateNaissance { get; set; }
         public int Age { get; set; }
         public string Avatar { get; set; }
-        public Sexe gender { get; set; }    
+        public Sexe Genre { get; set; }    
     }
 
     public enum Sexe
