@@ -1,4 +1,5 @@
 using Exo04.Data;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,7 +10,9 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddSingleton<FakeDb>();
+//builder.Services.AddSingleton<FakeDb>();
+string connectionString = builder.Configuration.GetConnectionString("DefaultConnectionString")!;
+builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(connectionString));
 
 var app = builder.Build();
 

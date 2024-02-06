@@ -14,7 +14,8 @@ namespace Exo04.Data
             {
                 Id = 1,
                 FirstName = "Bob",
-                LastName = "Bob",
+                LastName = "Boby",
+                FullName = "Bob Boby",
                 DateOfBirth = new DateTime(1989, 11, 22),
                 Age = 34,
                 Gender = "Homme",
