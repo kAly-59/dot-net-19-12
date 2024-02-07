@@ -1,6 +1,6 @@
-using Demo01.Data;
-using Demo01.Models;
-using Demo01.Repositories;
+using ContactApi.Data;
+using ContactApi.Models;
+using ContactApi.Repositories;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -12,15 +12,10 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-//builder.Services.AddSingleton<CrepeFakeDb>();
+var conn = builder.Configuration.GetConnectionString("Default");
+builder.Services.AddDbContext<AppDbContext>(option => option.UseSqlServer(conn));
 
-var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
-builder.Services.AddDbContext<ApplicationDbContext>(options =>
-{
-    options.UseSqlServer(connectionString);
-});
-
-builder.Services.AddScoped<IRepository<Crepe>, CrepeRepository>();
+builder.Services.AddScoped<IRepository<Contact>, ContactRepository>();
 
 var app = builder.Build();
 
