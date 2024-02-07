@@ -25,10 +25,10 @@ namespace ContactApiDTO.Controllers
 
         //GET /contacts
         [HttpGet]
-        public IActionResult GetAll()
+        public async Task<IActionResult> GetAll()
         {
             //return Ok(_repository.GetAll());
-            IEnumerable<Contact> contacts = _repository.GetAll();
+            IEnumerable<Contact> contacts = await _repository.GetAll();
 
             IEnumerable<ContactDTO> contactDTOs = _mapper.Map<IEnumerable<ContactDTO>>(contacts)!;
             //IEnumerable<ContactDTO> contactDTOs = _mapper.Map<IEnumerable<Contact>, IEnumerable<ContactDTO>>(contacts)!;
@@ -40,9 +40,9 @@ namespace ContactApiDTO.Controllers
 
         //GET /contacts/5
         [HttpGet("{id}")]
-        public IActionResult GetById(int id)
+        public async Task<IActionResult> GetById(int id)
         {
-            var contact = _repository.Get(id);
+            var contact = await _repository.Get(id);
 
             if (contact == null)
                 return NotFound(new
@@ -61,11 +61,11 @@ namespace ContactApiDTO.Controllers
 
         //POST /contacts
         [HttpPost]
-        public IActionResult Post([FromBody] ContactDTO contactDTO)
+        public async Task<IActionResult> Post([FromBody] ContactDTO contactDTO)
         {
             var contact = _mapper.Map<Contact>(contactDTO)!;
 
-            var contactAdded = _repository.Add(contact);
+            var contactAdded = await _repository.Add(contact);
 
             var contactAddedDTO = _mapper.Map<ContactDTO>(contactAdded)!;
 
@@ -83,9 +83,9 @@ namespace ContactApiDTO.Controllers
 
         //PUT /contacts/4
         [HttpPut("{id}")]
-        public IActionResult Put([FromRoute]int id, [FromBody] ContactDTO contactDTO)
+        public async Task<IActionResult> Put([FromRoute]int id, [FromBody] ContactDTO contactDTO)
         {
-            var contactFromDb = _repository.Get(id);
+            var contactFromDb = await _repository.Get(id);
 
             if (contactFromDb == null)
                 return NotFound("There is no Contact with this Id.");
@@ -94,7 +94,7 @@ namespace ContactApiDTO.Controllers
 
             var contact = _mapper.Map<Contact>(contactDTO)!;
 
-            var contactUpdated = _repository.Update(contact);
+            var contactUpdated = await _repository.Update(contact);
 
             var contactUpdatedDTO = _mapper.Map<ContactDTO>(contactUpdated);
 
@@ -111,9 +111,9 @@ namespace ContactApiDTO.Controllers
 
         //DELETE /contacts/12
         [HttpDelete("{id}")]
-        public IActionResult Delete(int id)
+        public async Task<IActionResult> Delete(int id)
         {
-            if (_repository.Delete(id))
+            if (await _repository.Delete(id))
                 return Ok("Contect Deleted");
 
             //return NotFound("Contact Not Found");
@@ -123,9 +123,9 @@ namespace ContactApiDTO.Controllers
 
         //GET /contacts
         [HttpGet("fullnames")]
-        public IActionResult GetAllFullNames()
+        public async Task<IActionResult> GetAllFullNames()
         {
-            IEnumerable<Contact> contacts = _repository.GetAll();
+            IEnumerable<Contact> contacts = await _repository.GetAll();
 
             IEnumerable<ContactDTO> contactDTOs = _mapper.Map<IEnumerable<ContactDTO>>(contacts)!;
 
