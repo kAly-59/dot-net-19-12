@@ -1,4 +1,6 @@
 using Exo04.Data;
+using Exo04.Repositories;
+using Exo04.Repository;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -13,6 +15,8 @@ builder.Services.AddSwaggerGen();
 //builder.Services.AddSingleton<FakeDb>();
 string connectionString = builder.Configuration.GetConnectionString("DefaultConnectionString")!;
 builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(connectionString));
+
+builder.Services.AddScoped<IRepository<Contact> ContactRepository>();
 
 var app = builder.Build();
 

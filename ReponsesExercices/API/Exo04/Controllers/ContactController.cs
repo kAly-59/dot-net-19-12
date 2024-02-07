@@ -1,83 +1,53 @@
-﻿using Exo04.Data;
-using Exo04.Model;
+﻿using Exo04.Model;
+using Exo04.Repository;
 using Microsoft.AspNetCore.Mvc;
 using System.Linq;
 
 namespace Exo04.Controllers
 {
-    [Route("api/contacts")]
+    [Route("contacts")]
+    [ApiController]
     public class ContactsController : ControllerBase
     {
-        //private readonly FakeDb _fakeDb;
+        private readonly IRepository<Contact> _repository;
 
-        //public ContactsController(FakeDb fakeDb)
-        //{
-        //    _fakeDb = fakeDb;
-        //}
-
-        private readonly ApplicationDbContext _context;
-
-        public ContactsController(ApplicationDbContext context)
+        public ContactsController(IRepository<Contact> repository)
         {
-            _context = context;
+            _repository = repository;
         }
 
-        [HttpGet("{id}")]
-        public IActionResult Get(int id)
-        {
-            var contact = _context.Contacts.FirstOrDefault(c => c.Id == id);
-            if (contact == null)
-                return NotFound(new { Message = "Contact non trouvé" });
-
-            return Ok(new { Message = "Contact trouvé", Contact = contact });
-        }
-
+        // Get /contacts
         [HttpGet]
-        public IActionResult GetAllContacts()
+        public IActionResult GetAll(string startLastName)
         {
-            var contacts = _context.Contacts;
-            if (contacts.Any())
-                return Ok(contacts);
+            if (string.IsNullOrEmpty(startLastName))
+                return Ok(_repository.GetAll());
 
-            return NoContent();
+            return Ok(_repository.GetAll(c => c.LastName.StartsWith(startLastName.ToLower())));
         }
 
-        [HttpPost]
-        public IActionResult AddContact([FromBody] Contact contact)
+        // Get /contacts/{id}
+        [HttpGet("{id}")]
+        public IActionResult GetById(int id)
         {
+            Contact contact = _repository.Get(id);
+
             if (contact == null)
-                return BadRequest(new { Message = "Les données du contact sont invalides" });
+                return NotFound(new { Message = "No Contact" });
 
-            _context.Contacts.Add(contact);
-            return CreatedAtAction(nameof(Get), new { id = contact.Id }, new { Message = "Contact ajouté", Contact = contact });
+            return Ok(new { Message = "Contact found", Contact = contact });
         }
 
-        [HttpPut("{id}")]
-        public IActionResult UpdateContact(int id, [FromBody] Contact updatedContact)
+        //POST /contact
+        [HttpGet]
+        public IActionResult Post([FromBody] Contact contact)
         {
-            var existingContact = _context.Contacts.FirstOrDefault(c => c.Id == id);
-            if (existingContact == null)
-                return NotFound(new { Message = "Contact non trouvé" });
+            var contactAdded = _repository.Add(contact);
 
-            existingContact.FirstName = updatedContact.FirstName;
-            existingContact.LastName = updatedContact.LastName;
-            existingContact.DateOfBirth = updatedContact.DateOfBirth;
-            existingContact.Age = updatedContact.Age;
-            existingContact.Gender = updatedContact.Gender;
-            existingContact.Avatar = updatedContact.Avatar;
+            if (contactAdded != null)
+                return CreatedAtAction(nameof(GetById), new { id = 0}, "Contact Adead !");
 
-            return Ok(new { Message = "Contact mis à jour", Contact = existingContact });
-        }
-
-        [HttpDelete("{id}")]
-        public IActionResult DeleteContact(int id)
-        {
-            var contactToRemove = _context.Contacts.FirstOrDefault(c => c.Id == id);
-            if (contactToRemove == null)
-                return NotFound(new { Message = "Contact non trouvé" });
-
-            _context.Contacts.Remove(contactToRemove);
-            return Ok(new { Message = "Contact supprimé", Contact = contactToRemove });
+            return BadRequest("Something was wrong");
         }
     }
 }
