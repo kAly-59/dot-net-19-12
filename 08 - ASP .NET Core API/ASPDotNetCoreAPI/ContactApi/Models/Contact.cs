@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 
 namespace ContactApi.Models
 {
@@ -19,6 +20,7 @@ namespace ContactApi.Models
         public string? FullName => FirstName + " " + LastName; // get => pas d'attribut/variable FullName
         [Column("birth_date")]
         [Required]
+        [JsonIgnore] // la prop sera ignorée pour la serialisation de l'objet
         public DateTime BirthDate { get; set; }
         public int Age
         {
