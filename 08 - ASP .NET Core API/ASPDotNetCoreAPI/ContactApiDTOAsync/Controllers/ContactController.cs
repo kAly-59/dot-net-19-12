@@ -2,6 +2,7 @@
 using ContactApiDTO.DTOs;
 using ContactApiDTO.Models;
 using ContactApiDTO.Repositories;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
@@ -11,6 +12,7 @@ namespace ContactApiDTO.Controllers
     //[Route("api/[controller]")]
     [Route("contacts")]
     [ApiController]
+    //[EnableCors("allConnections")]
     public class ContactController : ControllerBase
     {
         private readonly IRepository<Contact> _repository;
