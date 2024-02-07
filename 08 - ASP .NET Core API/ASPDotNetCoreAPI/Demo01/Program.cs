@@ -1,4 +1,7 @@
 using Demo01.Data;
+using Demo01.Models;
+using Demo01.Repositories;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,7 +12,15 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddSingleton<CrepeFakeDb>();
+//builder.Services.AddSingleton<CrepeFakeDb>();
+
+var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+builder.Services.AddDbContext<ApplicationDbContext>(options =>
+{
+    options.UseSqlServer(connectionString);
+});
+
+builder.Services.AddScoped<IRepository<Crepe>, CrepeRepository>();
 
 var app = builder.Build();
 
