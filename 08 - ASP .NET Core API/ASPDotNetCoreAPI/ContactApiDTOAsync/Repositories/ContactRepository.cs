@@ -90,7 +90,7 @@ namespace ContactApiDTO.Repositories
 
             _db.Contacts.Remove(contactFromDb);
 
-            return _db.SaveChanges() > 0;
+            return await _db.SaveChangesAsync() > 0;
         }
     }
 }
