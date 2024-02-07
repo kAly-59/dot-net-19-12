@@ -1,4 +1,6 @@
 using ContactApi.Data;
+using ContactApi.Models;
+using ContactApi.Repositories;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -12,6 +14,8 @@ builder.Services.AddSwaggerGen();
 
 var conn = builder.Configuration.GetConnectionString("Default");
 builder.Services.AddDbContext<AppDbContext>(option => option.UseSqlServer(conn));
+
+builder.Services.AddScoped<IRepository<Contact>, ContactRepository>();
 
 var app = builder.Build();
 
