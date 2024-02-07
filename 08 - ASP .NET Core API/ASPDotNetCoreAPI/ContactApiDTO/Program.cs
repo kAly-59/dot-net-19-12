@@ -17,6 +17,10 @@ builder.Services.AddDbContext<AppDbContext>(option => option.UseSqlServer(conn))
 
 builder.Services.AddScoped<IRepository<Contact>, ContactRepository>();
 
+// ajouter le service IMapper de AutoMapper
+builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
