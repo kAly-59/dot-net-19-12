@@ -96,5 +96,40 @@ namespace ContactApi.Controllers
             return BadRequest("Something went wrong...");
         }
 
+        //PUT /contacts/4
+        [HttpPut("{id}")]
+        public IActionResult Put([FromRoute]int id, [FromBody] Contact contact)
+        //public IActionResult Put([FromBody] Contact contact) // ici l'id serait dans le contact
+        {
+            var contactFromDb = _repository.Get(id);
+
+            if (contactFromDb == null)
+                return NotFound("There is no Contact with this Id.");
+
+            contact.Id = id; // nécessaire dans le cas où l'id n'est pas ou mal définit dan la requete
+
+            var contactUpdated = _repository.Update(contact);
+
+            if (contactUpdated != null)
+                return Ok(new
+                {
+                    Message = "Contact Updated.",
+                    Contact = contactUpdated
+                });
+
+            return BadRequest("Something went wrong...");
+        }
+
+
+        //DELETE /contacts/12
+        [HttpDelete("{id}")]
+        public IActionResult Delete(int id)
+        {
+            if (_repository.Delete(id))
+                return Ok("Contect Deleted");
+
+            //return NotFound("Contact Not Found");
+            return BadRequest("Something went wrong...");
+        }
     }
 }
