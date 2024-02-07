@@ -109,7 +109,7 @@ namespace Demo01.Controllers
         {
             var crepeFromDb = _repository.GetById(id);
 
-            if (crepe == null)
+            if (crepeFromDb == null)
                 return NotFound("There is no Crepe with this Id.");
 
             crepe.Id = id;
