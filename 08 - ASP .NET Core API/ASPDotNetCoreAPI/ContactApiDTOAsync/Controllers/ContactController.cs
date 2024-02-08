@@ -2,6 +2,8 @@
 using ContactApiDTO.DTOs;
 using ContactApiDTO.Models;
 using ContactApiDTO.Repositories;
+using ContactApiDTOAsync.Helpers;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -9,10 +11,10 @@ using System.Collections.Generic;
 
 namespace ContactApiDTO.Controllers
 {
-    //[Route("api/[controller]")]
+
     [Route("contacts")]
     [ApiController]
-    //[EnableCors("allConnections")]
+    [Authorize]
     public class ContactController : ControllerBase
     {
         private readonly IRepository<Contact> _repository;
@@ -63,6 +65,7 @@ namespace ContactApiDTO.Controllers
 
         //POST /contacts
         [HttpPost]
+        [Authorize(Roles = Constants.RoleAdmin)]
         public async Task<IActionResult> Post([FromBody] ContactDTO contactDTO)
         {
             var contact = _mapper.Map<Contact>(contactDTO)!;
