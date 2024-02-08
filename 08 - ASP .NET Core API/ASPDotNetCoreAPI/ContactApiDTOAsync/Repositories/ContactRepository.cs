@@ -15,10 +15,10 @@ namespace ContactApiDTO.Repositories
         }
 
         // CREATE
-        public Contact? Add(Contact contact)
+        public async Task<Contact?> Add(Contact contact)
         {
-            var addEntry = _db.Contacts.Add(contact); // retourne un EntityEntry<Contact> qui enveloppe le nouveau contact créé
-            _db.SaveChanges();
+            var addEntry = await _db.Contacts.AddAsync(contact); // retourne un EntityEntry<Contact> qui enveloppe le nouveau contact créé
+            await _db.SaveChangesAsync();
 
             if (addEntry.Entity.Id > 0) // si l'entité est bien ajoutée l'id est > 0
                     return addEntry.Entity;
@@ -28,35 +28,38 @@ namespace ContactApiDTO.Repositories
 
 
         // READ
-        public Contact? Get(int id)
+        public async Task<Contact?> Get(int id)
         {
             //return _db.Contacts.Find(id); // ne fonctionne que sur un DbSet<> (EFCore)
-            return _db.Contacts.FirstOrDefault(c => c.Id == id);
+            return await _db.Contacts.FirstOrDefaultAsync(c => c.Id == id);
         }
 
-        public Contact? Get(Expression<Func<Contact, bool>> predicate)
+        public async Task<Contact?> Get(Expression<Func<Contact, bool>> predicate)
         {
-            return _db.Contacts.FirstOrDefault(predicate);
+            return await _db.Contacts.FirstOrDefaultAsync(predicate);
         }
 
-        public IEnumerable<Contact> GetAll()
+        public async Task<IEnumerable<Contact>> GetAll()
         {
             return _db.Contacts; 
             // DbSet<> implémente l'interface IEnumerable
             // en ne faisant pas le .ToList() tout de suite, on repousse l'exécution de la requête LINQ
             // cela est plus otpimisé/pratique
+
+            //return await _db.Contacts.ToListAsync();
         }
 
-        public IEnumerable<Contact> GetAll(Expression<Func<Contact, bool>> predicate)
+        public async Task<IEnumerable<Contact>> GetAll(Expression<Func<Contact, bool>> predicate)
         {
             return _db.Contacts.Where(predicate);
+            //return await _db.Contacts.Where(predicate).ToListAsync();
         }
 
 
         // UPDATE
-        public Contact? Update(Contact contact)
+        public async Task<Contact?> Update(Contact contact)
         {
-            var contactFromDb = Get(contact.Id); // entitée récupérée donc TRAQUEE par l'ORM (EFCore)
+            var contactFromDb = await Get(contact.Id); // entitée récupérée donc TRAQUEE par l'ORM (EFCore)
 
             if (contactFromDb == null)
                 return null; // erreur lors de la modification => contact non trouvé
@@ -70,7 +73,7 @@ namespace ContactApiDTO.Repositories
             if (contactFromDb.Gender != contact.Gender)
                 contactFromDb.Gender = contact.Gender;
 
-            if (_db.SaveChanges() == 0)
+            if (await _db.SaveChangesAsync() == 0)
                 return null; // erreur lors de la modification
 
             return contactFromDb;
@@ -78,16 +81,16 @@ namespace ContactApiDTO.Repositories
 
 
         // DELETE
-        public bool Delete(int id)
+        public async Task<bool> Delete(int id)
         {
-            var contactFromDb = Get(id); // entitée récupérée donc TRAQUEE par l'ORM (EFCore)
+            var contactFromDb = await Get(id); // entitée récupérée donc TRAQUEE par l'ORM (EFCore)
 
             if (contactFromDb == null)
                 return false; // erreur lors de la suppression => contact non trouvé
 
             _db.Contacts.Remove(contactFromDb);
 
-            return _db.SaveChanges() > 0;
+            return await _db.SaveChangesAsync() > 0;
         }
     }
 }

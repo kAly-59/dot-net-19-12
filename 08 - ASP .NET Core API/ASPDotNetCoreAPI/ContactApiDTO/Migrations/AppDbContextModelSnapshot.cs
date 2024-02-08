@@ -53,7 +53,7 @@ namespace ContactApiDTO.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("contact");
+                    b.ToTable("contact", (string)null);
                 });
 #pragma warning restore 612, 618
         }
