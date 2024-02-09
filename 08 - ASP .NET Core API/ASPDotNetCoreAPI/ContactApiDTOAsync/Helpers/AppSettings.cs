@@ -1,5 +1,6 @@
 ﻿namespace ContactApiDTOAsync.Helpers
 {
+    // Class pour pouvoir manipuler et interagir avec appsettings.json
     public class AppSettings
     {
 
