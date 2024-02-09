@@ -1,24 +1,15 @@
 using ContactApiDTO.Data;
 using ContactApiDTO.Models;
 using ContactApiDTO.Repositories;
+using ContactApiDTOAsync.Extension;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
 
-builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
 
-var conn = builder.Configuration.GetConnectionString("Default");
-builder.Services.AddDbContext<AppDbContext>(option => option.UseSqlServer(conn));
+builder.InjectDependancies();
 
-builder.Services.AddScoped<IRepository<Contact>, ContactRepository>();
-
-// ajouter le service IMapper de AutoMapper
-builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
 //builder.Services.AddCors(options =>
 //{
@@ -53,8 +44,9 @@ app.UseCors(options =>
     options.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader();
 });
 
-app.UseAuthorization();
 
+app.UseAuthorization();
+app.UseAuthentication();
 app.MapControllers();
 
 app.Run();

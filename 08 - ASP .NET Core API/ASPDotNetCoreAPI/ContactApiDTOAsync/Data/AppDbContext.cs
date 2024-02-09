@@ -1,4 +1,5 @@
 ﻿using ContactApiDTO.Models;
+using ContactApiDTOAsync.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace ContactApiDTO.Data
@@ -10,6 +11,7 @@ namespace ContactApiDTO.Data
         }
 #nullable disable
         public DbSet<Contact> Contacts { get; set; }
+        public DbSet<User> Users { get; set; }
 #nullable enable
     }
 }
