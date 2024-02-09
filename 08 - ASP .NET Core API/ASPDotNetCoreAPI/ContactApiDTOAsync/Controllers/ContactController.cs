@@ -43,6 +43,7 @@ namespace ContactApiDTO.Controllers
         }
 
         //GET /contacts/5
+        [Authorize(Roles = Constants.RoleUser)]
         [HttpGet("{id}")]
         public async Task<IActionResult> GetById(int id)
         {

@@ -56,10 +56,7 @@ namespace ContactApiDTOAsync.Extension
 
 
             }
-                
-                
-                
-                
+                      
          );
         }
 
@@ -115,7 +112,8 @@ namespace ContactApiDTOAsync.Extension
                 options.AddPolicy(Constants.PolicyAdmin, policy =>
                 {
                     policy.RequireClaim(ClaimTypes.Role, Constants.RoleAdmin);
-                   // policy.RequireClaim(ClaimTypes.Role, Constants.RoleUser);
+                   
+                   
                 });
 
                 options.AddPolicy(Constants.PolicyUser, policy =>
