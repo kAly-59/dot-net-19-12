@@ -47,7 +47,7 @@ namespace ContactApiDTOAsync.Controllers
 
         }
 
-       
+        [HttpPost("login")]
         public async Task<IActionResult> Login([FromBody] LoginRequestDto login)
         {
             login.Password = PasswordCrypter.Encrypt(login.Password, _appSettings1.SecretKey!);
