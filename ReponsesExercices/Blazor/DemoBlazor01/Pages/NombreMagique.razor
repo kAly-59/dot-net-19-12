@@ -9,7 +9,7 @@
 {
     <div>
         <p>Devinez le nombre compris entre 0 & 20 !!</p>
-        <input @bind="userInput" type="number" min="0" max="20" />
+        <input @bind="userInput" @onkeydown="ValiderEntree" type="number" min="0" max="20" />
         <button @onclick="Tester">Tester</button>
     </div>
 
@@ -26,6 +26,7 @@
     <p>@message</p>
     @if (message == "Gagné! 😊" || message == "Perdu! 😞")
     {
+        <p>La bonne réponse était: @bonneReponse</p>
         <button @onclick="Rejouer">Rejouer</button>
     }
 }
@@ -33,10 +34,11 @@
 @code {
     Random random = new Random();
     int nombreMagique;
-    int essaisRestants = 5;
+    int essaisRestants;
     string message = "";
     int userInput;
     bool jeuTerminer = false;
+    int bonneReponse;
 
     protected override void OnInitialized()
     {
@@ -46,10 +48,19 @@
     void NouvellePartie()
     {
         nombreMagique = random.Next(0, 21);
+        bonneReponse = nombreMagique;
         essaisRestants = 5;
         message = "";
         userInput = 0;
         jeuTerminer = false;
+    }
+
+    void ValiderEntree(KeyboardEventArgs e)
+    {
+        if (e.Key == "Enter")
+        {
+            Tester();
+        }
     }
 
     void Tester()
@@ -69,7 +80,14 @@
             }
             else
             {
-                message = "Il vous reste " + essaisRestants + " vie.";
+                if (userInput < nombreMagique)
+                {
+                    message = "Le nombre est plus grand";
+                }
+                else
+                {
+                    message = "Le nombre est plus petit";
+                }
             }
         }
     }
