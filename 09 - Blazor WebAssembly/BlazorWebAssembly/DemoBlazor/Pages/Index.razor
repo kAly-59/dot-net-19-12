@@ -9,6 +9,13 @@ Welcome to your new app.
 <SurveyPrompt Title="How is Blazor working for you?" />
 
 
+@* <Counter />
+<Counter CurrentCount="404"/>
 <Counter></Counter>
-<Counter></Counter>
-<DemoBlazor.Pages.Counter></DemoBlazor.Pages.Counter>
+<DemoBlazor.Pages.Counter/> *@
+
+@for (int i = 1; i <= 5; i++)
+{
+    <h2>@i</h2>
+    <Counter CurrentCount="i" />
+}

@@ -5,16 +5,17 @@ namespace DemoBlazor.Pages
     public partial class Counter
     //public class CounterBase : ComponentBase
     {
-        private int currentCount = 0;
+        [Parameter]
+        public int CurrentCount { get; set; } = 0;
 
         private void IncrementCount()
         {
-            currentCount += 10;
+            CurrentCount += 10;
         }
 
         private void DecrementCount()
         {
-            currentCount -= 10;
+            CurrentCount -= 10;
         }
     }
 }
