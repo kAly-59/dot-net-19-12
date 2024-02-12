@@ -3,6 +3,9 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel;
 using ContactApiDTOAsync.Validator;
 
+
+
+// Model pour manipuler un User
 namespace ContactApiDTOAsync.Models
 {
     [Table("user")]
