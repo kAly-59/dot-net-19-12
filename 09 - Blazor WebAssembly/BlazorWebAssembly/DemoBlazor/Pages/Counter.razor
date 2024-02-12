@@ -1,4 +1,6 @@
 ﻿@page "/counter"
+@page "/counter2"
+@* @inherits CounterBase *@
 
 <PageTitle>Counter</PageTitle>
 
@@ -10,16 +12,3 @@
 <button class="btn btn-primary" @onclick="() => currentCount++">+1</button>
 <button class="btn btn-primary" @onclick="DecrementCount">-10</button>
 
-@code {
-    private int currentCount = 0;
-
-    private void IncrementCount()
-    {
-        currentCount+=10;
-    }
-
-    private void DecrementCount()
-    {
-        currentCount -= 10;
-    }
-}
