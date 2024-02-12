@@ -1,0 +1,81 @@
+﻿@page "/nombremagique"
+
+<PageTitle>Nombre Magique</PageTitle>
+
+<h1>Nombre Magique</h1>
+
+
+@if (!jeuTerminer)
+{
+    <div>
+        <p>Devinez le nombre compris entre 0 & 20 !!</p>
+        <input @bind="userInput" type="number" min="0" max="20" />
+        <button @onclick="Tester">Tester</button>
+    </div>
+
+    <div>
+        @for (int i = 0; i < essaisRestants; i++)
+        {
+            <span>❤️</span>
+        }
+    </div>
+}
+
+@if (message != "")
+{
+    <p>@message</p>
+    @if (message == "Gagné! 😊" || message == "Perdu! 😞")
+    {
+        <button @onclick="Rejouer">Rejouer</button>
+    }
+}
+
+@code {
+    Random random = new Random();
+    int nombreMagique;
+    int essaisRestants = 5;
+    string message = "";
+    int userInput;
+    bool jeuTerminer = false;
+
+    protected override void OnInitialized()
+    {
+        NouvellePartie();
+    }
+
+    void NouvellePartie()
+    {
+        nombreMagique = random.Next(0, 21);
+        essaisRestants = 5;
+        message = "";
+        userInput = 0;
+        jeuTerminer = false;
+    }
+
+    void Tester()
+    {
+        essaisRestants--;
+        if (userInput == nombreMagique)
+        {
+            message = "Gagné! 😊";
+            jeuTerminer = true;
+        }
+        else
+        {
+            if (essaisRestants <= 0)
+            {
+                message = "Perdu! 😞";
+                jeuTerminer = true;
+            }
+            else
+            {
+                message = "Il vous reste " + essaisRestants + " vie.";
+            }
+        }
+    }
+
+    void Rejouer()
+    {
+        NouvellePartie();
+    }
+}
