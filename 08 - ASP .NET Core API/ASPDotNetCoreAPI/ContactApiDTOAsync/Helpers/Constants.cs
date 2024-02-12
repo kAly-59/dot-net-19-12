@@ -1,5 +1,6 @@
 ﻿namespace ContactApiDTOAsync.Helpers
 {
+    // Constante pour manipuler Role et Policy
     public class Constants
     {
         public const string PolicyAdmin = "PolicyAdmin";

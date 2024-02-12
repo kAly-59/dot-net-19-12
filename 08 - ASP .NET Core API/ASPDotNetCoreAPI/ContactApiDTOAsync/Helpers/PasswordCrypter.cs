@@ -2,6 +2,8 @@
 
 namespace ContactApiDTOAsync.Helpers
 {
+
+    // Class dédié à l'encodage du mot de passe.
     public class PasswordCrypter
     {
 
