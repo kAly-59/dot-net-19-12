@@ -8,7 +8,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 
 
-builder.InjectDependancies();
+builder.InjectDependencies();
 
 
 //builder.Services.AddCors(options =>
