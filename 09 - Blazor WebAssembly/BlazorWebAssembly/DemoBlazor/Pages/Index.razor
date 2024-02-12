@@ -19,3 +19,12 @@ Welcome to your new app.
     <h2>@i</h2>
     <Counter CurrentCount="i" />
 }
+
+
+<h4>@MaChaineCascading</h4>
+
+@code{
+    // [CascadingParameter]
+    [CascadingParameter(Name = "MaChaineCascading")]
+    public string? MaChaineCascading { get; set; }
+}
