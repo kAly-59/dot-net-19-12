@@ -4,33 +4,52 @@
 <h3>Formulaire pour Gorille</h3>
 
 <EditForm Model="Gorilla" OnValidSubmit="HandleSubmit">
+    <DataAnnotationsValidator /> @* fait fonctionner la validation *@
 
     <div class="mb-3">
         <label for="name" class="form-label">Nom du Gorille</label>
         <InputText class="form-control" id="name" @bind-Value="Gorilla.Name" />
+        <small>
+            <ValidationMessage For="() => Gorilla.Name" />
+        </small>
     </div>
 
     <div class="mb-3">
         <label for="description" class="form-label">Description</label>
         <InputTextArea class="form-control" id="description" @bind-Value="Gorilla.Description" />
+        <small>
+            <ValidationMessage For="() => Gorilla.Description" />
+        </small>
     </div>
 
     <div class="mb-3 form-check">
         <InputCheckbox class="form-check-input" id="ownsBanana" @bind-Value="Gorilla.OwnsBanana" />
         <label for="ownsBanana" class="form-check-label">Possède une Banane</label>
+        <small>
+            <ValidationMessage For="() => Gorilla.OwnsBanana" />
+        </small>
     </div>
 
     <div class="mb-3">
         <label for="fur" class="form-label">Fourrure</label>
         <InputSelect class="form-select" id="fur" @bind-Value="Gorilla.FurColor">
+            @* <option selected>Selectionner une couleur</option> *@
             @foreach (FurColor furColor in Enum.GetValues(typeof(FurColor)))
             {
-                <option value="@furColor">@furColor</option>
+                @* <option value="@furColor">@furColor</option> *@
+                <option value="@furColor">@(furColor != FurColor.Nothing ? furColor : "Selectionner une couleur")</option>
             }
         </InputSelect>
+        <small>
+            <ValidationMessage For="() => Gorilla.FurColor" />
+        </small>
     </div>
 
     <button type="submit" class="btn btn-primary">Submit</button>
+
+    <div>
+        <ValidationSummary/>
+    </div>
 </EditForm>
 
 @code {
