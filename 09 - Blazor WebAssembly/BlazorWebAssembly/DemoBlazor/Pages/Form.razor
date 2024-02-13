@@ -1,0 +1,43 @@
+﻿@page "/form"
+@* @using DemoBlazor.Models; *@
+
+<h3>Formulaire pour Gorille</h3>
+
+<EditForm Model="Gorilla" OnValidSubmit="HandleSubmit">
+
+    <div class="mb-3">
+        <label for="name" class="form-label">Nom du Gorille</label>
+        <InputText class="form-control" id="name" @bind-Value="Gorilla.Name" />
+    </div>
+
+    <div class="mb-3">
+        <label for="description" class="form-label">Description</label>
+        <InputTextArea class="form-control" id="description" @bind-Value="Gorilla.Description" />
+    </div>
+
+    <div class="mb-3 form-check">
+        <InputCheckbox class="form-check-input" id="ownsBanana" @bind-Value="Gorilla.OwnsBanana" />
+        <label for="ownsBanana" class="form-check-label">Possède une Banane</label>
+    </div>
+
+    <div class="mb-3">
+        <label for="fur" class="form-label">Fourrure</label>
+        <InputSelect class="form-select" id="fur" @bind-Value="Gorilla.FurColor">
+            @foreach (FurColor furColor in Enum.GetValues(typeof(FurColor)))
+            {
+                <option value="@furColor">@furColor</option>
+            }
+        </InputSelect>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+</EditForm>
+
+@code {
+    public Gorilla Gorilla { get; set; } = new Gorilla();
+
+    public void HandleSubmit()
+    {
+        Console.WriteLine(Gorilla); // dans un cas réel on l'enverra à une API/BDD
+    }
+}
