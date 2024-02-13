@@ -1,4 +1,6 @@
 ﻿@page "/"
+@* @inject NavigationManager Navigation *@
+@* injection de dépendances dans un composant *@
 
 <PageTitle>Index</PageTitle>
 
@@ -23,8 +25,26 @@ Welcome to your new app.
 
 <h4>@MaChaineCascading</h4>
 
+
+<NavLink class="btn btn-info" href="/counter/243">Vers la page compteur 243</NavLink>
+
+<button @onclick="GoToCounter" class="btn btn-info">Vers la page compteur</button>
+
+<button @onclick="@(() => Navigation.NavigateTo("counter/243"))" class="btn btn-info">Vers la page compteur</button>
+
+
+
 @code{
     // [CascadingParameter]
     [CascadingParameter(Name = "MaChaineCascading")]
     public string? MaChaineCascading { get; set; }
+
+    [Inject]
+    public NavigationManager Navigation { get; set; }
+    // revient au même que "@inject NavigationManager Navigation" dans la partie razor
+
+    public void GoToCounter()
+    {
+        Navigation.NavigateTo("counter/243");
+    }
 }
