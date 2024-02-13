@@ -13,6 +13,11 @@
 
   <ItemGroup>
     <Folder Include="Components\" />
+    <Folder Include="wwwroot\gif\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\gif\C3rb.gif" />
   </ItemGroup>
 
 </Project>

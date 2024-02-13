@@ -11,6 +11,7 @@
         <p>Devinez le nombre compris entre 0 & 20 !!</p>
         <input @bind="userInput" @onkeydown="ValiderEntree" type="number" min="0" max="20" />
         <button @onclick="Tester">Tester</button>
+        <button @onclick="Rejouer">Rejouer</button>
     </div>
 
     <div>
@@ -24,9 +25,15 @@
 @if (message != "")
 {
     <p>@message</p>
-    @if (message == "Gagné! 😊" || message == "Perdu! 😞")
+    @if (message == "Gagné! 😊")
     {
         <p>La bonne réponse était: @bonneReponse</p>
+        <iframe src="https://gifer.com/embed/C3rb" width=480 height=500 frameBorder="0" allowFullScreen></iframe>
+        <button @onclick="Rejouer">Rejouer</button>
+    }
+    else if (message == "Perdu! 😞")
+    {
+        <p>La bonne réponse était: @bonneReponse</p>      
         <button @onclick="Rejouer">Rejouer</button>
     }
 }

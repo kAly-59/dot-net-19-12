@@ -1,0 +1,86 @@
+﻿@page "/formulaire"
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulaire</title>
+    <!-- Ajout de Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Style personnalisé */
+        .form-group {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Formulaire </h1>
+        <br/>
+        <form id="myForm" method="post" onsubmit="return validateForm()">
+            <fieldset>
+                <div class="form-group row">
+                    <label for="Nom" class="col-sm-2 col-form-label">Nom :</label>
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control" id="Nom" name="Nom" placeholder="Entrez votre nom">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="Email" class="col-sm-2 col-form-label">Email :</label>
+                    <div class="col-sm-4">
+                        <input type="email" class="form-control" id="Email" name="Email" placeholder="Entrez votre email">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="Adresse" class="col-sm-2 col-form-label">Adresse :</label>
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control" id="Adresse" name="Adresse" placeholder="Entrez votre adresse">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="CodePostal" class="col-sm-2 col-form-label">Code Postal :</label>
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control" id="CodePostal" name="CodePostal" placeholder="Entrez votre code postal">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="Age" class="col-sm-2 col-form-label">Age :</label>
+                    <div class="col-sm-4">
+                        <input type="number" class="form-control" id="Age" name="Age" placeholder="Entrez votre âge">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="Naissance" class="col-sm-2 col-form-label">Date de naissance :</label>
+                    <div class="col-sm-4">
+                        <input type="date" class="form-control" id="Naissance" name="Naissance">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-sm-2">Marié ?</div>
+                    <div class="col-sm-4">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="Marie" name="Marie">
+                            <label class="form-check-label" for="Marie">Oui</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="CouleurFavorite" class="col-sm-2 col-form-label">Couleur favorite :</label>
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control" id="CouleurFavorite" name="CouleurFavorite" placeholder="Entrez votre couleur favorite">
+                    </div>
+                </div>
+            </fieldset>
+            <button type="submit" class="btn btn-primary">Envoyer</button>
+        </form>
+    </div>
+
+    <!-- Ajout de Bootstrap JS (optionnel) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>
