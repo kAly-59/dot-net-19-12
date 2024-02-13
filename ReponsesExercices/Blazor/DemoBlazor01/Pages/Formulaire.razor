@@ -6,12 +6,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formulaire</title>
-    <!-- Ajout de Bootstrap CSS -->
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
     <style>
-        /* Style personnalisé */
         .form-group {
-            margin-bottom: 20px;
+            margin-bottom: 10px;
         }
     </style>
 </head>
@@ -19,43 +17,43 @@
 
     <div class="container">
         <h1>Formulaire </h1>
-        <br/>
-        <form id="myForm" method="post" onsubmit="return validateForm()">
+        <br />
+        <form id="myForm" method="post" onsubmit="validateForm()">
             <fieldset>
                 <div class="form-group row">
                     <label for="Nom" class="col-sm-2 col-form-label">Nom :</label>
                     <div class="col-sm-4">
-                        <input type="text" class="form-control" id="Nom" name="Nom" placeholder="Entrez votre nom">
+                        <input type="text" class="form-control" id="Nom" name="nom" placeholder="Entrez votre nom">
                     </div>
                 </div>
                 <div class="form-group row">
                     <label for="Email" class="col-sm-2 col-form-label">Email :</label>
                     <div class="col-sm-4">
-                        <input type="email" class="form-control" id="Email" name="Email" placeholder="Entrez votre email">
+                        <input type="email" class="form-control" id="Email" name="email" placeholder="Entrez votre email">
                     </div>
                 </div>
                 <div class="form-group row">
                     <label for="Adresse" class="col-sm-2 col-form-label">Adresse :</label>
                     <div class="col-sm-4">
-                        <input type="text" class="form-control" id="Adresse" name="Adresse" placeholder="Entrez votre adresse">
+                        <input type="text" class="form-control" id="Adresse" name="adresse" placeholder="Entrez votre adresse">
                     </div>
                 </div>
                 <div class="form-group row">
                     <label for="CodePostal" class="col-sm-2 col-form-label">Code Postal :</label>
                     <div class="col-sm-4">
-                        <input type="text" class="form-control" id="CodePostal" name="CodePostal" placeholder="Entrez votre code postal">
+                        <input type="text" class="form-control" id="CodePostal" name="codePostal" placeholder="Entrez votre code postal">
                     </div>
                 </div>
                 <div class="form-group row">
                     <label for="Age" class="col-sm-2 col-form-label">Age :</label>
                     <div class="col-sm-4">
-                        <input type="number" class="form-control" id="Age" name="Age" placeholder="Entrez votre âge">
+                        <input type="number" class="form-control" id="Age" name="age" placeholder="Entrez votre âge">
                     </div>
                 </div>
                 <div class="form-group row">
                     <label for="Naissance" class="col-sm-2 col-form-label">Date de naissance :</label>
                     <div class="col-sm-4">
-                        <input type="date" class="form-control" id="Naissance" name="Naissance">
+                        <input type="date" class="form-control" id="Naissance" name="naissance">
                     </div>
                 </div>
                 <div class="form-group row">
@@ -70,17 +68,18 @@
                 <div class="form-group row">
                     <label for="CouleurFavorite" class="col-sm-2 col-form-label">Couleur favorite :</label>
                     <div class="col-sm-4">
-                        <input type="text" class="form-control" id="CouleurFavorite" name="CouleurFavorite" placeholder="Entrez votre couleur favorite">
+                        <select class="form-control" id="CouleurFavorite" name="CouleurFavorite">
+                            <option value="rouge">Rouge</option>
+                            <option value="bleu">Bleu</option>
+                            <option value="vert">Vert</option>
+                            <option value="jaune">Jaune</option>
+                        </select>
                     </div>
                 </div>
             </fieldset>
             <button type="submit" class="btn btn-primary">Envoyer</button>
         </form>
     </div>
-
-    <!-- Ajout de Bootstrap JS (optionnel) -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.2/js/bootstrap.min.js"></script>
 </body>
 </html>
