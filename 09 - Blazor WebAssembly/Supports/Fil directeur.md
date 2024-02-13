@@ -27,7 +27,7 @@
 9. [Cascading parameters](https://learn.microsoft.com/fr-fr/aspnet/core/blazor/components/cascading-values-and-parameters?view=aspnetcore-6.0)
 10. [Le Data Binding](https://learn.microsoft.com/fr-fr/aspnet/core/blazor/components/data-binding?view=aspnetcore-6.0)
 11. [Les événement](https://learn.microsoft.com/fr-fr/aspnet/core/blazor/components/event-handling?view=aspnetcore-6.0)
-12. [EventCallBack](https://learn.microsoft.com/fr-fr/aspnet/core/blazor/components/event-handling?view=aspnetcore-6.0#eventcallback-1)
+12. [EventCallBack](https://learn.microsoft.com/fr-fr/aspnet/core/blazor/components/event-handling?view=aspnetcore-6.0#eventcallback)
 13. [Cycle de vie des composants](https://learn.microsoft.com/fr-fr/aspnet/core/blazor/components/lifecycle?view=aspnetcore-6.0)
     
 **TP Magic Number**

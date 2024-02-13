@@ -1,0 +1,15 @@
+﻿<h3>Child</h3>
+
+<p>
+    <button @onclick="OnClickCallBack">
+        Bouton du child
+    </button>
+</p>
+
+
+@code {
+    [Parameter]
+    public EventCallback<MouseEventArgs> OnClickCallBack { get; set; }
+    // Propriété qui contiendra une méthode appélée au click, elle prendra en paramêtre un évènnement de click
+    public EventCallback<int> OnClickCallBack2 { get; set; }
+}
