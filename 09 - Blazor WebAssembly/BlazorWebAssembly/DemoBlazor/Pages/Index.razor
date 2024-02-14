@@ -32,7 +32,8 @@ Welcome to your new app.
 
 <button @onclick="@(() => Navigation.NavigateTo("counter/243"))" class="btn btn-info">Vers la page compteur</button>
 
-
+<p>@Navigation.BaseUri</p>
+<p>@Navigation.Uri</p>
 
 @code{
     // [CascadingParameter]

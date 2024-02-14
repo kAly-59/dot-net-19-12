@@ -1,5 +1,7 @@
 ﻿@page "/form"
+@using DemoBlazor.Services
 @* @using DemoBlazor.Models; *@
+@inject IGorillaService gorillaService
 
 <h3>Formulaire pour Gorille</h3>
 
@@ -52,11 +54,41 @@
     </div>
 </EditForm>
 
+<p>@ErrorMessage</p>
+
+<input type="number" @bind="DeleteId" />
+<button @onclick="HandleDelete" class="btn btn-danger">Supprimer un Gorille</button>
+
 @code {
     public Gorilla Gorilla { get; set; } = new Gorilla();
+    public string? ErrorMessage { get; set; }
+
+    public int DeleteId { get; set; }
 
     public void HandleSubmit()
     {
         Console.WriteLine(Gorilla); // dans un cas réel on l'enverra à une API/BDD
+        var success = gorillaService.Post(Gorilla);
+
+        if (!success)
+        {
+            ErrorMessage = "L'api n'a pas fonctionné pour l'ajout du gorille";
+        }
+        else
+        {
+            ErrorMessage = "";
+            Gorilla = new Gorilla(); // vider le formulaire
+        }
+    }
+
+    public void HandleDelete()
+    {
+        var success = gorillaService.Delete(DeleteId);
+        if (!success)
+            ErrorMessage = "L'api n'a pas fonctionné pour la suppression du gorille";
+        else
+        {
+            ErrorMessage = "";
+        }
     }
 }
