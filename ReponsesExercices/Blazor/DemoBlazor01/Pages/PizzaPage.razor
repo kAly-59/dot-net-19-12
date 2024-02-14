@@ -1,0 +1,140 @@
+﻿@page "/pizzapage"
+@using DemoBlazor01.Model
+
+<PageTitle>Liste des Pizzas</PageTitle>
+
+<div class="row">
+    <div class="col-md-6">
+        <h3>-- Liste des Pizzas --</h3>
+
+        @if (pizzas != null && pizzas.Any())
+        {
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Nom</th>
+                        <th>Prix</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var pizza in pizzas)
+                    {
+                        <tr>
+                            <td>
+                                <span style="text-transform: uppercase; color: green; font-size: larger">@pizza.Name</span>
+                                <br />
+                                <span>
+                                    @foreach (var ingredient in pizza.Ingredients)
+                                    {
+                                        <span>@ingredient.ToString() </span>
+                                        if (ingredient != pizza.Ingredients.Last())
+                                        {
+                                            <span>, </span>
+                                        }
+                                    }
+                                </span>
+                            </td>
+                            <td class="text-center align-middle">@pizza.Price €</td>
+                            <td class="text-center align-middle">
+                                <button type="button" class="btn btn-primary btn-sm" @onclick="() => AddToCart(pizza)">ADD</button>
+                                <button type="button" class="btn btn-danger btn-sm" @onclick="() => RemoveFromCart(pizza)">SUP</button>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+    </div>
+
+    <div class="col-md-5 text-center align-middle">
+        <h3>Panier</h3>
+        <div>
+            @foreach (var item in panierGrouped)
+            {
+                <div>@item.Pizza.Name : x @item.Quantity = @(item.Pizza.Price * item.Quantity) €</div>
+            }
+            <div>Total: <span style="font-weight: bold; color: red;">@TotalPanier €</span></div>
+            <button type="button" class="btn btn-danger btn-sm" @onclick="() => RemoveFromCart(item.Quantity == null)">SUP</button>
+        </div>
+    </div>
+
+
+</div>
+
+<style>
+    .square-button {
+        width: 30px;
+        height: 30px;
+        padding: 0;
+    }
+</style>
+
+@code {
+
+    List<Pizza> pizzas = new List<Pizza>();
+    List<CartItem> panier = new List<CartItem>();
+
+    protected override void OnInitialized()
+    {
+        pizzas = new List<Pizza>
+        {
+            new Pizza { Id = 1, Name = "Margherita", Price = 8.99m, Ingredients = new List<Pizza.Ingredient> { Pizza.Ingredient.SauceTomate, Pizza.Ingredient.Mozzarrela } },
+            new Pizza { Id = 2, Name = "Pepperoni", Price = 9.99m, Ingredients = new List<Pizza.Ingredient> { Pizza.Ingredient.SauceTomate, Pizza.Ingredient.Mozzarrela, Pizza.Ingredient.Bacon } },
+            new Pizza { Id = 3, Name = "Vegetariana", Price = 10.99m, Ingredients = new List<Pizza.Ingredient> { Pizza.Ingredient.SauceTomate, Pizza.Ingredient.Mozzarrela, Pizza.Ingredient.Poivron, Pizza.Ingredient.Oignon } },
+            new Pizza { Id = 4, Name = "Quatre Fromages", Price = 11.99m, Ingredients = new List<Pizza.Ingredient> { Pizza.Ingredient.SauceTomate, Pizza.Ingredient.Mozzarrela, Pizza.Ingredient.Emmental, Pizza.Ingredient.Chevre } },
+            new Pizza { Id = 5, Name = "Carbonara", Price = 12.99m, Ingredients = new List<Pizza.Ingredient> { Pizza.Ingredient.CremeFraiche, Pizza.Ingredient.Mozzarrela, Pizza.Ingredient.Bacon, Pizza.Ingredient.Oignon } },
+            new Pizza { Id = 6, Name = "Saumon", Price = 13.99m, Ingredients = new List<Pizza.Ingredient> { Pizza.Ingredient.CremeFraiche, Pizza.Ingredient.Saumon, Pizza.Ingredient.Bacon } },
+            new Pizza { Id = 7, Name = "Mexicaine", Price = 11.99m, Ingredients = new List<Pizza.Ingredient> { Pizza.Ingredient.SauceTomate, Pizza.Ingredient.Mozzarrela, Pizza.Ingredient.Poulet, Pizza.Ingredient.Poivron, Pizza.Ingredient.Oignon } },
+            new Pizza { Id = 8, Name = "Tropicale", Price = 12.99m, Ingredients = new List<Pizza.Ingredient> { Pizza.Ingredient.SauceTomate, Pizza.Ingredient.Mozzarrela, Pizza.Ingredient.Boeuf, Pizza.Ingredient.Oignon } },
+            new Pizza { Id = 9, Name = "Napolitaine", Price = 10.99m, Ingredients = new List<Pizza.Ingredient> { Pizza.Ingredient.SauceTomate, Pizza.Ingredient.Mozzarrela, Pizza.Ingredient.Bacon, Pizza.Ingredient.Artichaut } },
+            new Pizza { Id = 10, Name = "Bolognaise", Price = 12.99m, Ingredients = new List<Pizza.Ingredient> { Pizza.Ingredient.CremeFraiche, Pizza.Ingredient.Mozzarrela, Pizza.Ingredient.Oignon, Pizza.Ingredient.Emmental } },
+        };
+    }
+
+    private void AddToCart(Pizza pizza)
+    {
+        var existingItem = panier.FirstOrDefault(item => item.Pizza.Name == pizza.Name);
+        if (existingItem != null)
+        {
+            existingItem.Quantity++;
+        }
+        else
+        {
+            panier.Add(new CartItem { Pizza = pizza, Quantity = 1 });
+        }
+    }
+
+    private void RemoveFromCart(Pizza pizza)
+    {
+        var existingItem = panier.FirstOrDefault(item => item.Pizza.Name == pizza.Name);
+        if (existingItem != null)
+        {
+            if (existingItem.Quantity > 1)
+            {
+                existingItem.Quantity--;
+            }
+            else
+            {
+                panier.Remove(existingItem);
+            }
+        }
+    }
+
+    public class CartItem
+    {
+        public Pizza Pizza { get; set; }
+        public int Quantity { get; set; }
+    }
+
+    public IEnumerable<CartItem> panierGrouped
+    {
+        get
+        {
+            return panier.GroupBy(item => item.Pizza.Name)
+                         .Select(group => new CartItem { Pizza = group.First().Pizza, Quantity = group.Sum(item => item.Quantity) });
+        }
+    }
+
+    public decimal TotalPanier => panier.Sum(item => item.Pizza.Price * item.Quantity);
+}

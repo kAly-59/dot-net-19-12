@@ -1,85 +1,90 @@
 ﻿@page "/formulaire"
+@using DemoBlazor01.Model
 
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formulaire</title>
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        .form-group {
-            margin-bottom: 10px;
-        }
-    </style>
-</head>
-<body>
+<PageTitle>FORMULAIRE</PageTitle>
+<h3>--FORMULAIRE--</h3>
 
-    <div class="container">
-        <h1>Formulaire </h1>
-        <br />
-        <form id="myForm" method="post" onsubmit="validateForm()">
-            <fieldset>
-                <div class="form-group row">
-                    <label for="nom" class="col-sm-2 col-form-label">Nom :</label>
-                    <div class="col-sm-4">
-                        <input type="text" class="form-control" id="nom" name="nom" placeholder="Entrez votre nom">
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label for="email" class="col-sm-2 col-form-label">Email :</label>
-                    <div class="col-sm-4">
-                        <input type="email" class="form-control" id="email" name="email" placeholder="Entrez votre email">
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label for="adresse" class="col-sm-2 col-form-label">Adresse :</label>
-                    <div class="col-sm-4">
-                        <input type="text" class="form-control" id="adresse" name="adresse" placeholder="Entrez votre adresse">
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label for="codePostal" class="col-sm-2 col-form-label">Code Postal :</label>
-                    <div class="col-sm-4">
-                        <input type="text" class="form-control" id="codePostal" name="codePostal" placeholder="Entrez votre code postal">
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label for="age" class="col-sm-2 col-form-label">Age :</label>
-                    <div class="col-sm-4">
-                        <input type="number" class="form-control" id="age" name="age" placeholder="Entrez votre âge">
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label for="naissance" class="col-sm-2 col-form-label">Date de naissance :</label>
-                    <div class="col-sm-4">
-                        <input type="date" class="form-control" id="naissance" name="naissance">
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <div class="col-sm-2">Marié ?</div>
-                    <div class="col-sm-4">
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="marie" name="Marie">
-                            <label class="form-check-label" for="marie">Oui</label>
-                        </div>
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label for="couleurFavorite" class="col-sm-2 col-form-label">Couleur favorite :</label>
-                    <div class="col-sm-4">
-                        <select class="form-control" id="couleurFavorite" name="CouleurFavorite">
-                            <option value="rouge">Rouge</option>
-                            <option value="bleu">Bleu</option>
-                            <option value="vert">Vert</option>
-                            <option value="jaune">Jaune</option>
-                        </select>
-                    </div>
-                </div>
-            </fieldset>
-            <button type="submit" class="btn btn-primary">Envoyer</button>
-        </form>
+<EditForm Model="@user" OnInvalidSubmit="HandleSubmit">
+    <DataAnnotationsValidator />
+
+    <div class="mb-3">
+        <label for="name" class="form-label">Nom</label>
+        <InputText class="form-control" id="name" @bind-Value="@user.Name" />
+        <small>
+            <ValidationMessage For="() => user.Name" />
+        </small>
     </div>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.2/js/bootstrap.min.js"></script>
-</body>
-</html>
+    <div class="mb-3">
+        <label for="email" class="form-label">Email</label>
+        <InputText class="form-control" id="email" @bind-Value="@user.Email" />
+        <small>
+            <ValidationMessage For="() => user.Email" />
+        </small>
+    </div>
+
+    <div class="mb-3">
+        <label for="adresse" class="form-label">Adresse</label>
+        <InputText class="form-control" id="adresse" @bind-Value="@user.Adresse" />
+        <small>
+            <ValidationMessage For="() => user.Adresse" />
+        </small>
+    </div>
+    <div class="mb-3">
+        <label for="codePostal" class="form-label">CodePostal</label>
+        <InputText class="form-control" id="codePostal" @bind-Value="@user.CodePostal" />
+        <small>
+            <ValidationMessage For="() => user.CodePostal" />
+        </small>
+    </div>
+    <div class="mb-3">
+        <label for="age" class="form-label">Age</label>
+        <InputText class="form-control" id="age" type="number" @bind-Value="@user.Age" />
+        <small>
+            <ValidationMessage For="() => user.Age" />
+        </small>
+    </div>
+    <div class="mb-3">
+        <label for="naissance" class="form-label">Naissance</label>
+        <InputDate class="form-control" id="naissance" @bind-Value="@user.Naissance" />
+        <small>
+            <ValidationMessage For="() => user.Naissance" />
+        </small>
+    </div>
+    <div class="mb-3">
+        <div>
+            <InputCheckbox id="marie" @bind-Value="@user.Marie" />
+            <label for="marie" class="form-check-label">Marié ?</label>
+        </div>
+        <small>
+            <ValidationMessage For="() => user.Marie" />
+        </small>
+    </div>
+    <div class="mb-3">
+        <label for="couleurFavori" class="form-label">CouleurFavori</label>
+        <select class="form-control" id="couleurFavorite" @bind="user.CouleurFavori">
+            <option value="">Sélectionnez une couleur</option>
+            <option value="Rouge">Rouge</option>
+            <option value="Bleu">Bleu</option>
+            <option value="Noir">Vert</option>
+        </select>
+        <small>
+            <ValidationMessage For="() => user.CouleurFavori" />
+        </small>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Validé</button>
+
+    <div>
+        <ValidationSummary />
+    </div>
+</EditForm>
+
+@code {
+
+    private User user = new User { Naissance = DateTime.Today };
+
+    private void HandleSubmit()
+    {
+        // Traitement à effectuer lors de la soumission du formulaire
+    }
+}

@@ -6,7 +6,7 @@ namespace DemoBlazor01.Model
     {
         public int Id { get; set; }
 
-        [Required, StringLength(10, MinimumLength = 4, ErrorMessage = "Le nom doit faire entre 4 et 10 caractères !")]
+        [Required (ErrorMessage = "Le nom est requis !")]
         public string? Name { get; set; }
 
         [Required(ErrorMessage="L'email est requis !")]
@@ -19,22 +19,27 @@ namespace DemoBlazor01.Model
         [Required(ErrorMessage = "Le code postal est requis")]
         public string? CodePostal { get; set; }
 
-        [Required(ErrorMessage = "L'âge est requis")]
+        [Range(1, 125, ErrorMessage = "L'age doit être compris entre 1 et 125.")]
         public string? Age { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "La date de naissance doit être valide.")]
         public DateTime Naissance { get; set; }
 
         [Required(ErrorMessage = "Veuillez indiquer si vous êtes marié(e)")]
         public bool Marie { get; set; }
 
-        [Required]
-        public string? CouleurFavori { get; set; }
+        [Range(1, 4, ErrorMessage = "La couleur est requise.")]
+        public Colors CouleurFavori { get; set; }
 
-        public override string ToString()
+        public enum Colors
         {
-            return $"{Name} {Email} {Adresse} {CodePostal} {Age} {Naissance} {Marie} {CouleurFavori}";
+            Nothing, Rouge, Bleu, Noir
         }
+
+        //public override string ToString()
+        //{
+        //    return $"{Name} {Email} {Adresse} {CodePostal} {Age} {Naissance} {Marie} {CouleurFavori}";
+        //}
     }
    
 }
