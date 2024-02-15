@@ -1,12 +1,69 @@
 ﻿@page "/pizzapage"
+@* Autres imports *@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous" referrerpolicy="no-referrer" />
+
 @using DemoBlazor01.Model
 
 <PageTitle>Liste des Pizzas</PageTitle>
 
 <div class="row">
-    <div class="col-md-6">
-        <h3>-- Liste des Pizzas --</h3>
+    <div class="col-md-7">
+        <div class="col-md-12 text-center align-middle;">
+            <h3 class="text-center">-- Liste des Pizzas --</h3>
+        </div>
 
+        <!-- Modal  pizza -->
+        @if (showAddPizzaModal)
+        {
+            <div class="modal fade show" tabindex="-1" role="dialog" style="display: block;">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Ajouter une pizza</h5>
+                            <button type="button" class="close" aria-label="Close" @onclick="CloseAddPizzaModal">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <EditForm Model="pizza" OnInvalidSubmit="HandleSubmit">
+                                <DataAnnotationsValidator />
+
+                                <div class="mb-3">
+                                    <label for="name" class="form-label">Nom de la pizza:</label>
+                                    <InputText class="form-control" id="name" @bind-Value="@pizza.Name" />
+                                    <small>
+                                        <ValidationMessage For="() => pizza.Name" />
+                                    </small>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="price" class="form-label">Prix:</label>
+                                    <InputNumber class="form-control" id="price" @bind-Value="@pizza.Price" />
+                                    <small>
+                                        <ValidationMessage For="() => pizza.Price" />
+                                    </small>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="ingredient" class="form-label">Ingrédients:</label>
+                                    <InputText class="form-control" id="ingredients" @bind-Value="@pizza.Ingredients" />
+                                    <small>
+                                        <ValidationMessage For="() => pizza.Ingredients" />
+                                    </small>
+                                </div>
+
+                                <button type="submit" class="btn btn-primary">Valider</button>
+
+                                <div>
+                                    <ValidationSummary />
+                                </div>
+                            </EditForm>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+
+        @* Liste Pizzas *@
         @if (pizzas != null && pizzas.Any())
         {
             <table class="table">
@@ -21,13 +78,14 @@
                     @foreach (var pizza in pizzas)
                     {
                         <tr>
-                            <td>
-                                <span style="text-transform: uppercase; color: green; font-size: larger">@pizza.Name</span>
+                            <td style="padding-top: 20px;">
+                                <img src="https://placehold.co/100" style="margin-left: 10px; vertical-align: middle; margin-bottom: 15px;" />
+                                <span style="text-transform: uppercase; color: green; font-size: larger ">@pizza.Name</span>
                                 <br />
                                 <span>
                                     @foreach (var ingredient in pizza.Ingredients)
                                     {
-                                        <span>@ingredient.ToString() </span>
+                                        <span>@ingredient.ToString()</span>
                                         if (ingredient != pizza.Ingredients.Last())
                                         {
                                             <span>, </span>
@@ -37,8 +95,12 @@
                             </td>
                             <td class="text-center align-middle">@pizza.Price €</td>
                             <td class="text-center align-middle">
-                                <button type="button" class="btn btn-primary btn-sm" @onclick="() => AddToCart(pizza)">ADD</button>
-                                <button type="button" class="btn btn-danger btn-sm" @onclick="() => RemoveFromCart(pizza)">SUP</button>
+                                <button type="button" class="btn btn-primary btn-sm" @onclick="() => AddToCart(pizza)">
+                                    <i class="fas fa-cart-plus"></i>
+                                </button>
+                                <button type="button" class="btn btn-danger btn-sm" @onclick="() => RemoveFromCart(pizza)">
+                                    <i class="fas fa-trash-alt"></i>
+                                </button>
                             </td>
                         </tr>
                     }
@@ -47,21 +109,45 @@
         }
     </div>
 
-    <div class="col-md-5 text-center align-middle">
-        <h3>Panier</h3>
-        <div>
-            @foreach (var item in panierGrouped)
-            {
-                <div>@item.Pizza.Name : x @item.Quantity = @(item.Pizza.Price * item.Quantity) €</div>
-            }
-            <div>Total: <span style="font-weight: bold; color: red;">@TotalPanier €</span></div>
-            <button type="button" class="btn btn-danger btn-sm" @onclick="() => RemoveFromCart(item.Quantity == null)">SUP</button>
+    @* Panier *@
+    <div class="col-md-5" style="position: relative;">
+
+        @* Mode Admin *@
+        <div class="text-center">
+            <input type="checkbox" id="adminMode" @onclick="ToggleAdminMode" />
+            <label for="adminMode">Mode Admin</label>
+        </div>
+        @if (isAdminMode)
+        {
+            <div class="text-center">
+                <button type="button" class="btn btn-success" @onclick="ShowAddPizzaModal">Ajouter une pizza</button>
+            </div>
+        }
+
+        @* Panier *@
+        <div class="text-center align-middle;" style="margin-top: 55px; border: 2px solid #ccc; padding: 10px; position: sticky; top: 70px;">
+           <h3 style="text-align: center;">Panier</h3>
+            <div>
+                @foreach (var item in panierGrouped)
+                {
+                    <div>@item.Pizza.Name : x @item.Quantity = @(item.Pizza.Price * item.Quantity) €</div>
+                }
+                <div class="mx-auto" style="width: fit-content;">
+                    <div style="border: 2px solid #ccc; padding: 20px; margin-top: 20px;">
+                        <div style="border-bottom: 1px solid #ccc; padding-bottom: 10px; margin-bottom: 20px;">
+                            <div>Total: <span style="font-weight: bold; color: red;">@TotalPanier €</span></div>
+                        </div>
+                        <button type="button" class="btn btn-danger btn-sm" @onclick="ClearCart">
+                            <i class="fas fa-trash"></i> Vider le Panier
+                        </button>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-
-
 </div>
 
+@* CSS *@
 <style>
     .square-button {
         width: 30px;
@@ -72,8 +158,19 @@
 
 @code {
 
+    private Pizza pizza = new Pizza();
+
+    private void HandleSubmit()
+    {
+    }
+
     List<Pizza> pizzas = new List<Pizza>();
     List<CartItem> panier = new List<CartItem>();
+    public decimal TotalPanier => panier.Sum(item => item.Pizza.Price * item.Quantity);
+    bool isAdminMode = false;
+    bool showAddPizzaModal = false;
+
+    
 
     protected override void OnInitialized()
     {
@@ -81,14 +178,14 @@
         {
             new Pizza { Id = 1, Name = "Margherita", Price = 8.99m, Ingredients = new List<Pizza.Ingredient> { Pizza.Ingredient.SauceTomate, Pizza.Ingredient.Mozzarrela } },
             new Pizza { Id = 2, Name = "Pepperoni", Price = 9.99m, Ingredients = new List<Pizza.Ingredient> { Pizza.Ingredient.SauceTomate, Pizza.Ingredient.Mozzarrela, Pizza.Ingredient.Bacon } },
-            new Pizza { Id = 3, Name = "Vegetariana", Price = 10.99m, Ingredients = new List<Pizza.Ingredient> { Pizza.Ingredient.SauceTomate, Pizza.Ingredient.Mozzarrela, Pizza.Ingredient.Poivron, Pizza.Ingredient.Oignon } },
-            new Pizza { Id = 4, Name = "Quatre Fromages", Price = 11.99m, Ingredients = new List<Pizza.Ingredient> { Pizza.Ingredient.SauceTomate, Pizza.Ingredient.Mozzarrela, Pizza.Ingredient.Emmental, Pizza.Ingredient.Chevre } },
-            new Pizza { Id = 5, Name = "Carbonara", Price = 12.99m, Ingredients = new List<Pizza.Ingredient> { Pizza.Ingredient.CremeFraiche, Pizza.Ingredient.Mozzarrela, Pizza.Ingredient.Bacon, Pizza.Ingredient.Oignon } },
-            new Pizza { Id = 6, Name = "Saumon", Price = 13.99m, Ingredients = new List<Pizza.Ingredient> { Pizza.Ingredient.CremeFraiche, Pizza.Ingredient.Saumon, Pizza.Ingredient.Bacon } },
-            new Pizza { Id = 7, Name = "Mexicaine", Price = 11.99m, Ingredients = new List<Pizza.Ingredient> { Pizza.Ingredient.SauceTomate, Pizza.Ingredient.Mozzarrela, Pizza.Ingredient.Poulet, Pizza.Ingredient.Poivron, Pizza.Ingredient.Oignon } },
-            new Pizza { Id = 8, Name = "Tropicale", Price = 12.99m, Ingredients = new List<Pizza.Ingredient> { Pizza.Ingredient.SauceTomate, Pizza.Ingredient.Mozzarrela, Pizza.Ingredient.Boeuf, Pizza.Ingredient.Oignon } },
-            new Pizza { Id = 9, Name = "Napolitaine", Price = 10.99m, Ingredients = new List<Pizza.Ingredient> { Pizza.Ingredient.SauceTomate, Pizza.Ingredient.Mozzarrela, Pizza.Ingredient.Bacon, Pizza.Ingredient.Artichaut } },
-            new Pizza { Id = 10, Name = "Bolognaise", Price = 12.99m, Ingredients = new List<Pizza.Ingredient> { Pizza.Ingredient.CremeFraiche, Pizza.Ingredient.Mozzarrela, Pizza.Ingredient.Oignon, Pizza.Ingredient.Emmental } },
+            new Pizza { Id = 3, Name = "Végé", Price = 10.99m, Ingredients = new List<Pizza.Ingredient> { Pizza.Ingredient.SauceTomate, Pizza.Ingredient.Mozzarrela, Pizza.Ingredient.Poivron, Pizza.Ingredient.Oignon } },
+            new Pizza { Id = 4, Name = "VegenTime", Price = 10.99m, Ingredients = new List<Pizza.Ingredient> { Pizza.Ingredient.SauceTomate, Pizza.Ingredient.Mozzarrela, Pizza.Ingredient.Poivron, Pizza.Ingredient.Oignon } },
+            new Pizza { Id = 5, Name = "Francais", Price = 10.99m, Ingredients = new List<Pizza.Ingredient> { Pizza.Ingredient.SauceTomate, Pizza.Ingredient.Mozzarrela, Pizza.Ingredient.Poivron, Pizza.Ingredient.Oignon } },
+            new Pizza { Id = 6, Name = "Hawaienne", Price = 10.99m, Ingredients = new List<Pizza.Ingredient> { Pizza.Ingredient.SauceTomate, Pizza.Ingredient.Mozzarrela, Pizza.Ingredient.Poivron, Pizza.Ingredient.Oignon } },
+            new Pizza { Id = 7, Name = "Anchoix", Price = 10.99m, Ingredients = new List<Pizza.Ingredient> { Pizza.Ingredient.SauceTomate, Pizza.Ingredient.Mozzarrela, Pizza.Ingredient.Poivron, Pizza.Ingredient.Oignon } },
+            new Pizza { Id = 8, Name = "Saumon", Price = 10.99m, Ingredients = new List<Pizza.Ingredient> { Pizza.Ingredient.SauceTomate, Pizza.Ingredient.Mozzarrela, Pizza.Ingredient.Poivron, Pizza.Ingredient.Oignon } },
+            new Pizza { Id = 9, Name = "Quatre Fromages", Price = 11.99m, Ingredients = new List<Pizza.Ingredient> { Pizza.Ingredient.SauceTomate, Pizza.Ingredient.Mozzarrela, Pizza.Ingredient.Emmental, Pizza.Ingredient.Chevre } },
+            new Pizza { Id = 10, Name = "Carbonara", Price = 12.99m, Ingredients = new List<Pizza.Ingredient> { Pizza.Ingredient.CremeFraiche, Pizza.Ingredient.Mozzarrela, Pizza.Ingredient.Bacon, Pizza.Ingredient.Oignon } },
         };
     }
 
@@ -121,6 +218,11 @@
         }
     }
 
+    private void ClearCart()
+    {
+        panier.Clear();
+    }
+
     public class CartItem
     {
         public Pizza Pizza { get; set; }
@@ -136,5 +238,22 @@
         }
     }
 
-    public decimal TotalPanier => panier.Sum(item => item.Pizza.Price * item.Quantity);
+    private void ToggleAdminMode()
+    {
+        isAdminMode = !isAdminMode;
+    }
+
+    private void ShowAddPizzaModal()
+    {
+        showAddPizzaModal = true;
+    }
+    private void CloseAddPizzaModal()
+    {
+        showAddPizzaModal = false;
+    }
+
+    private void AddPizza()
+    {
+        
+    }
 }
