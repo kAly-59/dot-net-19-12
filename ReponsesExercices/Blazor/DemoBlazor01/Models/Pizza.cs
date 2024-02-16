@@ -1,13 +1,18 @@
 ﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace DemoBlazor01.Model
 {
     public class Pizza
     {
         public int Id { get; set; }
-        public string Name { get; set; }
+
+        [Required(ErrorMessage = "Le nom est requis !")]
+        public string Name { get; set; } = string.Empty;
+
+        [Required(ErrorMessage = "Le prix est requis !")]
         public decimal Price { get; set; }
-        public List<Ingredient> Ingredients { get; set; }
+        public List<Pizza.Ingredient> Ingredients { get; set; } = new List<Pizza.Ingredient>();
 
         public Pizza()
         {
