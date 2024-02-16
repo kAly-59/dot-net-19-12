@@ -17,7 +17,6 @@
             <button class="btn btn-success" @onclick="AddPizza"><i class="bi bi-plus-square"></i>&ensp; Ajouter une Pizza</button>
         </div>
         <PizzaForm CallbackReload="Reload"
-                   IsAdminMode="IsAdminMode"
                    EditionMode="EditionMode"
                    PizzaToEdit="PizzaToEdit" />
     }
@@ -84,8 +83,9 @@
     {
         PizzaList.RemoveAll(p => p.Id == id);
         await PizzaService.Delete(id);
+        // await Reload();
     }
-    public async Task Reload()
+    public async Task Reload() // possible de l'appeller dans un bouton de mise à jour de l'interface
     {
         Loading = true;
         PizzaList = await PizzaService.GetAll();
