@@ -7,14 +7,14 @@ namespace DemoBlazor.Services
         private int _lastId = 0;
         private List<Gorilla> _gorillaz = new List<Gorilla>();
 
-        public bool Delete(int id)
+        public async Task<bool> Delete(int id)
         {
             var nbRemoved = _gorillaz.RemoveAll(m => m.Id == id);
             Console.WriteLine(_gorillaz.Count);
             return nbRemoved == 1;
         }
 
-        public bool Post(Gorilla gorilla)
+        public async Task<bool> Post(Gorilla gorilla)
         {
             gorilla.Id = ++_lastId;
             _gorillaz.Add(gorilla);

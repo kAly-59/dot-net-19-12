@@ -65,10 +65,10 @@
 
     public int DeleteId { get; set; }
 
-    public void HandleSubmit()
+    public async Task HandleSubmit()
     {
         Console.WriteLine(Gorilla); // dans un cas réel on l'enverra à une API/BDD
-        var success = gorillaService.Post(Gorilla);
+        var success = await gorillaService.Post(Gorilla);
 
         if (!success)
         {
@@ -81,9 +81,9 @@
         }
     }
 
-    public void HandleDelete()
+    public async Task HandleDelete()
     {
-        var success = gorillaService.Delete(DeleteId);
+        var success = await gorillaService.Delete(DeleteId);
         if (!success)
             ErrorMessage = "L'api n'a pas fonctionné pour la suppression du gorille";
         else
