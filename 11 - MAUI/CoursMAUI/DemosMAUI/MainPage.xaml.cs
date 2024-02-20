@@ -1,4 +1,6 @@
-﻿namespace DemosMAUI
+﻿using DemosMAUI.Models;
+
+namespace DemosMAUI
 {
     public partial class MainPage : ContentPage
     {
@@ -7,6 +9,14 @@
         public MainPage()
         {
             InitializeComponent();
+            TodoListView.ItemsSource = new List<TodoItem>
+            {
+                new TodoItem() {Name = "item1", Done = false},
+                new TodoItem() {Name = "item2", Done = true},
+                new TodoItem() {Name = "item3", Done = false},
+                new TodoItem() {Name = "item4", Done = false},
+                new TodoItem() {Name = "item5", Done = true},
+            };
         }
 
         private void OnCounterClicked(object sender, EventArgs e)

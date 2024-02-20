@@ -69,7 +69,22 @@
                 Margin="20,0,20,0" />
             <Label BindingContext="{x:Reference slider}"
                Text="{Binding Value, StringFormat='The angle is {0:F2} degrees'}"
-               HorizontalOptions="Center"/>
+               HorizontalOptions="Center"/>
+
+            <BoxView Color="Gray" HeightRequest="2"/>            <ListView x:Name="TodoListView"
+                     Margin="20">
+                <!--ItemSelected="OnTodoListItemSelected"-->
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Margin="20,0,0,0" Orientation="Horizontal" >
+                                <Label Text="{Binding Name}" />
+                                <Label Text="Terminé" IsVisible="{Binding Done}" />
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
         </VerticalStackLayout>
     </ScrollView>
 
