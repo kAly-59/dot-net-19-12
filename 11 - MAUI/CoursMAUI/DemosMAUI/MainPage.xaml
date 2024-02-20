@@ -4,7 +4,7 @@
              x:Class="DemosMAUI.MainPage">
 
     <ScrollView>
-        <VerticalStackLayout
+        <!--<VerticalStackLayout
             Padding="30,0"
             Spacing="25">
             <Image
@@ -73,8 +73,8 @@
 
             <BoxView Color="Gray" HeightRequest="2"/>            <ListView x:Name="TodoListView"
                      Margin="20"
-                      ItemsSource="{Binding}"> <!-- Binding seul => prop BindingContext de la classe (CodeBehind) -->
-                <!--ItemSelected="OnTodoListItemSelected"-->
+                      ItemsSource="{Binding}"> --><!-- Binding seul => prop BindingContext de la classe (CodeBehind) -->
+                <!--ItemSelected="OnTodoListItemSelected"--><!--
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
@@ -86,7 +86,42 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>            <Button Text="Ajouter une tache" Clicked="AddToList"/>
-        </VerticalStackLayout>
+        </VerticalStackLayout>-->
+        <!--<AbsoluteLayout Margin="20">
+            <BoxView Color="Red"
+                 AbsoluteLayout.LayoutBounds="0, 10, 200, 5" />
+            <BoxView Color="Blue"
+                 AbsoluteLayout.LayoutBounds="0, 20, 200, 5" />
+            <BoxView Color="Pink"
+                 AbsoluteLayout.LayoutBounds="10, 0, 5, 65" />
+            <BoxView Color="Yellow"
+                 AbsoluteLayout.LayoutBounds="20, 0, 5, 65" />
+            <Label Text="Stylish Header"
+               FontSize="24"
+               AbsoluteLayout.LayoutBounds="30, 25" />
+        </AbsoluteLayout>-->
+
+        <AbsoluteLayout>
+            <BoxView Color="Blue"
+                 AbsoluteLayout.LayoutBounds="100,400,100,50"/>
+            <BoxView Color="Green"
+                 AbsoluteLayout.LayoutBounds="0.20,0.1,0.25,0.10"
+                 AbsoluteLayout.LayoutFlags="All" />
+            <BoxView Color="Red"
+                 AbsoluteLayout.LayoutBounds="1,0.9,25,100"
+                 AbsoluteLayout.LayoutFlags="PositionProportional" />
+            <BoxView Color="Black"
+                 AbsoluteLayout.LayoutBounds="120,150,0.1,0.25"
+                 AbsoluteLayout.LayoutFlags="SizeProportional" />
+            <Label Text="Centered text"
+               AbsoluteLayout.LayoutBounds="0.5,0.5,110,25"
+               AbsoluteLayout.LayoutFlags="PositionProportional" />
+            <!--<Label Text="Centered text"
+                AbsoluteLayout.LayoutBounds="0.5,0.5,0.5,0.5"
+                AbsoluteLayout.LayoutFlags="All"
+                HorizontalTextAlignment="Center"
+                VerticalTextAlignment="Center"/>-->
+        </AbsoluteLayout>
     </ScrollView>
 
 </ContentPage>
