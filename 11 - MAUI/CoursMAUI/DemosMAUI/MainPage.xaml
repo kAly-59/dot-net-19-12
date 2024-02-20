@@ -49,8 +49,27 @@
                     </x:Array>
                 </Picker.ItemsSource>
             </Picker>
-            
-            
+
+            <BoxView Color="Gray" HeightRequest="2"/>
+
+            <Label Text="ROTATION" 
+               BindingContext="{x:Reference slider}" 
+               RotationY="{Binding Value}" 
+               FontAttributes="Bold"
+               FontSize="20"
+               HorizontalOptions="Center"/>
+            <Slider x:Name="slider"
+                Maximum="360"
+                Margin="20,0,20,0"
+                Value="172"/>
+            <Slider x:Name="slider2"
+                BindingContext="{x:Reference slider}"
+                Value="{Binding Value, Mode=TwoWay}"
+                Maximum="360"
+                Margin="20,0,20,0" />
+            <Label BindingContext="{x:Reference slider}"
+               Text="{Binding Value, StringFormat='The angle is {0:F2} degrees'}"
+               HorizontalOptions="Center"/>
         </VerticalStackLayout>
     </ScrollView>
 
