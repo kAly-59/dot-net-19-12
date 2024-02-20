@@ -1,4 +1,5 @@
 ﻿using DemosMAUI.Models;
+using System.Collections.ObjectModel;
 
 namespace DemosMAUI
 {
@@ -6,16 +7,35 @@ namespace DemosMAUI
     {
         int count = 0;
 
+        // ObservableCollection est utilisé lorsque
+        // l'on veut une mise à jour en temps réel
+        public ObservableCollection<TodoItem> TodoList { get; set; }
+
         public MainPage()
         {
             InitializeComponent();
-            TodoListView.ItemsSource = new List<TodoItem>
+
+            // Définir les items sans binding
+            // => on devra les ajouter/retirer dans la liste à la main à chaque changements
+            //TodoListView.ItemsSource = new List<TodoItem>
+            //{
+            //	new TodoItem() {Name = "item1", Done = false},
+            //	new TodoItem() {Name = "item2", Done = true},
+            //	new TodoItem() {Name = "item3", Done = false},
+            //	new TodoItem() {Name = "item4", Done = false},
+            //	new TodoItem() {Name = "item5", Done = true},
+            //};
+
+            // Bases de Binding
+            // BindingContext est la propriété centrale pour le Binding, dans le pattern MVVM, on lui assigne le ViewModel
+            // ici il est assigné à une liste de type ObservableCollection
+            BindingContext = TodoList = new ObservableCollection<TodoItem>
             {
-                new TodoItem() {Name = "item1", Done = false},
-                new TodoItem() {Name = "item2", Done = true},
-                new TodoItem() {Name = "item3", Done = false},
-                new TodoItem() {Name = "item4", Done = false},
-                new TodoItem() {Name = "item5", Done = true},
+                 new TodoItem() {Name = "item1", Done = false},
+                 new TodoItem() {Name = "item2", Done = true},
+                 new TodoItem() {Name = "item3", Done = false},
+                 new TodoItem() {Name = "item4", Done = false},
+                 new TodoItem() {Name = "item5", Done = true},
             };
         }
 
@@ -34,6 +54,14 @@ namespace DemosMAUI
             }
             else
                 LblText.Text = "valeur de l'Entry = " + EtTest.Text;
+        }
+
+        public void AddToList(object sender, EventArgs e)
+        {
+            //var list = BindingContext as ObservableCollection<TodoItem>;
+            //list.Add(new TodoItem() { Name = "new", Done = false });
+		
+            TodoList.Add(new TodoItem() { Name = "new", Done = true });
         }
     }
 
