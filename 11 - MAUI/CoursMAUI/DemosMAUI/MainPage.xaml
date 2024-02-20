@@ -101,7 +101,7 @@
                AbsoluteLayout.LayoutBounds="30, 25" />
         </AbsoluteLayout>-->
 
-        <AbsoluteLayout>
+        <!--<AbsoluteLayout>
             <BoxView Color="Blue"
                  AbsoluteLayout.LayoutBounds="100,400,100,50"/>
             <BoxView Color="Green"
@@ -116,12 +116,20 @@
             <Label Text="Centered text"
                AbsoluteLayout.LayoutBounds="0.5,0.5,110,25"
                AbsoluteLayout.LayoutFlags="PositionProportional" />
-            <!--<Label Text="Centered text"
+            --><!--<Label Text="Centered text"
                 AbsoluteLayout.LayoutBounds="0.5,0.5,0.5,0.5"
                 AbsoluteLayout.LayoutFlags="All"
                 HorizontalTextAlignment="Center"
-                VerticalTextAlignment="Center"/>-->
-        </AbsoluteLayout>
+                VerticalTextAlignment="Center"/>--><!--
+        </AbsoluteLayout>-->
+
+        <StackLayout Orientation="Vertical" Spacing="150" >
+            <Label Text="1" HorizontalOptions="Start" FontSize="20"/>
+            <Label Text="2" HorizontalOptions="Center" FontSize="20"/>
+            <Label Text="3" HorizontalOptions="End" FontSize="20"/>
+            <Label Text="4" HorizontalOptions="Fill" FontSize="20"/>
+            <Label Text="5" HorizontalOptions="FillAndExpand" FontSize="20"/>
+        </StackLayout>
     </ScrollView>
 
 </ContentPage>
