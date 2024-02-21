@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExercicesNombreEtCalculatri
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Quiz", "Quiz\Quiz.csproj", "{74E3EC12-60FF-464D-82F7-00872CF9EA34}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DemoCRUDnet7", "DemoCRUDnet7\DemoCRUDnet7.csproj", "{0F0FAA38-ECB4-4C3B-8071-E78BBC0CF32A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,12 @@ Global
 		{74E3EC12-60FF-464D-82F7-00872CF9EA34}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{74E3EC12-60FF-464D-82F7-00872CF9EA34}.Release|Any CPU.Build.0 = Release|Any CPU
 		{74E3EC12-60FF-464D-82F7-00872CF9EA34}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{0F0FAA38-ECB4-4C3B-8071-E78BBC0CF32A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0F0FAA38-ECB4-4C3B-8071-E78BBC0CF32A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0F0FAA38-ECB4-4C3B-8071-E78BBC0CF32A}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{0F0FAA38-ECB4-4C3B-8071-E78BBC0CF32A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0F0FAA38-ECB4-4C3B-8071-E78BBC0CF32A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0F0FAA38-ECB4-4C3B-8071-E78BBC0CF32A}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
