@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DemosMAUI", "DemosMAUI\Demo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExercicesNombreEtCalculatrice", "ExercicesNombreEtCalculatrice\ExercicesNombreEtCalculatrice.csproj", "{B7972336-C642-4463-9DD3-E4A626CFB517}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Quiz", "Quiz\Quiz.csproj", "{74E3EC12-60FF-464D-82F7-00872CF9EA34}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -25,6 +27,12 @@ Global
 		{B7972336-C642-4463-9DD3-E4A626CFB517}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B7972336-C642-4463-9DD3-E4A626CFB517}.Release|Any CPU.Build.0 = Release|Any CPU
 		{B7972336-C642-4463-9DD3-E4A626CFB517}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{74E3EC12-60FF-464D-82F7-00872CF9EA34}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{74E3EC12-60FF-464D-82F7-00872CF9EA34}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{74E3EC12-60FF-464D-82F7-00872CF9EA34}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{74E3EC12-60FF-464D-82F7-00872CF9EA34}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{74E3EC12-60FF-464D-82F7-00872CF9EA34}.Release|Any CPU.Build.0 = Release|Any CPU
+		{74E3EC12-60FF-464D-82F7-00872CF9EA34}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

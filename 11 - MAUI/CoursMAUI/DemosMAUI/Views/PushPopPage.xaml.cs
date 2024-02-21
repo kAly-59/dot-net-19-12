@@ -2,7 +2,12 @@ namespace DemosMAUI.Views;
 
 public partial class PushPopPage : ContentPage
 {
-	public PushPopPage(string entryContent)
+    public PushPopPage()
+    {
+        InitializeComponent();
+    }
+
+    public PushPopPage(string entryContent)
 	{
 		InitializeComponent();
         EtText.Text = entryContent;
@@ -21,5 +26,4 @@ public partial class PushPopPage : ContentPage
     {
         await Navigation.PopToRootAsync();
     }
-
 }
