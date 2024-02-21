@@ -73,7 +73,8 @@
 
             <BoxView Color="Gray" HeightRequest="2"/>            <ListView x:Name="TodoListView"
                      Margin="20"
-                      ItemsSource="{Binding}">  <!--Binding seul => prop BindingContext de la classe (CodeBehind)--> 
+                      ItemsSource="{Binding}">
+                <!--Binding seul => prop BindingContext de la classe (CodeBehind)-->
                 <!--ItemSelected="OnTodoListItemSelected"-->
                 <ListView.ItemTemplate>
                     <DataTemplate>
@@ -86,8 +87,8 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>            <Button Text="Ajouter une tache" Clicked="AddToList"/>            <ScrollView HeightRequest="100" Orientation="Horizontal">
-            <StackLayout>
-                <Label Text="FOR the most wild, yet most homely narrative which I am about to pen, I neither expect nor solicit belief.
+                <StackLayout>
+                    <Label Text="FOR the most wild, yet most homely narrative which I am about to pen, I neither expect nor solicit belief.
                     Mad indeed would I be to expect it, in a case where my very senses reject their own evidence.
                     Yet, mad am I not -- and very surely do I not dream. But to-morrow I die, and to-day I would unburthen my soul.
                     My immediate purpose is to place before the world, plainly, succinctly, and without comment, a series of mere household events.
@@ -97,9 +98,9 @@
                     Hereafter, perhaps, some intellect may be found which will reduce my phantasm to the common-place -- some intellect more calm, more logical,
                     and far less excitable than my own, which will perceive,
                     in the circumstances I detail with awe, nothing more than an ordinary succession of very natural causes and effects." />
-             <!--More Label objects go here--> 
-            </StackLayout>
-        </ScrollView>
+                    <!--More Label objects go here-->
+                </StackLayout>
+            </ScrollView>            <Button Text="Aller à PageFullCS" Clicked="GotoPageFullCS" />            <Button Text="Aller à PushPopPage" Clicked="GotoPushPopPage" />
         </VerticalStackLayout>
         <!--<AbsoluteLayout Margin="20">
             <BoxView Color="Red"
@@ -130,11 +131,13 @@
             <Label Text="Centered text"
                AbsoluteLayout.LayoutBounds="0.5,0.5,110,25"
                AbsoluteLayout.LayoutFlags="PositionProportional" />
-            --><!--<Label Text="Centered text"
+            -->
+        <!--<Label Text="Centered text"
                 AbsoluteLayout.LayoutBounds="0.5,0.5,0.5,0.5"
                 AbsoluteLayout.LayoutFlags="All"
                 HorizontalTextAlignment="Center"
-                VerticalTextAlignment="Center"/>--><!--
+                VerticalTextAlignment="Center"/>-->
+        <!--
         </AbsoluteLayout>-->
 
         <!--<StackLayout Orientation="Vertical" Spacing="150" >
@@ -146,12 +149,16 @@
         </StackLayout>-->
 
         <!--<Grid RowSpacing="6" ColumnSpacing="6" RowDefinitions="2*,*,Auto">
-            --><!--<Grid.RowDefinitions>
+            -->
+        <!--<Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="*" />
                 <RowDefinition Height="100" />
-                --><!--<RowDefinition Height="2*" />--><!--
-            </Grid.RowDefinitions>--><!--
+                -->
+        <!--<RowDefinition Height="2*" />-->
+        <!--
+            </Grid.RowDefinitions>-->
+        <!--
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto" />
                 <ColumnDefinition Width="*" />

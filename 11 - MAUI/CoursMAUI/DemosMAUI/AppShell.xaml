@@ -4,12 +4,21 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:DemosMAUI"
+    xmlns:views="clr-namespace:DemosMAUI.Views"
     Shell.FlyoutBehavior="Disabled"
     Title="DemosMAUI">
 
+    <!-- Ne pas oublier "xmlns:views="clr-namespace:DemosMAUI.Views""
+        Pour inclure le namespace DemosMAUI.Views avec l'alias views-->
+    
     <ShellContent
         Title="Home"
         ContentTemplate="{DataTemplate local:MainPage}"
         Route="MainPage" />
+
+    <!--<ShellContent
+        Title="PageFullCs"
+        ContentTemplate="{DataTemplate views:PageFullCS}"
+        />-->
 
 </Shell>
