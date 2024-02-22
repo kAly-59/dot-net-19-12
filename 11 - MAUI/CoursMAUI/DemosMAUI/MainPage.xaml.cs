@@ -1,4 +1,5 @@
 ﻿using DemosMAUI.Models;
+using DemosMAUI.Views;
 using System.Collections.ObjectModel;
 
 namespace DemosMAUI
@@ -62,6 +63,18 @@ namespace DemosMAUI
             //list.Add(new TodoItem() { Name = "new", Done = false });
 		
             TodoList.Add(new TodoItem() { Name = "new", Done = true });
+        }
+
+        private async void GotoPageFullCS(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new PageFullCS());
+
+            // ajouter du code ici qui s'exécutera au retour sur la MainPage
+        }
+
+        private async void GotoPushPopPage(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new PushPopPage("Valeur par défaut entry"));
         }
     }
 
