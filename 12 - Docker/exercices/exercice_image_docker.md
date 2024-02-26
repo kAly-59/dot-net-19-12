@@ -64,6 +64,7 @@ docker history postgres
 docker inspect postgres
 ```
 
+
 Cet exercice devrait vous permettre de vous familiariser avec la manipulation d'images Docker à un niveau basique. N'hésitez pas à consulter la documentation Docker au besoin.
 
 
