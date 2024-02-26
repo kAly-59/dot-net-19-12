@@ -26,6 +26,11 @@
         {
             await Navigation.PushAsync(new MagicNumberPage());
         }
-    }
 
+        private async void PlayQuizBtn(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new QuizPage());
+        }
+    }
 }
+

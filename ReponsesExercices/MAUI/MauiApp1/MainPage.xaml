@@ -34,8 +34,14 @@
             <!--Changement de Page-->
             <Button
                 x:Name="TestBtn"
-                Text="PLAY A GAME !"  
+                Text="MAGIC NUMBER !"  
                 Clicked="OnPlayGameClicked"
+                HorizontalOptions="Fill" />
+
+            <Button
+                x:Name="btnQuiz"
+                Text="QUIZ !"  
+                Clicked="PlayQuizBtn"
                 HorizontalOptions="Fill" />
 
         </VerticalStackLayout>
