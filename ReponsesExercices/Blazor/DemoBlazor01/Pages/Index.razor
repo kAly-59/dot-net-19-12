@@ -1,0 +1,52 @@
+﻿@page "/"
+
+<PageTitle>Accueil</PageTitle>
+
+<div class="container">
+    <div class="jumbotron">
+        <h1 class="display-4">Mon super site de jeux!</h1>
+        <p class="lead">Choisissez parmi nos jeux passionnants ci-dessous et commencez à jouer dès maintenant!</p>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card mb-4">
+                <iframe src="https://giphy.com/embed/ln4bohPvHhwgo" width="400" height="400" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+                <div class="card-body">
+                    <h5 class="card-title">Jeu de Pendu</h5>
+                    <p class="card-text">Essayez de deviner le mot mystère avant d'être pendu!</p>
+                    <a href="/pendu" class="btn btn-primary">Jouer</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="card mb-4">
+                <iframe src="https://giphy.com/embed/Ri7d8I18cto2jufOKc" width="400" height="400" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+                <div class="card-body">
+                    <h5 class="card-title">Jeu du Nombre Magique</h5>
+                    <p class="card-text">Trouvez le nombre mystérieux en moins d'essais possibles!</p>
+                    <a href="/nombremagique" class="btn btn-primary">Jouer</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .jumbotron {
+        background-color: #f8f9fa;
+        padding: 3rem 1.5rem;
+        margin-bottom: 3rem;
+    }
+
+    .card {
+        border: none;
+        transition: all 0.3s;
+    }
+
+        .card:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transform: translateY(-5px);
+        }
+</style>

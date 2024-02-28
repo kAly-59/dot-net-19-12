@@ -100,6 +100,7 @@ namespace ContactApiDTOAsync.Migrations
 
                     b.ToTable("user");
 
+
                     b.HasData(
                         new
                         {

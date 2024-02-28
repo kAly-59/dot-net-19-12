@@ -1,0 +1,90 @@
+﻿@page "/formulaire"
+@using DemoBlazor01.Model
+
+<PageTitle>FORMULAIRE</PageTitle>
+<h3>--FORMULAIRE--</h3>
+
+<EditForm Model="@user" OnInvalidSubmit="HandleSubmit">
+    <DataAnnotationsValidator />
+
+    <div class="mb-3">
+        <label for="name" class="form-label">Nom</label>
+        <InputText class="form-control" id="name" @bind-Value="@user.Name" />
+        <small>
+            <ValidationMessage For="() => user.Name" />
+        </small>
+    </div>
+    <div class="mb-3">
+        <label for="email" class="form-label">Email</label>
+        <InputText class="form-control" id="email" @bind-Value="@user.Email" />
+        <small>
+            <ValidationMessage For="() => user.Email" />
+        </small>
+    </div>
+
+    <div class="mb-3">
+        <label for="adresse" class="form-label">Adresse</label>
+        <InputText class="form-control" id="adresse" @bind-Value="@user.Adresse" />
+        <small>
+            <ValidationMessage For="() => user.Adresse" />
+        </small>
+    </div>
+    <div class="mb-3">
+        <label for="codePostal" class="form-label">CodePostal</label>
+        <InputText class="form-control" id="codePostal" @bind-Value="@user.CodePostal" />
+        <small>
+            <ValidationMessage For="() => user.CodePostal" />
+        </small>
+    </div>
+    <div class="mb-3">
+        <label for="age" class="form-label">Age</label>
+        <InputText class="form-control" id="age" type="number" @bind-Value="@user.Age" />
+        <small>
+            <ValidationMessage For="() => user.Age" />
+        </small>
+    </div>
+    <div class="mb-3">
+        <label for="naissance" class="form-label">Naissance</label>
+        <InputDate class="form-control" id="naissance" @bind-Value="@user.Naissance" />
+        <small>
+            <ValidationMessage For="() => user.Naissance" />
+        </small>
+    </div>
+    <div class="mb-3">
+        <div>
+            <InputCheckbox id="marie" @bind-Value="@user.Marie" />
+            <label for="marie" class="form-check-label">Marié ?</label>
+        </div>
+        <small>
+            <ValidationMessage For="() => user.Marie" />
+        </small>
+    </div>
+    <div class="mb-3">
+        <label for="couleurFavori" class="form-label">CouleurFavori</label>
+        <select class="form-control" id="couleurFavorite" @bind="user.CouleurFavori">
+            <option value="">Sélectionnez une couleur</option>
+            <option value="Rouge">Rouge</option>
+            <option value="Bleu">Bleu</option>
+            <option value="Noir">Vert</option>
+        </select>
+        <small>
+            <ValidationMessage For="() => user.CouleurFavori" />
+        </small>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Validé</button>
+
+    <div>
+        <ValidationSummary />
+    </div>
+</EditForm>
+
+@code {
+
+    private User user = new User { Naissance = DateTime.Today };
+
+    private void HandleSubmit()
+    {
+        // Traitement à effectuer lors de la soumission du formulaire
+    }
+}

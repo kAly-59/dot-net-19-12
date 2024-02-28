@@ -1,0 +1,31 @@
+﻿@model List<MarmosetViewModel>
+@{
+    ViewData["Title"] = "Liste des Marmorest";
+}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">@Html.DisplayNameForInnerType((MarmosetViewModel c) => c.Name)</th>
+            <th scope="col">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (MarmosetViewModel c in Model)
+        {
+            <tr>
+                <th scope="row">@c.Id</th>
+                <td>@c.Name</td>
+                <td>
+                    <a class="btn btn-outline-info" asp-action="Details" asp-route-id="@c.Id">Détails</a>
+                    <a class="btn btn-outline-info" asp-action="Delete" asp-route-id="@c.Id">Supprimer</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<div>
+    <a class="btn btn-primary" asp-action="CreateRandom">Créer un Marmoset aléatoire</a>
+</div>

@@ -47,8 +47,19 @@ namespace ContactApiDTOAsync.Controllers
             return BadRequest("Probleme creation User"); // Signale un problème lors de la création
         }
 
+<<<<<<< HEAD
+<<<<<<< HEAD
+
+        [HttpPost("login")]
+        public async Task<IActionResult> Login([FromBody] LoginRequestDto login)
+=======
         [HttpPost("login")] // Méthode pour la connexion des utilisateurs
         public async Task<IActionResult> Login([FromBody] LoginRequestDto login) // Connexion asynchrone
+>>>>>>> 82013682b117ddfdc6fcbd80ba87b42f069abc51
+=======
+        [HttpPost("login")]
+        public async Task<IActionResult> Login([FromBody] LoginRequestDto login)
+>>>>>>> 07452f719d9fe8c691986d0193551ec90e00c02b
         {
             // Crypte le mot de passe pour la comparaison
             login.Password = PasswordCrypter.Encrypt(login.Password, _appSettings1.SecretKey!);

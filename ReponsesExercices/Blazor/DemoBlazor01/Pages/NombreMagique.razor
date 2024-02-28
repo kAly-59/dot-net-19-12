@@ -1,0 +1,106 @@
+﻿@page "/nombremagique"
+
+<PageTitle>Nombre Magique</PageTitle>
+
+<h1>Nombre Magique</h1>
+
+
+@if (!jeuTerminer)
+{
+    <div>
+        <p>Devinez le nombre compris entre 0 & 20 !!</p>
+        <input @bind="userInput" @onkeydown="ValiderEntree" type="number" min="0" max="20" />
+        <button @onclick="Tester">Tester</button>
+        <button @onclick="Rejouer">Rejouer</button>
+    </div>
+
+    <div>
+        @for (int i = 0; i < essaisRestants; i++)
+        {
+            <span>❤️</span>
+        }
+    </div>
+}
+
+@if (message != "")
+{
+    <p>@message</p>
+    @if (message == "Gagné! 😊")
+    {
+        <p>La bonne réponse était: @bonneReponse</p>
+        <iframe src="https://gifer.com/embed/C3rb" width=480 height=500 frameBorder="0" allowFullScreen></iframe>
+        <button @onclick="Rejouer">Rejouer</button>
+    }
+    else if (message == "Perdu! 😞")
+    {
+        <p>La bonne réponse était: @bonneReponse</p>      
+        <button @onclick="Rejouer">Rejouer</button>
+    }
+}
+
+@code {
+    Random random = new Random();
+    int nombreMagique;
+    int essaisRestants;
+    string message = "";
+    int userInput;
+    bool jeuTerminer = false;
+    int bonneReponse;
+
+    protected override void OnInitialized()
+    {
+        NouvellePartie();
+    }
+
+    void NouvellePartie()
+    {
+        nombreMagique = random.Next(0, 21);
+        bonneReponse = nombreMagique;
+        essaisRestants = 5;
+        message = "";
+        userInput = 0;
+        jeuTerminer = false;
+    }
+
+    void ValiderEntree(KeyboardEventArgs e)
+    {
+        if (e.Key == "Enter")
+        {
+            Tester();
+        }
+    }
+
+    void Tester()
+    {
+        essaisRestants--;
+        if (userInput == nombreMagique)
+        {
+            message = "Gagné! 😊";
+            jeuTerminer = true;
+        }
+        else
+        {
+            if (essaisRestants <= 0)
+            {
+                message = "Perdu! 😞";
+                jeuTerminer = true;
+            }
+            else
+            {
+                if (userInput < nombreMagique)
+                {
+                    message = "Le nombre est plus grand";
+                }
+                else
+                {
+                    message = "Le nombre est plus petit";
+                }
+            }
+        }
+    }
+
+    void Rejouer()
+    {
+        NouvellePartie();
+    }
+}
