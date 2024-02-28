@@ -176,5 +176,3 @@ docker network ls
 1. [Docker Documentation - Containers](https://docs.docker.com/get-started/overview/#containers)
 2. [Docker Networking](https://docs.docker.com/network/)
 3. [Doc dotnet new](https://learn.microsoft.com/fr-fr/dotnet/core/tools/dotnet-new) - Documentation commande dotnet new.
-
-- [Sommaire](../README.md)
