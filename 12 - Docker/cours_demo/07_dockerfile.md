@@ -153,5 +153,3 @@ CMD ["commande", "argument"]
 
 1. [Docker Documentation - Dockerfile](https://docs.docker.com/engine/reference/builder/)
 2. [Best practices for writing Dockerfiles](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/)
-
-- [Sommaire](../README.md)
