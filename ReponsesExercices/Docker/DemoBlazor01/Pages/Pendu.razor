@@ -1,0 +1,124 @@
+﻿@page "/pendu"
+
+<PageTitle>Pendu</PageTitle>
+
+<h3>Pendu</h3>
+
+@if (!jeuTerminer)
+{
+    <p>Devinez le bon mot !</p>
+
+    <div>
+        <input @bind="userInput" type="text" />
+        <button @onclick="Tester">Tester</button>
+        <button @onclick="Rejouer">Rejouer</button>
+    </div>
+    <div>
+        <p>@motMasque</p>
+    </div>
+    <div>
+        <span> Il vous reste @essaisRestants essais : </span>
+        @for (int i = 0; i < essaisRestants; i++)
+        {
+            <span>❤️ </span>            
+        }     
+    </div>
+}
+
+@if (message != "")
+{
+    <p>@message</p>
+    @if (message == "Gagné! 😊")
+    {
+        <p>
+            La bonne réponse était: @bonneReponse
+            <button @onclick="Rejouer">Rejouer</button>
+        </p>
+
+        <iframe src="https://gifer.com/embed/C3rb" width=400 height=400 frameBorder="0" allowFullScreen></iframe>
+    }
+    else if (message == "Perdu! 😞")
+    {
+        <p>
+            La bonne réponse était: @bonneReponse
+            <button @onclick="Rejouer">Rejouer</button>
+        </p>
+
+        <iframe src="https://nsa40.casimages.com/img/2021/01/12/210112042142649741.gif"
+                width=400 height=400 frameBorder="0" allowFullScreen></iframe>
+    }
+}
+
+
+@code {
+    Random random = new Random();
+    string[] mots = { "pendu", "informatique", "programmation", "ordinateur", "developpeur", "telephone", "tablette", "clavier", "souris" };
+    string motPendu;
+    string motMasque;
+    int essaisRestants;
+    string message = "";
+    string userInput;
+    bool jeuTerminer = false;
+    string bonneReponse;
+
+    protected override void OnInitialized()
+    {
+        NouvellePartie();
+    }
+
+    void NouvellePartie()
+    {
+        motPendu = mots[random.Next(0, mots.Length)];
+        motMasque = new string('_', motPendu.Length);
+        essaisRestants = mots.Length;
+        message = "";
+        jeuTerminer = false;
+    }
+
+    void Tester()
+    {
+        if (!string.IsNullOrWhiteSpace(userInput))
+        {
+            userInput = userInput.ToLower();
+
+            if (userInput.Length == 1 && motPendu.Contains(userInput))
+            {
+                for (int i = 0; i < motPendu.Length; i++)
+                {
+                    if (motPendu[i] == userInput[0])
+                    {
+                        motMasque = motMasque.Substring(0, i) + userInput + motMasque.Substring(i + 1);
+                    }
+                }
+                if (motMasque == motPendu)
+                {
+                    message = "Gagné! 😊";
+                    jeuTerminer = true;
+                    bonneReponse = motPendu;
+                }
+            }
+            else if (userInput == motPendu)
+            {
+                message = "Gagné! 😊";
+                jeuTerminer = true;
+                bonneReponse = motPendu;
+            }
+            else
+            {
+                essaisRestants--;
+                if (essaisRestants <= 0)
+                {
+                    message = "Perdu! 😞";
+                    jeuTerminer = true; 
+                    bonneReponse = motPendu;
+                }
+            }
+            userInput = "";
+        }
+    }
+
+    void Rejouer()
+    {
+        NouvellePartie();
+    }
+}

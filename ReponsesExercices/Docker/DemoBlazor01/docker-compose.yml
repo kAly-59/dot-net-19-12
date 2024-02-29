@@ -13,19 +13,19 @@ services:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: password
     networks:
-      - postgres-pgadmin
-      
-  pgadmin:
+      - postgres-phpmyadmin
+
+  phpmyadmin:
     depends_on:
       - db
-    image: dpage/pgadmin4
+    image: phpmyadmin
     restart: always
     ports:
-      - 8080:80
+      - 8090:80
     environment:
       PMA_HOST: db
     networks:
-      - postgres-pgadmin
+      - postgres-phpmyadmin
 
 networks:
   postgres-phpmyadmin:

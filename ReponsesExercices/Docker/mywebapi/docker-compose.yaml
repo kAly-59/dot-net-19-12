@@ -1,5 +1,5 @@
-version: "3"
-
+version: "3.8"
+ 
 services:
   db:
     image: postgres
@@ -7,28 +7,30 @@ services:
       - db_data:/var/lib/postgresql/data
     restart: always
     ports:
-      - 5432:5432
+      - "5432:5432"
     environment:
       POSTGRES_DB: yourdb
-      POSTGRES_USER: postgres
+      POSTGRES_USER: user
       POSTGRES_PASSWORD: password
     networks:
       - postgres-pgadmin
-      
+ 
   pgadmin:
     depends_on:
       - db
     image: dpage/pgadmin4
     restart: always
     ports:
-      - 8080:80
+      - "8080:80"
     environment:
-      PMA_HOST: db
+      PGADMIN_DEFAULT_EMAIL: admin@admin.com
+      PGADMIN_DEFAULT_PASSWORD: admin
     networks:
       - postgres-pgadmin
-
+   
 networks:
-  postgres-phpmyadmin:
-
+  postgres-pgadmin:
+    driver: bridge
+ 
 volumes:
   db_data:
